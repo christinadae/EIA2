@@ -18,6 +18,9 @@ var randomPoem;
         let randompredicates = Math.floor(Math.random() * Math.floor(_predicates.length));
         let randomobject = Math.floor(Math.random() * Math.floor(_objects.length));
         vers = _subjects[randomsubject] + _predicates[randompredicates] + _objects[randomobject];
+        _subjects.splice(randomsubject, 1);
+        _predicates.splice(randompredicates, 1);
+        _objects.splice(randomobject, 1);
         return vers;
     }
 })(randomPoem || (randomPoem = {}));

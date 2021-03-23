@@ -29,6 +29,10 @@ let randomobject: number = Math.floor(Math.random() * Math.floor(_objects.length
 
 vers = _subjects[randomsubject] + _predicates[randompredicates] + _objects[randomobject];
 
+_subjects.splice(randomsubject, 1);
+_predicates.splice(randompredicates, 1);
+_objects.splice(randomobject, 1);
+
 return vers;
 
 }
