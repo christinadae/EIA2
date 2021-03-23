@@ -8,4 +8,7 @@ let objects: string[] = ["Zaubertränke", "den Grimm", "Lupin", "Hogwarts", "die
 
 
 
+for (let index: number = 0; index  <=  subjects.length; index--) {
+    console.log(subjects[index]);
+}
 }
