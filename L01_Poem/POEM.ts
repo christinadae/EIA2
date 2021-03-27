@@ -13,7 +13,7 @@ for (let index: number = 6; index > 0; index --) {
     console.log(a);
     }
 
-function getVerse (_subjects: string[], _predicates: string[], _objects: string[]) {
+function getVerse (_subjects: string[], _predicates: string[], _objects: string[]): string {
 
 let vers: string = "";
 let randomsubject: number = Math.floor(Math.random() * Math.floor(_subjects.length));
