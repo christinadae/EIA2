@@ -24,4 +24,4 @@ var randomPoem;
         return vers;
     }
 })(randomPoem || (randomPoem = {}));
-//# sourceMappingURL=Poem.js.map
+//# sourceMappingURL=POEM.js.map
