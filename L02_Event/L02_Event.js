@@ -25,6 +25,8 @@ var L02_Event;
     }
     ;
     function logInfo(_event) {
+        console.log(_event);
+        console.log(_event.target);
     }
     ;
 })(L02_Event || (L02_Event = {}));

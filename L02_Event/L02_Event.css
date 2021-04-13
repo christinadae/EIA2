@@ -4,9 +4,22 @@ border: thick solid black;
 }
 
 #div0 {
-
+position: absolute;
+width: 700px;
+height: 700px;
+border: thick solid black;
 }
 
 #div1 {
+position: relative;
+width: 700px;
+height: 700px;
+float: right;
+border: thick solid black;
+}
 
+h1 {
+    width: auto;
+    height: auto;
+    border: thick solid black;
 }

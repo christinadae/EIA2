@@ -36,7 +36,8 @@ namespace L02_Event {
     };
 
     function logInfo(_event: Event): void {
-
+    console.log(_event);
+    console.log(_event.target);
     };
 
 }
