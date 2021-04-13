@@ -25,9 +25,11 @@ var L02_Event;
     }
     ;
     function logInfo(_event) {
-        console.log(_event);
+        console.log(_event.type);
         console.log(_event.target);
+        console.log(_event.currentTarget);
+        console.log(_event.composedPath());
     }
-    ;
 })(L02_Event || (L02_Event = {}));
+;
 //# sourceMappingURL=L02_Event.js.map
