@@ -33,7 +33,7 @@ namespace L02_Event {
 
         span.innerHTML = cursorCoordinates + showTarget;
         
-    };
+    }
 
     function logInfo(_event: Event): void {
     console.log(_event.type);
@@ -42,7 +42,6 @@ namespace L02_Event {
     console.log(_event.composedPath());
      
         
-    })
-    };
+    }
 
 }

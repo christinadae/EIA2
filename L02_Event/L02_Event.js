@@ -23,7 +23,6 @@ var L02_Event;
         span.style.top = y + 40 + "px";
         span.innerHTML = cursorCoordinates + showTarget;
     }
-    ;
     function logInfo(_event) {
         console.log(_event.type);
         console.log(_event.target);
@@ -31,5 +30,4 @@ var L02_Event;
         console.log(_event.composedPath());
     }
 })(L02_Event || (L02_Event = {}));
-;
 //# sourceMappingURL=L02_Event.js.map
