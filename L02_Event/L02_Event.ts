@@ -13,7 +13,7 @@ namespace L02_Event {
         theDiv[i].addEventListener("click", logInfo);
         theDiv[i].addEventListener("keyup", logInfo);
         }
-        
+
         document.addEventListener("mousemove", setinfoBox);
         document.addEventListener("click", logInfo);
         document.addEventListener("keyup", logInfo);
