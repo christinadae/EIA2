@@ -13,18 +13,14 @@ namespace L02_Event {
         theDiv[i].addEventListener("click", logInfo);
         theDiv[i].addEventListener("keyup", logInfo);
         }
-
-
+        
         document.addEventListener("mousemove", setinfoBox);
         document.addEventListener("click", logInfo);
         document.addEventListener("keyup", logInfo);
-        
-       
 
     }
 
     function setinfoBox(_event: MouseEvent): void {
-
     
         let theSpan: HTMLSpanElement = <HTMLSpanElement> document.querySelector("span");
         let x: number = _event.clientX;
