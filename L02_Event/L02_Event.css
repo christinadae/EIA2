@@ -15,7 +15,7 @@ width: 160px;
 
 }
 
-.div0 {
+#div0 {
 display: inline-block;
 width: 500px;
 height: 500px;
@@ -23,7 +23,7 @@ border: thin solid grey;
 background: #667f945b;
 }
 
-.div1 {
+#div1 {
 display: inline-block;
 width: 500px;
 height: 500px;
