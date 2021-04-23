@@ -11,7 +11,7 @@ cards[3] = "B",
 
 
 
-
+document.querySelector(".memoryBoard").appendChild(cards);
 
 
 
