@@ -9,6 +9,49 @@
 <script src="L03_MemorySettings.js" defer></script>
     <link rel="stylesheet" href="L03_MemorySettings.css">
 <body>
-    
+
+
+<h1>Memory Game</h1>
+
+<form id="myForm">
+
+<p>Choose a number of card pair (5-25): </p>
+<input type="number" id="pairNumber" min="5" max="25" step="1">
+<button class="save">OK!</button>
+
+<div class="sizeSlider">
+    <p>Choose size for cards: </p>
+    <input type="range" min="1" max="100" value="50">
+    <button class="save">OK!</button></div>
+
+<p>Choose a color for: </p>
+<p>
+<label for="background">Background color </label>
+<input id="background" type="color" value="#ffffff"><br>
+ 
+    <label for="fontColor">Font color </label>
+    <input id="fontColor" type="color" value="#ffffff"><br>
+
+<label for="cardsColor">Cards background </label>
+<input id="cardsColor" type="color" value="#ffffff"><br>
+
+
+    <p>Choose a font-family: </p>
+    <label id="fontFamily">
+    <input type="radio" id="monospace" name="fontFamily1" value="monospace">
+    <label for="Monospace">Monospace</label>
+
+    <input type="radio" id="geneva" name="fontFamily2" value="geneva">
+    <label for="Geneva">Geneva</label>
+
+    <input type="radio" id="helvetica" name="fontFamily3" value="helvetica">
+    <label for="Helvetica">Helvetica</label>
+
+</label>
+<p>
+<button id="start">START</button>
+</p>
+
+</form>
 </body>
 </html>
