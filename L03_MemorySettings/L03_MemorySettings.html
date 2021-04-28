@@ -13,45 +13,50 @@
 
 <h1>Memory Game</h1>
 
-<form id="myForm">
+<form>
+<div id="form">
 
-<p>Choose a number of card pair (5-25): </p>
-<input type="number" id="pairNumber" min="5" max="25" step="1">
-<button class="save">OK!</button>
+<fieldset>
+<p>Choose a number of card pairs (5-25) </p>
+<input type="number" id="stepper" name="stepper" min="5" max="25" step="1">
 
-<div class="sizeSlider">
+</fieldset>
+
+<fieldset>
     <p>Choose size for cards: </p>
-    <input type="range" min="1" max="100" value="50">
-    <button class="save">OK!</button></div>
+    <span id="slider">
+    <input type="range" name="slider" id="slider" min="1" max="100" value="50">
 
-<p>Choose a color for: </p>
-<p>
-<label for="background">Background color </label>
-<input id="background" type="color" value="#ffffff"><br>
- 
+</span>
+</fieldset>
+
+<fieldset>
+    <label for="background">HTML background color</label>
+    <input id="background" name="background" type="color" value="#ffffff">
+</fieldset>
+
+<fieldset>
     <label for="fontColor">Font color </label>
-    <input id="fontColor" type="color" value="#ffffff"><br>
+    <input id="fontColor" name="fontColor" type="color" value="#ffffff">
+</fieldset>
 
-<label for="cardsColor">Cards background </label>
-<input id="cardsColor" type="color" value="#ffffff"><br>
+<fieldset>
+<label for="cardsColor">Cards background color</label>
+<input id="cardsColor" name="cardsColor" type="color" value="#ffffff">
+</fieldset>
+
+    <fieldset>
+        <p>Choose a font-family: </p>
+        <select name="font" id="font">
+            <option class="option1" value="Arial, Helvetica, sans-serif;">Helvetica</option>
+            <option class="option2" value="monospace">Monospace</option>
+            <option class="option3" value="Verdana, Geneva, Tahoma, sans-serif">Geneva</option>
+        </select>
+    </fieldset>
 
 
-    <p>Choose a font-family: </p>
-    <label id="fontFamily">
-    <input type="radio" id="monospace" name="fontFamily1" value="monospace">
-    <label for="Monospace">Monospace</label>
-
-    <input type="radio" id="geneva" name="fontFamily2" value="geneva">
-    <label for="Geneva">Geneva</label>
-
-    <input type="radio" id="helvetica" name="fontFamily3" value="helvetica">
-    <label for="Helvetica">Helvetica</label>
-
-</label>
-<p>
+</div>
 <button id="start">START</button>
-</p>
-
 </form>
 </body>
 </html>

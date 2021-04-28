@@ -1,4 +1,7 @@
 namespace L03_MemorySettings {
+
+
+    
   
   //let formData: FormData = new FormData(document.forms[0]);
   //for (let entry of formData) {
@@ -43,7 +46,6 @@ document.documentElement.style.setProperty("color", fontColor.value);
 });
 
 
-let startButton: HTMLButtonElement = <HTMLButtonElement> document.getElementById("start");
 let formElement: HTMLElement = <HTMLElement> document.getElementById("myForm");
 function startGame(): void {
 formElement.style.visibility = "hidden";

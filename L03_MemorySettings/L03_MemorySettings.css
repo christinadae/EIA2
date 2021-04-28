@@ -4,7 +4,7 @@
     --fontFamily: Geneva;
   }
 
-#myForm {
+#form {
 text-align: center;
 
 border: rgb(180, 180, 180) solid;
@@ -15,4 +15,5 @@ html{
     background-color: var(--background);
     color: var(--fontColor);
     font-family: var(--fontFamily);
+    font-family: monospace
   }

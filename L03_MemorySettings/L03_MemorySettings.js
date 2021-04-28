@@ -17,7 +17,6 @@ inputBackground.addEventListener("input", function () {
 inputFontColor.addEventListener("input", function () {
     document.documentElement.style.setProperty("color", fontColor.value);
 });
-let startButton = document.getElementById("start");
 let formElement = document.getElementById("myForm");
 function startGame() {
     formElement.style.visibility = "hidden";
