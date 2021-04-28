@@ -9,11 +9,17 @@ var test;
     let memoryField = document.querySelector("memoryBoard");
     let matchedCards = 0;
     window.addEventListener("load", handleLoad);
+    let formData = new FormData(document.forms[0]);
     function handleLoad() {
-        let inputCardNumber = document.getElementById("pairNumber");
+        //let inputCardNumber: HTMLFormElement = <HTMLFormElement> document.getElementById("pairNumber");
+        //let cardPairs = inputCardNumber;
+        //let startButton: HTMLButtonElement = <HTMLButtonElement> document.getElementById("start");
+        //startButton.addEventListener("click", function (): void {
         memoryBoard();
     }
+    ;
     function memoryBoard() {
+        //formElement.style.visibility = "hidden";
         for (let i = 0; i >= 2; i++) {
             for (let x = 0; x < cardPairs; x++) {
                 selectedCards.push(theCards[x]);
@@ -59,4 +65,5 @@ function comparingCards() {
                 savedCards[] = [];
     }
 }
+q;
 //# sourceMappingURL=test.js.map

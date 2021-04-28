@@ -9,25 +9,28 @@ namespace test {
     let matchedCards: number = 0;
 
     window.addEventListener("load", handleLoad);
-
+    let formData: FormData = new FormData(document.forms[0]);
 
     function handleLoad(): void {
 
-let inputCardNumber: HTMLFormElement = <HTMLFormElement> document.getElementById("pairNumber");
-memoryBoard();
-}
+//let inputCardNumber: HTMLFormElement = <HTMLFormElement> document.getElementById("pairNumber");
+//let cardPairs = inputCardNumber;
 
+//let startButton: HTMLButtonElement = <HTMLButtonElement> document.getElementById("start");
+//startButton.addEventListener("click", function (): void {
+    memoryBoard();
+});
     function memoryBoard(): void {
-
-for (let i: number = 0; i >= 2; i++) {
+        //formElement.style.visibility = "hidden";
+        for (let i: number = 0; i >= 2; i++) {
 for (let x: number = 0; x < cardPairs; x++) {
     selectedCards.push(theCards[x]);
 }
 theCards.sort(() => 0.5 - Math.random());
 }
 
-memoryField.innerHTML = "";
-for (let index: number = 0; index <= selectedCards.length; index++) {
+        memoryField.innerHTML = "";
+        for (let index: number = 0; index <= selectedCards.length; index++) {
     let card: HTMLElement = <HTMLElement> document.createElement("div");
     card.style.background = 
     card.innerHTML = "<span>selectedCards[index]</span>";
@@ -41,7 +44,7 @@ for (let index: number = 0; index <= selectedCards.length; index++) {
     function flipCard(_event: MouseEvent): void {
 
 savedCards.push(_event.target);
-savedCards[0].style.background = ; 
+savedCards[0].style.background =    ; 
 
 if (savedCards.length != 2 ) {
     
@@ -75,3 +78,4 @@ savedCards[1].style.background =
 savedCards[] = [];
 }
 }
+q;
