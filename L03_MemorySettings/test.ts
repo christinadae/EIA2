@@ -9,6 +9,9 @@ namespace test {
     let memoryField: HTMLElement = <HTMLElement> document.querySelector("memoryBoard");
     let matchedCards: number = 0;
 
+    let startButton: HTMLButtonElement = <HTMLButtonElement> document.getElementById("start")!;
+    startButton.addEventListener("click", memoryBoard);
+
     window.addEventListener("load", handleLoad);
     
     let numberStepper: HTMLElement = <HTMLElement> document.getElementById("stepper")!;
@@ -16,23 +19,22 @@ namespace test {
     let backgroundColor: HTMLElement = <HTMLElement> document.getElementById("background")!;
     let cardsColor: HTMLElement = <HTMLElement> document.getElementById("cardsColor")!;
     let fontColor: HTMLElement = <HTMLElement> document.getElementById("fontColor")!;
-    let startButton: HTMLElement = <HTMLElement> document.getElementById("start")!;
-
     
 
 
 
-    function handleLoad(): void {
-
+    function handleLoad(_event: Event): void {
         numberStepper.addEventListener("change", handleChange);
         sizeSlider.addEventListener("change", handleChange);
         backgroundColor.addEventListener("change", handleChange);
         cardsColor.addEventListener("change", handleChange);
         fontColor.addEventListener("change", handleChange);
+        
 
-        startButton.addEventListener("click", memoryBoard);
+    }
 
-        function handleChange(): void {
+    function handleChange(): void {
+            
             let formData: FormData = new FormData(document.forms[0]);
 
             for (let entry of formData) {
@@ -43,18 +45,20 @@ namespace test {
                 console.log(formData.get("cardsColor"));
                 console.log(formData.get("fontColor"));
         }
+        
 
 
 }
-        function memoryBoard(): void {
 
-        let formData: FormData = new FormData(document.forms[0]);
+    function memoryBoard(_event: MouseEvent): void {
 
-        let formElement: HTMLElement = <HTMLElement> document.querySelector("form")!;
-        formElement.style.visibility = "hidden";
+            let formElement: HTMLElement = <HTMLElement> document.getElementById("form");
+            formElement.style.visibility = "hidden";
 
+            let formData: FormData = new FormData(document.forms[0]);
+            
+            for (let entry of formData) {
 
-        for (let entry of formData) {
         console.log(entry);
         console.log(formData.get("stepper"));
         const cardPairs:  FormDataEntryValue = formData.get("stepper")!;
@@ -79,14 +83,35 @@ namespace test {
         valueFont.toString();
 
     }
+}
 
+    function createCards(memorycard: string, _valueSize: string, _valueBackgroundcolor: string, _valueCardsColor: string, _valueFontcolor: string, _valueFont: string): void {
+    document.querySelector("body")!.style.backgroundColor = _valueBackgroundcolor;
 
+    let card: HTMLDivElement = <HTMLDivElement> document.createElement("div");
+    card.style.height = _valueSize;
+    card.style.width = _valueSize;
+
+    let cardsContent: HTMLElement = <HTMLElement> document.createElement("label");
+    cardsContent.innerHTML = theCards;
+    cardsContent.style.color = _valueFontcolor;
+    cardsContent.style.fontFamily = _valueFont;
+
+    let flippedCard: HTMLDivElement = <HTMLDivElement> document.createElement("div");
+    flippedCard.style.backgroundColor = _valueCardsColor;
+
+    document.querySelector("body")!.appendChild(card);
+    card.appendChild(cardsContent);
+    card.appendChild(cardsContent);
+
+    card.addEventListener("click", flipCard);
+    }
     
-    /*for (let i: number = 0; i >= 2; i++) {
+    for (let i: number = 0; i >= 2; i++) {
     for (let x: number = 0; x < cardPairs; x++) {
     selectedCards.push(theCards[x]);
 }
-theCards.sort(() => 0.5 - Math.random());
+    theCards.sort(() => 0.5 - Math.random());
 }
 
     memoryField.innerHTML = "";
@@ -101,10 +126,10 @@ theCards.sort(() => 0.5 - Math.random());
 //starttimer();
 }
 
-    function flipCard(_event: MouseEvent): void {
+/*function flipCard(_event: MouseEvent): void {
 
 savedCards.push(_event.target);
-savedCards[0].style.background =     ; 
+savedCards[0].style.background =      ; 
 
 if (savedCards.length != 2 ) {
     
@@ -139,3 +164,4 @@ savedCards[] = [];
 }
 }
 */
+
