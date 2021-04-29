@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L03_MemorySettings</title>
 </head>
-<script src="test.js" defer></script>
+<script src="test.js"defer></script>
     <link rel="stylesheet" href="L03_MemorySettings.css">
 <body>
 
@@ -17,15 +17,15 @@
 <div id="form">
 
 <fieldset>
-<p>Choose a number of card pairs (5-25) </p>
+<label>Choose a number of card pairs (5-25)</label>
 <input type="number" id="stepper" name="stepper" min="5" max="25" step="1">
 
 </fieldset>
 
 <fieldset>
-    <p>Choose size for cards: </p>
+<label>Choose size for cards: </label>
     <span id="slider">
-    <input type="range" name="slider" id="slider" min="1" max="100" value="50">
+    <input type="range" name="slider" id="slider" min="100" max="500" value="250">
 
 </span>
 </fieldset>
@@ -46,7 +46,7 @@
 </fieldset>
 
     <fieldset>
-        <p>Choose a font-family: </p>
+        <label>Choose a font-family: </label>
         <select name="font" id="font">
             <option class="font1" value="Arial, Helvetica, sans-serif;">Helvetica</option>
             <option class="font2" value="monospace">Monospace</option>
@@ -54,10 +54,13 @@
         </select>
     </fieldset>
  
-    <button id="start">START</button>
-
+    
+    
 </form>
+
 </div>
+<div id="memoryField"></div>
+<button id="start">START</button>
 
 </body>
 </html>

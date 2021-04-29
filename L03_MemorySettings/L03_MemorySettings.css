@@ -1,20 +1,22 @@
-
+h1 {
+  text-align: center;
+}
 
 
 #form {
 text-align: center;
-
-border: rgb(180, 180, 180) solid;
 font-size: 20px;
+
 
 }
 
-html{
+.hidden {
+  visibility: hidden;
+}
 
-  }
 
 div {
-  border: solid black;
+  border: thin black;
 }
 
 .font1 {
@@ -25,4 +27,16 @@ div {
 }
 .font3{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#memoryField {
+
+height: auto;
+width: auto;
+display: grid;
+    grid-template-columns: repeat(5, 0.1fr);
+    grid-gap: 0.5em;
+    justify-content: center;
+    text-align: center;
+    border: thin black;
 }

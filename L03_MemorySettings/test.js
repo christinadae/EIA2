@@ -1,27 +1,21 @@
 "use strict";
-var test;
-(function (test) {
+var waslos;
+(function (waslos) {
     //let cardPairs: number;
     let theCards = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y"];
-    let pairsFound;
     let selectedCards = [];
+    let numberCardPair;
+    let memoryField = document.querySelector("#memoryField");
+    let pairsFound;
     let savedCards = [];
-    let memoryField = document.querySelector("memoryBoard");
     let matchedCards = 0;
-    let startButton = document.getElementById("start");
-    startButton.addEventListener("click", memoryBoard);
+    let formElement = document.querySelector("#form");
+    let startButton;
     window.addEventListener("load", handleLoad);
-    let numberStepper = document.getElementById("stepper");
-    let sizeSlider = document.getElementById("slider");
-    let backgroundColor = document.getElementById("background");
-    let cardsColor = document.getElementById("cardsColor");
-    let fontColor = document.getElementById("fontColor");
     function handleLoad(_event) {
-        numberStepper.addEventListener("change", handleChange);
-        sizeSlider.addEventListener("change", handleChange);
-        backgroundColor.addEventListener("change", handleChange);
-        cardsColor.addEventListener("change", handleChange);
-        fontColor.addEventListener("change", handleChange);
+        startButton = document.querySelector("#start");
+        formElement.addEventListener("change", handleChange);
+        startButton.addEventListener("click", memoryBoard);
     }
     function handleChange() {
         let formData = new FormData(document.forms[0]);
@@ -35,97 +29,85 @@ var test;
         }
     }
     function memoryBoard(_event) {
-        let formElement = document.getElementById("form");
-        formElement.style.visibility = "hidden";
+        formElement.classList.add("hidden");
+        startButton.classList.add("hidden");
         let formData = new FormData(document.forms[0]);
-        for (let entry of formData) {
-            console.log(entry);
-            console.log(formData.get("stepper"));
-            const cardPairs = formData.get("stepper");
-            console.log(formData.get("slider"));
-            const cardsSize = formData.get("slider");
-            console.log(formData.get("background"));
-            const valueBackgroundColor = formData.get("background");
-            valueBackgroundColor.toString();
-            console.log(formData.get("cardsColor"));
-            const valueCardsColor = formData.get("cardsColor");
-            valueCardsColor.toString();
-            console.log(formData.get("fontColor"));
-            const valueFontColor = formData.get("fontColor");
-            valueFontColor.toString();
-            console.log(formData.get("font"));
-            const valueFont = formData.get("font");
-            valueFont.toString();
-        }
-    }
-    function createCards(memorycard, _valueSize, _valueBackgroundcolor, _valueCardsColor, _valueFontcolor, _valueFont) {
-        document.querySelector("body").style.backgroundColor = _valueBackgroundcolor;
-        let card = document.createElement("div");
-        card.style.height = _valueSize;
-        card.style.width = _valueSize;
-        let cardsContent = document.createElement("label");
-        cardsContent.innerHTML = theCards;
-        cardsContent.style.color = _valueFontcolor;
-        cardsContent.style.fontFamily = _valueFont;
-        let flippedCard = document.createElement("div");
-        flippedCard.style.backgroundColor = _valueCardsColor;
-        document.querySelector("body").appendChild(card);
-        card.appendChild(cardsContent);
-        card.appendChild(cardsContent);
-        card.addEventListener("click", flipCard);
-    }
-    for (let i = 0; i >= 2; i++) {
-        for (let x = 0; x < cardPairs; x++) {
-            selectedCards.push(theCards[x]);
+        console.log(formData.get("stepper"));
+        numberCardPair = Number(formData.get("stepper"));
+        console.log(numberCardPair);
+        console.log(formData.get("slider"));
+        const cardsSize = String(formData.get("slider"));
+        console.log(formData.get("background"));
+        const valueBackgroundColor = String(formData.get("background"));
+        console.log(formData.get("cardsColor"));
+        const valueCardsColor = String(formData.get("cardsColor"));
+        console.log(formData.get("fontColor"));
+        const valueFontColor = String(formData.get("fontColor"));
+        console.log(formData.get("font"));
+        const valueFont = String(formData.get("font"));
+        for (let i = 0; i < 2; i++) {
+            for (let x = 0; x < numberCardPair; x++) {
+                selectedCards.push(theCards[x]);
+            }
         }
         theCards.sort(() => 0.5 - Math.random());
+        memoryField.innerHTML = "";
+        for (let index = 0; index < selectedCards.length; index++) {
+            let card = document.createElement("div");
+            document.querySelector("body").style.backgroundColor = valueBackgroundColor;
+            card.style.background = valueCardsColor;
+            card.style.height = cardsSize + "px";
+            card.style.width = cardsSize + "px";
+            card.style.color = valueFontColor;
+            card.style.fontFamily = valueFont;
+            card.innerHTML = "<span>" + selectedCards[index] + "</span>";
+            memoryField.appendChild(card);
+            card.addEventListener("click", flipCard);
+            //starttimer();
+        }
     }
-    memoryField.innerHTML = "";
-    for (let index = 0; index <= selectedCards.length; index++) {
-        let card = document.createElement("div");
-        card.style.background =
-            card.innerHTML = "<span>selectedCards[index]</span>";
-        memoryField.appendChild(card);
-        card.addEventListener("click", flipCard);
-    }
-    //starttimer();
-})(test || (test = {}));
-/*function flipCard(_event: MouseEvent): void {
-
-savedCards.push(_event.target);
-savedCards[0].style.background =      ;
-
-if (savedCards.length != 2 ) {
+    /*
+        function createCards(): void {
+       
+           card.innerHTML = theCards[_cardPairs];
+           
+           let flippedCard: HTMLDivElement = <HTMLDivElement> document.createElement("div");
+           flippedCard.style.backgroundColor = _valueCardsColor;
+       
+           document.querySelector("body")!.appendChild(card);
+           //card.appendChild(cardsContent);
+           //card.appendChild(cardsContent);
+       
     
-} else {
-    savedCards[1].style.background =
-    setTimeout(3000, comparingCards);
-}
-}
-
-}
-
-//function pairNumber(): void {
-
-//let numberOfPairs: number = document.getElementById("pairNumber").step;
-
-function comparingCards(): void {
-
-    let firstValue: string = savedCards[0].querySelector("div").innerHTML;
-    let secondValue: string = savedCards[1].querySelector("div").innerHTML;
-
-    if (firstValue == secondValue) {
-   savedCards[0].classList.add("hidden");
-   savedCards[1].classList.add("hidden");
-   savedCards[] = [];
-   matchedCards++;
-   gameOver();
-
-} else {
-savedCards[0].style.background =
-savedCards[1].style.background =
-savedCards[] = [];
-}
-}
-*/
+        }
+    */
+    function flipCard(_event) {
+        savedCards.push(_event.target);
+        savedCards[0].style.background = black;
+        if (savedCards.length != 2) {
+        }
+        else {
+            //    savedCards[1].style.background =
+            //    setTimeout(3000, comparingCards);
+        }
+    }
+        * /;;
+    function comparingCards() {
+        let firstValue = savedCards[0].querySelector("div").innerHTML;
+        let secondValue = savedCards[1].querySelector("div").innerHTML;
+        if (firstValue == secondValue) {
+            savedCards[0].classList.add("hidden");
+            savedCards[1].classList.add("hidden");
+            savedCards[] = [];
+            matchedCards++;
+            //gameOver();
+        }
+        else {
+            savedCards[0].style.background =
+                savedCards[1].style.background =
+                    savedCards[] = [];
+        }
+    }
+        * /;;
+})(waslos || (waslos = {}));
 //# sourceMappingURL=test.js.map
