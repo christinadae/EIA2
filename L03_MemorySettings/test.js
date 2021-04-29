@@ -62,7 +62,7 @@ var waslos;
             card.style.fontFamily = valueFont;
             card.innerHTML = "<span>" + selectedCards[index] + "</span>";
             memoryField.appendChild(card);
-            card.addEventListener("click", flipCard);
+            //card.addEventListener("click", flipCard);
             //starttimer();
         }
     }
@@ -81,33 +81,39 @@ var waslos;
     
         }
     */
-    function flipCard(_event) {
-        savedCards.push(_event.target);
-        savedCards[0].style.background = black;
-        if (savedCards.length != 2) {
-        }
-        else {
-            //    savedCards[1].style.background =
-            //    setTimeout(3000, comparingCards);
-        }
+    /*
+    function flipCard(_event: MouseEvent): void {
+    
+    savedCards.push(_event.target);
+    savedCards[0].style.backgroundColor = "black";
+    
+    
+    if (savedCards.length != 2 ) {
+        
+    } else {
+    //    savedCards[1].style.background =
+    //    setTimeout(3000, comparingCards);
     }
-        * /;;
-    function comparingCards() {
-        let firstValue = savedCards[0].querySelector("div").innerHTML;
-        let secondValue = savedCards[1].querySelector("div").innerHTML;
+}
+
+    function comparingCards(): void {
+    
+        let firstValue: string = savedCards[0].querySelector("div").innerHTML;
+        let secondValue: string = savedCards[1].querySelector("div").innerHTML;
+    
         if (firstValue == secondValue) {
-            savedCards[0].classList.add("hidden");
-            savedCards[1].classList.add("hidden");
-            savedCards[] = [];
-            matchedCards++;
-            //gameOver();
-        }
-        else {
-            savedCards[0].style.background =
-                savedCards[1].style.background =
-                    savedCards[] = [];
-        }
+       savedCards[0].classList.add("hidden");
+       savedCards[1].classList.add("hidden");
+       savedCards[] = [];
+       matchedCards++;
+       //gameOver();
+    
+    } else {
+    savedCards[0].style.background =
+    savedCards[1].style.background =
+    savedCards[] = [];
     }
-        * /;;
+    }
+    */
 })(waslos || (waslos = {}));
 //# sourceMappingURL=test.js.map

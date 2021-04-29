@@ -90,7 +90,7 @@ namespace waslos {
             card.innerHTML = "<span>" + selectedCards[index] + "</span>";
 
             memoryField.appendChild(card);
-            card.addEventListener("click", flipCard);
+            //card.addEventListener("click", flipCard);
             //starttimer();
 
         }
@@ -111,11 +111,11 @@ namespace waslos {
 
     }
 */
-    
+    /*
     function flipCard(_event: MouseEvent): void {
     
     savedCards.push(_event.target);
-    savedCards[0].style.background = black;
+    savedCards[0].style.backgroundColor = "black";
     
     
     if (savedCards.length != 2 ) {
@@ -124,8 +124,7 @@ namespace waslos {
     //    savedCards[1].style.background =
     //    setTimeout(3000, comparingCards);
     }
-    }
-    * /;
+}
 
     function comparingCards(): void {
     
@@ -145,5 +144,5 @@ namespace waslos {
     savedCards[] = [];
     }
     }
-    * /;
+    */
 }
