@@ -1,17 +1,12 @@
 namespace waslos {
 
 
-    //let cardPairs: number;
     let theCards: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y"];
     let selectedCards: string[] = [];
     let numberCardPair: number;
     let memoryField: HTMLElement = <HTMLElement>document.querySelector("#memoryField");
-
-    let pairsFound: number;
     let savedCards: HTMLElement[] = [];
-
     let matchedCards: number = 0;
-
     let formElement: HTMLElement = <HTMLElement>document.querySelector("#form");
     let startButton: HTMLElement;
 
@@ -58,7 +53,7 @@ namespace waslos {
         const valueBackgroundColor: string = String(formData.get("background"));
 
         console.log(formData.get("cardsColor"));
-        const valueCardsColor: string = String(formData.get("cardsColor"));
+        //const valueCardsColor: string = String(formData.get("cardsColor"));
 
         console.log(formData.get("fontColor"));
         const valueFontColor: string = String(formData.get("fontColor"));
@@ -81,7 +76,8 @@ namespace waslos {
 
             let card: HTMLElement = <HTMLElement>document.createElement("div");
             document.querySelector("body")!.style.backgroundColor = valueBackgroundColor;
-            card.style.background = valueCardsColor;
+            //card.style.background = valueCardsColor;
+            card.style.background = "white";
             card.style.height = cardsSize + "px";
             card.style.width = cardsSize + "px";
             card.style.color = valueFontColor;
@@ -89,60 +85,62 @@ namespace waslos {
    
             card.innerHTML = "<span>" + selectedCards[index] + "</span>";
 
+
             memoryField.appendChild(card);
-            //card.addEventListener("click", flipCard);
+            card.addEventListener("click", flipCard);
             //starttimer();
 
         }
 
     }
-/*
-    function createCards(): void {
-   
-       card.innerHTML = theCards[_cardPairs];
-       
-       let flippedCard: HTMLDivElement = <HTMLDivElement> document.createElement("div");
-       flippedCard.style.backgroundColor = _valueCardsColor;
-   
-       document.querySelector("body")!.appendChild(card);
-       //card.appendChild(cardsContent);
-       //card.appendChild(cardsContent);
-   
 
-    }
-*/
-    /*
     function flipCard(_event: MouseEvent): void {
-    
-    savedCards.push(_event.target);
-    savedCards[0].style.backgroundColor = "black";
-    
-    
-    if (savedCards.length != 2 ) {
-        
-    } else {
-    //    savedCards[1].style.background =
-    //    setTimeout(3000, comparingCards);
-    }
-}
 
+    let target: HTMLElement = <HTMLElement> _event.target;
+    savedCards.push(target);
+
+    let formData: FormData = new FormData(document.forms[0]);
+
+    const valueCardsColor: string = String(formData.get("cardsColor"));
+    savedCards[0].style.background = valueCardsColor;
+    //savedCards[0].style.background = "white";
+    savedCards[0].querySelector("span")?.classList.remove("hidden");
+
+    if (savedCards.length == 2 ) {
+       
+            savedCards[1].style.background = "white";
+            savedCards[1].querySelector("span")?.classList.remove("hidden");
+            setTimeout(comparingCards, 2000);
+    
+}
+}
     function comparingCards(): void {
     
-        let firstValue: string = savedCards[0].querySelector("div").innerHTML;
-        let secondValue: string = savedCards[1].querySelector("div").innerHTML;
-    
+        let firstValue: string = <string>savedCards[0].querySelector("span")?.innerHTML;
+        let secondValue: string = <string>savedCards[1].querySelector("span")?.innerHTML;
         if (firstValue == secondValue) {
        savedCards[0].classList.add("hidden");
        savedCards[1].classList.add("hidden");
-       savedCards[] = [];
+       //savedCards[] = [];
        matchedCards++;
-       //gameOver();
+       gameOver();
     
-    } else {
-    savedCards[0].style.background = 
-    savedCards[1].style.background = 
-    savedCards[] = [];
     }
+    else 
+    if (firstValue != secondValue) {
+    savedCards[0].style.background = "white";
+    savedCards[1].style.background = "white";
+    savedCards[0].querySelector("span")?.classList.add("hidden");
+    savedCards[1].querySelector("span")?.classList.add("hidden");
+    //savedCards[] = [];
     }
-    */
+    
+
+    }
+
+    function gameOver(): void {
+        if (matchedCards == numberCardPair) {
+            window.alert("Congrats!" + "Playing time: ");
+        }
+}
 }
