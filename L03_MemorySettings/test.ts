@@ -34,6 +34,16 @@ namespace waslos {
         }
     }
 
+
+    let cardsSize: string;
+    let valueBackgroundColor: string; 
+    let valueCardsColor: string;
+    let valueFontColor: string;
+    let valueFont: string; 
+
+
+
+
     function memoryBoard(_event: MouseEvent): void {
 
         formElement.classList.add("hidden");
@@ -47,19 +57,22 @@ namespace waslos {
         console.log(numberCardPair);
 
         console.log(formData.get("slider"));
-        const cardsSize: string = String(formData.get("slider"));
+        cardsSize = String(formData.get("slider"));
+        
 
         console.log(formData.get("background"));
-        const valueBackgroundColor: string = String(formData.get("background"));
+        valueBackgroundColor = String(formData.get("background"));
 
         console.log(formData.get("cardsColor"));
-        //const valueCardsColor: string = String(formData.get("cardsColor"));
+
+        valueCardsColor = String(formData.get("cardsColor"));
 
         console.log(formData.get("fontColor"));
-        const valueFontColor: string = String(formData.get("fontColor"));
 
+        valueFontColor = String(formData.get("fontColor"));
         console.log(formData.get("font"));
-        const valueFont: string = String(formData.get("font"));
+
+        valueFont = String(formData.get("font"));
 
 
         for (let i: number = 0; i < 2; i++) {
@@ -76,8 +89,8 @@ namespace waslos {
 
             let card: HTMLElement = <HTMLElement>document.createElement("div");
             document.querySelector("body")!.style.backgroundColor = valueBackgroundColor;
-            //card.style.background = valueCardsColor;
-            card.style.background = "white";
+
+            card.style.background = valueCardsColor;
             card.style.height = cardsSize + "px";
             card.style.width = cardsSize + "px";
             card.style.color = valueFontColor;
@@ -98,12 +111,8 @@ namespace waslos {
 
     let target: HTMLElement = <HTMLElement> _event.target;
     savedCards.push(target);
-
-    let formData: FormData = new FormData(document.forms[0]);
-
-    const valueCardsColor: string = String(formData.get("cardsColor"));
-    savedCards[0].style.background = valueCardsColor;
-    //savedCards[0].style.background = "white";
+    
+    savedCards[0].style.background = "white";
     savedCards[0].querySelector("span")?.classList.remove("hidden");
 
     if (savedCards.length == 2 ) {
@@ -121,18 +130,18 @@ namespace waslos {
         if (firstValue == secondValue) {
        savedCards[0].classList.add("hidden");
        savedCards[1].classList.add("hidden");
-       //savedCards[] = [];
+       savedCards = [];
        matchedCards++;
        gameOver();
     
     }
     else 
     if (firstValue != secondValue) {
-    savedCards[0].style.background = "white";
-    savedCards[1].style.background = "white";
+    savedCards[0].style.background = valueCardsColor;
+    savedCards[1].style.background = valueCardsColor;
     savedCards[0].querySelector("span")?.classList.add("hidden");
     savedCards[1].querySelector("span")?.classList.add("hidden");
-    //savedCards[] = [];
+    savedCards = [];
     }
     
 
