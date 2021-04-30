@@ -50,27 +50,24 @@ namespace waslos {
         let formData: FormData = new FormData(document.forms[0]);
 
         //console.log(formData.get("stepper"));
-        numberCardPair = Number(formData.get("stepper"));
         //console.log(numberCardPair + "pair");
-
         //console.log(formData.get("slider"));
+        //console.log(formData.get("background"));
+        //console.log(formData.get("cardsColor"));
+        //console.log(formData.get("fontColor"));
+        //console.log(formData.get("font"));
+
+        numberCardPair = Number(formData.get("stepper"));
+           
         cardsSize = String(formData.get("slider"));
         
-
-        //console.log(formData.get("background"));
         valueBackgroundColor = String(formData.get("background"));
-
-        //console.log(formData.get("cardsColor"));
 
         valueCardsColor = String(formData.get("cardsColor"));
 
-        //console.log(formData.get("fontColor"));
-
         valueFontColor = String(formData.get("fontColor"));
-        //console.log(formData.get("font"));
-
+    
         valueFont = String(formData.get("font"));
-
 
         for (let i: number = 0; i < 2; i++) {
             for (let x: number = 0; x < numberCardPair; x++) {
