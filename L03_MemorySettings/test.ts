@@ -34,7 +34,6 @@ namespace waslos {
         }
     }
 
-
     let cardsSize: string;
     let valueBackgroundColor: string; 
     let valueCardsColor: string;
@@ -42,35 +41,33 @@ namespace waslos {
     let valueFont: string; 
 
 
-
-
     function memoryBoard(_event: MouseEvent): void {
 
-        formElement.classList.add("hidden");
-        startButton.classList.add("hidden");
+        formElement.classList.add("visibility");
+        startButton.classList.add("visibility");
 
 
         let formData: FormData = new FormData(document.forms[0]);
 
-        console.log(formData.get("stepper"));
+        //console.log(formData.get("stepper"));
         numberCardPair = Number(formData.get("stepper"));
-        console.log(numberCardPair);
+        //console.log(numberCardPair + "pair");
 
-        console.log(formData.get("slider"));
+        //console.log(formData.get("slider"));
         cardsSize = String(formData.get("slider"));
         
 
-        console.log(formData.get("background"));
+        //console.log(formData.get("background"));
         valueBackgroundColor = String(formData.get("background"));
 
-        console.log(formData.get("cardsColor"));
+        //console.log(formData.get("cardsColor"));
 
         valueCardsColor = String(formData.get("cardsColor"));
 
-        console.log(formData.get("fontColor"));
+        //console.log(formData.get("fontColor"));
 
         valueFontColor = String(formData.get("fontColor"));
-        console.log(formData.get("font"));
+        //console.log(formData.get("font"));
 
         valueFont = String(formData.get("font"));
 
@@ -82,9 +79,8 @@ namespace waslos {
         }
      
         theCards.sort(() => 0.5 - Math.random());
-
-        
         memoryField.innerHTML = "";
+
         for (let index: number = 0; index < selectedCards.length; index++) {
 
             let card: HTMLElement = <HTMLElement>document.createElement("div");
@@ -98,9 +94,13 @@ namespace waslos {
    
             card.innerHTML = "<span>" + selectedCards[index] + "</span>";
 
-
             memoryField.appendChild(card);
+            
             card.addEventListener("click", flipCard);
+            let spanArray: NodeListOf<HTMLElement> = document.querySelectorAll("span");
+            spanArray[index].classList.add("hidden");
+            console.log(index);
+            console.log(spanArray);
             //starttimer();
 
         }
