@@ -8,15 +8,21 @@ namespace L03_MemorySettings {
     let matchedCards: number = 0;
     let formElement: HTMLElement = <HTMLElement>document.querySelector("#form");
     let startButton: HTMLElement;
+    let restartButton: HTMLElement = <HTMLElement>document.querySelector("#restart");
 
     window.addEventListener("load", handleLoad);
 
     function handleLoad(_event: Event): void {
 
+        restartButton.classList.add("visibility");   
         startButton = <HTMLElement>document.querySelector("#start");
         formElement.addEventListener("change", handleChange);
         startButton.addEventListener("click", memoryBoard);
     }
+    
+    function reloadGame(): void {
+    window.location.reload();
+}
 
     function handleChange(): void {
 
@@ -43,6 +49,10 @@ namespace L03_MemorySettings {
 
         formElement.classList.add("visibility");
         startButton.classList.add("visibility");
+        
+        restartButton.classList.remove("visibility");  
+        restartButton.addEventListener("click", reloadGame);     
+
 
         let formData: FormData = new FormData(document.forms[0]);
 
@@ -82,7 +92,6 @@ namespace L03_MemorySettings {
             spanArray[index].classList.add("hidden");
             console.log(index);
             console.log(spanArray);
-            //starttimer();
         }
     }
 
@@ -125,7 +134,7 @@ namespace L03_MemorySettings {
 
     function gameOver(): void {
         if (matchedCards == numberCardPair) {
-            window.alert("Congrats!" + "Playing time: ");
+            window.alert("Congrats!");
         }
     }
 }

@@ -9,11 +9,16 @@ var L03_MemorySettings;
     let matchedCards = 0;
     let formElement = document.querySelector("#form");
     let startButton;
+    let restartButton = document.querySelector("#restart");
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
+        restartButton.classList.add("visibility");
         startButton = document.querySelector("#start");
         formElement.addEventListener("change", handleChange);
         startButton.addEventListener("click", memoryBoard);
+    }
+    function reloadGame() {
+        window.location.reload();
     }
     function handleChange() {
         let formData = new FormData(document.forms[0]);
@@ -34,6 +39,8 @@ var L03_MemorySettings;
     function memoryBoard(_event) {
         formElement.classList.add("visibility");
         startButton.classList.add("visibility");
+        restartButton.classList.remove("visibility");
+        restartButton.addEventListener("click", reloadGame);
         let formData = new FormData(document.forms[0]);
         numberCardPair = Number(formData.get("stepper"));
         cardsSize = String(formData.get("slider"));
@@ -63,7 +70,6 @@ var L03_MemorySettings;
             spanArray[index].classList.add("hidden");
             console.log(index);
             console.log(spanArray);
-            //starttimer();
         }
     }
     function flipCard(_event) {
@@ -97,7 +103,7 @@ var L03_MemorySettings;
     }
     function gameOver() {
         if (matchedCards == numberCardPair) {
-            window.alert("Congrats!" + "Playing time: ");
+            window.alert("Congrats!");
         }
     }
 })(L03_MemorySettings || (L03_MemorySettings = {}));
