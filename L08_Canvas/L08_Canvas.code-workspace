@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../EIA1-WiSe20-21"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "EIA2"
+	}
+}
