@@ -31,6 +31,13 @@ var L08_Canvas;
             crc2.strokeStyle = colors[pickColor];
             crc2.fill();
             crc2.stroke();
+            crc2.beginPath();
+            crc2.strokeStyle = colors[pickColor];
+            crc2.moveTo(x, y);
+            crc2.lineTo(x2, y2);
+            crc2.lineTo(x3, y3);
+            crc2.closePath();
+            crc2.stroke();
         }
     }
 })(L08_Canvas || (L08_Canvas = {}));
