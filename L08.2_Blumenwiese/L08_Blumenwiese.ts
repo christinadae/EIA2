@@ -235,12 +235,12 @@ namespace Blumenwiese {
 // 3. Baum
         crc2.beginPath();
         crc2.fillStyle = "rgb(53, 40, 17)";
-        crc2.fillRect(295, 380, 20, 50);
+        crc2.fillRect(290, 380, 20, 50);
         crc2.fill();
         crc2.closePath();
 
         crc2.beginPath();
-        crc2.fillStyle = "rgb(34, 79, 53)";
+        crc2.fillStyle = "rgb(49, 67, 49)";
 
 // 3. Baum / rechte Baumhälfte
         crc2.moveTo(300, 250);
@@ -254,20 +254,26 @@ namespace Blumenwiese {
         crc2.moveTo(300, 310);
         crc2.lineTo(300, 390);
         crc2.lineTo(350, 390);
-// linke
+
+        crc2.fill();
+        crc2.closePath();
+// 3. Baum / linke Baumhälfte
+
+        crc2.beginPath();
+        crc2.fillStyle = "rgb(61, 82, 61)";
 
         crc2.moveTo(300, 250);
         crc2.lineTo(300, 330);
-        crc2.lineTo(260, 330);
+        crc2.lineTo(255, 330);
 
 
         crc2.moveTo(300, 280);
         crc2.lineTo(300, 360);
-        crc2.lineTo(260, 360);
+        crc2.lineTo(255, 360);
 
         crc2.moveTo(300, 310);
         crc2.lineTo(300, 390);
-        crc2.lineTo(260, 390);
+        crc2.lineTo(255, 390);
         crc2.fill();
         crc2.closePath();
     }
