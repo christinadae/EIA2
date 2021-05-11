@@ -47,21 +47,22 @@ namespace Blumenwiese {
         // Berge generieren
 
 //Berg 1
+
         crc2.beginPath();
-        crc2.moveTo(100, 50);
+        crc2.moveTo(0, 120);
         crc2.lineTo(0, 400);
-        crc2.lineTo(300, 400);
+        crc2.lineTo(100, 400);
         crc2.fillStyle = "rgb(95, 113, 113)";
         crc2.fill();
         crc2.closePath();
         crc2.beginPath();
-        crc2.moveTo(100, 50);
+        crc2.moveTo(0, 120);
+        crc2.lineTo(40, 400);
         crc2.lineTo(100, 400);
-        crc2.lineTo(300, 400);
         crc2.closePath();
-        crc2.lineWidth = 1;
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
+        
 // Berg 2
         crc2.beginPath();
         crc2.moveTo(350, 100);
@@ -75,21 +76,27 @@ namespace Blumenwiese {
         crc2.lineTo(350, 400);
         crc2.lineTo(500, 400);
         crc2.closePath();
-        crc2.lineWidth = 1;
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
 
        
 
 //Berg 3
-
         crc2.beginPath();
-        crc2.moveTo(20, 200);
-        crc2.lineTo(10, 400);
-        crc2.lineTo(400, 400);
+        crc2.moveTo(100, 50);
+        crc2.lineTo(0, 400);
+        crc2.lineTo(300, 400);
         crc2.fillStyle = "rgb(95, 113, 113)";
         crc2.fill();
         crc2.closePath();
+        crc2.beginPath();
+        crc2.moveTo(100, 50);
+        crc2.lineTo(100, 400);
+        crc2.lineTo(300, 400);
+        crc2.closePath();
+        crc2.fillStyle = "rgb(74, 87, 87)";
+        crc2.fill();
+  
         
 // Berg 4
         crc2.beginPath();
@@ -104,7 +111,6 @@ namespace Blumenwiese {
         crc2.lineTo(200, 400);
         crc2.lineTo(400, 400);
         crc2.closePath();
-        crc2.lineWidth = 1;
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
      
