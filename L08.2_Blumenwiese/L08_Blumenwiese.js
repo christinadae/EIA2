@@ -48,9 +48,9 @@ var Blumenwiese;
         crc2.moveTo(0, 120);
         crc2.lineTo(40, 400);
         crc2.lineTo(100, 400);
-        crc2.closePath();
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
+        crc2.closePath();
         // Berg 2
         crc2.beginPath();
         crc2.moveTo(350, 100);
@@ -63,9 +63,9 @@ var Blumenwiese;
         crc2.moveTo(350, 100);
         crc2.lineTo(350, 400);
         crc2.lineTo(500, 400);
-        crc2.closePath();
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
+        crc2.closePath();
         //Berg 3
         crc2.beginPath();
         crc2.moveTo(100, 50);
@@ -78,9 +78,9 @@ var Blumenwiese;
         crc2.moveTo(100, 50);
         crc2.lineTo(100, 400);
         crc2.lineTo(300, 400);
-        crc2.closePath();
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
+        crc2.closePath();
         // Berg 4
         crc2.beginPath();
         crc2.moveTo(200, 100);
@@ -93,24 +93,46 @@ var Blumenwiese;
         crc2.moveTo(200, 100);
         crc2.lineTo(200, 400);
         crc2.lineTo(400, 400);
-        crc2.closePath();
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
-        /*
-        context.moveTo(170, 80);
-        context.bezierCurveTo(130, 100, 130, 150, 230, 150);
-        context.bezierCurveTo(250, 180, 320, 180, 340, 150);
-        context.bezierCurveTo(420, 150, 420, 120, 390, 100);
-        context.bezierCurveTo(430, 40, 370, 30, 340, 50);
-        context.bezierCurveTo(320, 5, 250, 20, 250, 50);
-        context.bezierCurveTo(200, 5, 150, 20, 170, 80);
-        context.closePath();
-        context.lineWidth = 5;
-        context.fillStyle = '#8ED6FF';
-        context.fill();
-        context.strokeStyle = '#0000ff';
-        context.stroke();
-        */
+        crc2.closePath();
+        // Baum
+        // Baumstamm
+        crc2.beginPath();
+        crc2.fillStyle = "rgb(53, 40, 17)";
+        crc2.fillRect(85, 350, 30, 100);
+        crc2.fill();
+        crc2.closePath();
+        crc2.beginPath();
+        crc2.fillStyle = "green";
+        // 1. Baum / rechte Baumhälfte
+        crc2.moveTo(100, 250);
+        crc2.lineTo(100, 300);
+        crc2.lineTo(200, 350);
+        crc2.moveTo(100, 280);
+        crc2.lineTo(100, 330);
+        crc2.lineTo(200, 380);
+        crc2.moveTo(100, 310);
+        crc2.lineTo(100, 360);
+        crc2.lineTo(200, 410);
+        crc2.moveTo(100, 340);
+        crc2.lineTo(100, 390);
+        crc2.lineTo(200, 440);
+        // 1. Baum / linke Baumhälfte
+        crc2.moveTo(100, 250);
+        crc2.lineTo(100, 300);
+        crc2.lineTo(0, 350);
+        crc2.moveTo(100, 280);
+        crc2.lineTo(100, 330);
+        crc2.lineTo(0, 380);
+        crc2.moveTo(100, 310);
+        crc2.lineTo(100, 360);
+        crc2.lineTo(0, 410);
+        crc2.moveTo(100, 340);
+        crc2.lineTo(100, 390);
+        crc2.lineTo(0, 440);
+        crc2.fill();
+        crc2.closePath();
     }
 })(Blumenwiese || (Blumenwiese = {}));
 //# sourceMappingURL=L08_Blumenwiese.js.map
