@@ -110,7 +110,7 @@ var Blumenwiese;
             crc2.fill();
             crc2.closePath();
             crc2.beginPath();
-            crc2.fillStyle = "darkgreen";
+            crc2.fillStyle = "rgb(61, 82, 61)";
             // 1. Baum / rechte Baumhälfte
             crc2.moveTo(180, 220);
             crc2.lineTo(180, 250);
@@ -159,7 +159,7 @@ var Blumenwiese;
             crc2.fill();
             crc2.closePath();
             crc2.beginPath();
-            crc2.fillStyle = "green";
+            crc2.fillStyle = "rgb(34, 79, 53)";
             // 2. Baum / rechte Baumhälfte
             crc2.moveTo(100, 250);
             crc2.lineTo(100, 330);
@@ -170,7 +170,11 @@ var Blumenwiese;
             crc2.moveTo(100, 350);
             crc2.lineTo(100, 500);
             crc2.lineTo(200, 500);
+            crc2.fill();
+            crc2.closePath();
             // 2. Baum / linke Baumhälfte
+            crc2.beginPath();
+            crc2.fillStyle = "rgb(30, 91, 56)";
             crc2.moveTo(100, 250);
             crc2.lineTo(100, 330);
             crc2.lineTo(10, 370);
@@ -180,6 +184,36 @@ var Blumenwiese;
             crc2.moveTo(100, 350);
             crc2.lineTo(100, 500);
             crc2.lineTo(0, 500);
+            crc2.fill();
+            crc2.closePath();
+            // 3. Baum
+            crc2.beginPath();
+            crc2.fillStyle = "rgb(53, 40, 17)";
+            crc2.fillRect(295, 380, 20, 50);
+            crc2.fill();
+            crc2.closePath();
+            crc2.beginPath();
+            crc2.fillStyle = "rgb(34, 79, 53)";
+            // 3. Baum / rechte Baumhälfte
+            crc2.moveTo(300, 250);
+            crc2.lineTo(300, 330);
+            crc2.lineTo(340, 330);
+            crc2.moveTo(300, 280);
+            crc2.lineTo(300, 360);
+            crc2.lineTo(345, 360);
+            crc2.moveTo(300, 310);
+            crc2.lineTo(300, 390);
+            crc2.lineTo(350, 390);
+            // linke
+            crc2.moveTo(300, 250);
+            crc2.lineTo(300, 330);
+            crc2.lineTo(260, 330);
+            crc2.moveTo(300, 280);
+            crc2.lineTo(300, 360);
+            crc2.lineTo(260, 360);
+            crc2.moveTo(300, 310);
+            crc2.lineTo(300, 390);
+            crc2.lineTo(260, 390);
             crc2.fill();
             crc2.closePath();
         }
