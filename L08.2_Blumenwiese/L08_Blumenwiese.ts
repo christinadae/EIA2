@@ -28,26 +28,32 @@ namespace Blumenwiese {
         crc2.fill();
         crc2.closePath();
 
-        // Wolken generieren; inspiriert von: https://stackoverflow.com/questions/19541192/how-to-draw-cloud-shape-in-html5-canvas
-        crc2.beginPath();
-        crc2.moveTo(170, 80);
-        crc2.bezierCurveTo(130, 100, 130, 150, 230, 150);
-        crc2.bezierCurveTo(250, 180, 320, 180, 340, 150);
-        crc2.bezierCurveTo(420, 150, 420, 120, 390, 100);
-        crc2.bezierCurveTo(450, 40, 370, 30, 340, 50);
-        crc2.bezierCurveTo(320, 5, 250, 20, 250, 50);
-        crc2.bezierCurveTo(200, 5, 150, 20, 170, 80);
-        crc2.closePath();
-        crc2.lineWidth = 2;
-        crc2.fillStyle = "white";
-        crc2.fill();
-        crc2.strokeStyle = "white";
-        crc2.stroke();
-       
-        // Berge generieren
+        getCloud();
+        getMountains();
+        getTrees();
+
+        function getCloud(): void {
+      // inspiriert von: https://stackoverflow.com/questions/19541192/how-to-draw-cloud-shape-in-html5-canvas
+      crc2.beginPath();
+      crc2.moveTo(170, 80);
+      crc2.bezierCurveTo(130, 100, 130, 150, 230, 150);
+      crc2.bezierCurveTo(250, 180, 320, 180, 340, 150);
+      crc2.bezierCurveTo(420, 150, 420, 120, 390, 100);
+      crc2.bezierCurveTo(450, 40, 370, 30, 340, 50);
+      crc2.bezierCurveTo(320, 5, 250, 20, 250, 50);
+      crc2.bezierCurveTo(200, 5, 150, 20, 170, 80);
+      crc2.closePath();
+      crc2.lineWidth = 2;
+      crc2.fillStyle = "white";
+      crc2.fill();
+      crc2.strokeStyle = "white";
+      crc2.stroke();
+        }
+
+  
+        function getMountains(): void {
 
 //Berg 1
-
         crc2.beginPath();
         crc2.moveTo(0, 120);
         crc2.lineTo(0, 400);
@@ -62,8 +68,6 @@ namespace Blumenwiese {
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
         crc2.closePath();
-        
-        
         
 // Berg 2
         crc2.beginPath();
@@ -81,7 +85,6 @@ namespace Blumenwiese {
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
         crc2.closePath();
-    
 
 //Berg 3
         crc2.beginPath();
@@ -99,8 +102,6 @@ namespace Blumenwiese {
         crc2.fill();
         crc2.closePath();
         
-  
-        
 // Berg 4
         crc2.beginPath();
         crc2.moveTo(200, 100);
@@ -116,63 +117,119 @@ namespace Blumenwiese {
         crc2.fillStyle = "rgb(74, 87, 87)";
         crc2.fill();
         crc2.closePath();
+    }
+
+        function getTrees(): void {
+
+    
+        // 1. Baum
         
-    // Baum
+        crc2.beginPath();
+        crc2.fillStyle = "rgb(53, 40, 17)";
+        crc2.fillRect(175, 350, 10, 75);
+        crc2.fill();
+        crc2.closePath();
+       
+        crc2.beginPath();
+        crc2.fillStyle = "darkgreen";
+    // 1. Baum / rechte Baumhälfte
+        crc2.moveTo(180, 220);
+        crc2.lineTo(180, 250);
+        crc2.lineTo(200, 280);
+
+        crc2.moveTo(180, 240);
+        crc2.lineTo(180, 270);
+        crc2.lineTo(200, 300);
+
+        crc2.moveTo(180, 260);
+        crc2.lineTo(180, 290);
+        crc2.lineTo(200, 320);
+
+        crc2.moveTo(180, 280);
+        crc2.lineTo(180, 310);
+        crc2.lineTo(200, 340);
+
+        crc2.moveTo(180, 300);
+        crc2.lineTo(180, 330);
+        crc2.lineTo(200, 360);
+
+        crc2.moveTo(180, 320);
+        crc2.lineTo(180, 350);
+        crc2.lineTo(200, 380);
+
+    // 1. Baum / linke Baumhälfte
+
+        crc2.moveTo(180, 220);
+        crc2.lineTo(180, 250);
+        crc2.lineTo(160, 280);
+
+        crc2.moveTo(180, 240);
+        crc2.lineTo(180, 270);
+        crc2.lineTo(160, 300);
+
+        crc2.moveTo(180, 260);
+        crc2.lineTo(180, 290);
+        crc2.lineTo(160, 320);
+
+        crc2.moveTo(180, 280);
+        crc2.lineTo(180, 310);
+        crc2.lineTo(160, 340);
+
+        crc2.moveTo(180, 300);
+        crc2.lineTo(180, 330);
+        crc2.lineTo(160, 360);
+
+        crc2.moveTo(180, 320);
+        crc2.lineTo(180, 350);
+        crc2.lineTo(160, 380);
+    
+
+        crc2.fill();
+        crc2.closePath();
+    
+    // 2. Baum
         // Baumstamm
         crc2.beginPath();
         crc2.fillStyle = "rgb(53, 40, 17)";
-        crc2.fillRect(85, 350, 30, 100);
+        crc2.fillRect(85, 480, 30, 100);
         crc2.fill();
         crc2.closePath();
 
         crc2.beginPath();
         crc2.fillStyle = "green";
 
-        // 1. Baum / rechte Baumhälfte
+        // 2. Baum / rechte Baumhälfte
         crc2.moveTo(100, 250);
-        crc2.lineTo(100, 300);
-        crc2.lineTo(200, 350);
-      
-        crc2.moveTo(100, 280);
         crc2.lineTo(100, 330);
-        crc2.lineTo(200, 380);
-    
-        crc2.moveTo(100, 310);
-        crc2.lineTo(100, 360);
-        crc2.lineTo(200, 410);
+        crc2.lineTo(180, 370);
+     
+        crc2.moveTo(100, 300);
+        crc2.lineTo(100, 400);
+        crc2.lineTo(180, 430);
 
-        crc2.moveTo(100, 340);
-        crc2.lineTo(100, 390);
-        crc2.lineTo(200, 440);
+        crc2.moveTo(100, 350);
+        crc2.lineTo(100, 500);
+        crc2.lineTo(200, 500);
 
+    // 2. Baum / linke Baumhälfte
 
-    // 1. Baum / linke Baumhälfte
         crc2.moveTo(100, 250);
-        crc2.lineTo(100, 300);
-        crc2.lineTo(0, 350);
-
-        crc2.moveTo(100, 280);
         crc2.lineTo(100, 330);
-        crc2.lineTo(0, 380);
+        crc2.lineTo(10, 370);
 
-        crc2.moveTo(100, 310);
-        crc2.lineTo(100, 360);
-        crc2.lineTo(0, 410);
+        crc2.moveTo(100, 300);
+        crc2.lineTo(100, 400);
+        crc2.lineTo(10, 430);
 
-        crc2.moveTo(100, 340);
-        crc2.lineTo(100, 390);
-        crc2.lineTo(0, 440);
-
+        crc2.moveTo(100, 350);
+        crc2.lineTo(100, 500);
+        crc2.lineTo(0, 500);
 
         crc2.fill();
         crc2.closePath();
 
-    
-        
-       
-
-        
 
 
     }
+}
 }
