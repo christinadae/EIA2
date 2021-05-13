@@ -5,16 +5,12 @@ namespace Blumenwiese {
     let canvas: HTMLCanvasElement;
     let crc2: CanvasRenderingContext2D;
 
-
-
     function handleLoad(): void {
         canvas = <HTMLCanvasElement>document.querySelector("canvas");
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
-        //canvas.height = 896;
-        //canvas.width = 414;
-        canvas.width = 1200;
-        canvas.height = 800;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
         setBackground();
 
@@ -35,7 +31,7 @@ namespace Blumenwiese {
         getCloud();
         getMountains();
         getTrees();
-        getFlowers(-50, -200);
+        getFlowers(-10, -canvas.height);
 
         function getCloud(): void {
             // inspiriert von: https://stackoverflow.com/questions/19541192/how-to-draw-cloud-shape-in-html5-canvas
@@ -142,10 +138,10 @@ namespace Blumenwiese {
         }
 
         function getFlowers(_min: number, _max: number): void {
-                let stepMin: number = 10;
-                let stepMax: number = 15;
+                let stepMin: number = 2;
+                let stepMax: number = 8;
                 let x: number = 0;
-                let horizon: number = crc2.canvas.height * 0.62;
+                let horizon: number = crc2.canvas.height * 0.42;
         
                 do {
                     let y: number = -_min - Math.random() * (_max - _min);
@@ -177,4 +173,3 @@ namespace Blumenwiese {
             }
         }
     }
-}
