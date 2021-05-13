@@ -26,7 +26,7 @@ var Blumenwiese;
         getCloud();
         getMountains();
         getTrees();
-        getFlowers();
+        getFlowers(-50, -200);
         function getCloud() {
             // inspiriert von: https://stackoverflow.com/questions/19541192/how-to-draw-cloud-shape-in-html5-canvas
             crc2.beginPath();
@@ -71,11 +71,11 @@ var Blumenwiese;
             } while (x < crc2.canvas.width);
         }
         function getTrees() {
-            //crc2.translate(0, 0);
             let xTranslate = 0;
             let minStep = 100;
             let maxStep = 200;
-            do { // 1. Baum
+            do {
+                // 1. Baum
                 crc2.save();
                 let randomScale = 0.8 + Math.random() * (1.3 - 0.8);
                 //let y: number = 20 + Math.random() * (50 - 20);
@@ -134,40 +134,31 @@ var Blumenwiese;
                 crc2.closePath();
                 xTranslate += minStep + Math.random() * (maxStep - minStep);
                 crc2.restore();
-                /*
-                       // 2. Baum
-                       // Baumstamm
-                               crc2.beginPath();
-                               crc2.fillStyle = "rgb(53, 40, 17)";
-                               crc2.fillRect(85, 480, 30, 100);
-                               crc2.fill();
-                               crc2.closePath();
-               
-                      
-               
-                       // 2. Baum / rechte Baumhälfte
-                               crc2.beginPath();
-                               crc2.fillStyle = "rgb(34, 79, 53)";
-                               crc2.moveTo(0, 0);
-                               crc2.lineTo(80, 500);
-                               crc2.lineTo(0, 500);
-                    
-                               crc2.moveTo(0, 0);
-                               crc2.lineTo(80, 550);
-                               crc2.lineTo(0, 550);
-               
-                               crc2.moveTo(0, 0);
-                               crc2.lineTo(80, 600);
-                               crc2.lineTo(0, 600);
-                               crc2.fill();
-                               crc2.closePath();
-               
-                   
-               */
             } while (xTranslate < crc2.canvas.width);
         }
-        function getFlowers() {
-            crc2.beginPath();
+        function getFlowers(_min, _max) {
+            let stepMin = 10;
+            let stepMax = 15;
+            let x = 0;
+            let horizon = crc2.canvas.height * 0.62;
+            do {
+                let y = -_min - Math.random() * (_max - _min);
+                crc2.save();
+                crc2.translate(x, y + (horizon + 110));
+                let r1 = 2;
+                let r2 = 7;
+                let gradient = crc2.createRadialGradient(0, -26, r1, 0, -26, r2);
+                gradient.addColorStop(0, "#fdffd1");
+                gradient.addColorStop(1, "HSLA(60, 40%, 80%, 0)");
+                crc2.fillStyle = "#2f852a";
+                crc2.fillRect(0, 0, 1.5, -20);
+                crc2.beginPath();
+                crc2.arc(0, -26, r2, 0, 2 * Math.PI);
+                crc2.fillStyle = gradient;
+                crc2.fill();
+                x += stepMin + Math.random() * (stepMax - stepMin);
+                crc2.restore();
+            } while (x < crc2.canvas.width);
         }
     }
 })(Blumenwiese || (Blumenwiese = {}));
