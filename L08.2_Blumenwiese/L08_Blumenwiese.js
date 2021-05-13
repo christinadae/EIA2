@@ -122,7 +122,7 @@ var Blumenwiese;
                 let gradient = crc2.createRadialGradient(0, -26, r1, 0, -26, r2);
                 gradient.addColorStop(0, "#e3c8cd");
                 gradient.addColorStop(1, "HSLA(290,60%,70%,0.3)");
-                crc2.fillStyle = "#2f852a";
+                crc2.fillStyle = "#698c67";
                 crc2.fillRect(0, 0, 1.5, -20);
                 crc2.beginPath();
                 crc2.arc(0, -26, r2, 0, 2 * Math.PI);
