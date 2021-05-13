@@ -72,66 +72,40 @@ var Blumenwiese;
         }
         function getTrees() {
             let xTranslate = 0;
-            let minStep = 100;
-            let maxStep = 200;
-            do {
-                // 1. Baum
+            let minStep = 50;
+            let maxStep = 120;
+            let yTree = -75;
+            do { // 1. Baum
                 crc2.save();
-                let randomScale = 0.8 + Math.random() * (1.3 - 0.8);
-                //let y: number = 20 + Math.random() * (50 - 20);
-                crc2.translate(xTranslate, crc2.canvas.height * 0.22);
+                let randomScale = 0.5 + Math.random() * (0.8 - 0.5);
+                let y = 20 + Math.random() * (50 - 20);
+                crc2.translate(xTranslate, y + crc2.canvas.height * 0.52);
                 crc2.scale(randomScale, randomScale);
                 //Baumstamm
                 crc2.beginPath();
-                crc2.moveTo(0, 0);
                 crc2.fillStyle = "rgb(53, 40, 17)";
-                crc2.fillRect(-20, 300, 40, 75);
+                crc2.fillRect(0, 0, 40, -75);
                 crc2.fill();
                 crc2.closePath();
-                //rechte Baumhälfte
-                crc2.beginPath();
-                crc2.fillStyle = "rgb(49, 67, 49)";
-                crc2.moveTo(0, 0);
-                crc2.lineTo(100, 200);
-                crc2.lineTo(0, 200);
-                crc2.fill();
-                crc2.closePath();
-                crc2.beginPath();
-                crc2.fillStyle = "rgb(49, 67, 49)";
-                crc2.moveTo(0, 0);
-                crc2.lineTo(100, 250);
-                crc2.lineTo(0, 250);
-                crc2.fill();
-                crc2.closePath();
-                crc2.beginPath();
-                crc2.fillStyle = "rgb(49, 67, 49)";
-                crc2.moveTo(0, 0);
-                crc2.lineTo(100, 300);
-                crc2.lineTo(0, 300);
-                crc2.fill();
-                crc2.closePath();
-                // linke Baumhälfte
-                crc2.beginPath();
-                crc2.fillStyle = "rgb(61, 82, 61)";
-                crc2.moveTo(0, 0);
-                crc2.lineTo(-100, 200);
-                crc2.lineTo(0, 200);
-                crc2.fill();
-                crc2.closePath();
-                crc2.beginPath();
-                crc2.fillStyle = "rgb(61, 82, 61)";
-                crc2.moveTo(0, 0);
-                crc2.lineTo(-100, 250);
-                crc2.lineTo(0, 250);
-                crc2.fill();
-                crc2.closePath();
-                crc2.beginPath();
-                crc2.fillStyle = "rgb(61, 82, 61)";
-                crc2.moveTo(0, 0);
-                crc2.lineTo(-100, 300);
-                crc2.lineTo(0, 300);
-                crc2.fill();
-                crc2.closePath();
+                for (let index = 0; index < 3; index++) {
+                    console.log(yTree);
+                    crc2.beginPath();
+                    crc2.fillStyle = "rgb(49, 67, 49)";
+                    crc2.moveTo(20, yTree);
+                    crc2.lineTo(120, yTree);
+                    crc2.lineTo(20, -375);
+                    crc2.fill();
+                    crc2.closePath();
+                    crc2.beginPath();
+                    crc2.fillStyle = "rgb(61, 82, 61)";
+                    crc2.moveTo(20, yTree);
+                    crc2.lineTo(-80, yTree);
+                    crc2.lineTo(20, -375);
+                    crc2.fill();
+                    crc2.closePath();
+                    yTree -= 50;
+                }
+                yTree = -75;
                 xTranslate += minStep + Math.random() * (maxStep - minStep);
                 crc2.restore();
             } while (xTranslate < crc2.canvas.width);
@@ -148,8 +122,8 @@ var Blumenwiese;
                 let r1 = 2;
                 let r2 = 7;
                 let gradient = crc2.createRadialGradient(0, -26, r1, 0, -26, r2);
-                gradient.addColorStop(0, "#fdffd1");
-                gradient.addColorStop(1, "HSLA(60, 40%, 80%, 0)");
+                gradient.addColorStop(0, "#e3c8cd");
+                gradient.addColorStop(1, "HSLA(290,60%,70%,0.3)");
                 crc2.fillStyle = "#2f852a";
                 crc2.fillRect(0, 0, 1.5, -20);
                 crc2.beginPath();
