@@ -1,3 +1,11 @@
+/*
+Aufgabe: <L08.2 Blumenwiese: Canvas>
+Name: <Christina Däschner>
+Matrikel: <266417>
+Datum: <14.05.2021>
+Quellen: <Huu Thien Phan Ngoc & Mona Kabelka>
+*/
+
 namespace Blumenwiese {
 
     window.addEventListener("load", handleLoad);
@@ -63,8 +71,6 @@ namespace Blumenwiese {
                 crc2.translate(x, crc2.canvas.height * 0.52);
 
                 crc2.scale(randomScale, randomScale);
-
-                console.log(crc2);
                 crc2.beginPath();
                 crc2.moveTo(0, 0);
                 crc2.lineTo(150, -300);
@@ -94,13 +100,13 @@ namespace Blumenwiese {
             let maxStep: number = 120;
             let yTree: number = -75;
 
-            do {             // 1. Baum
+            do {             
                 crc2.save();
                 let randomScale: number = 0.5 + Math.random() * (0.8 - 0.5);
                 let y: number = 20 + Math.random() * (50 - 20);
                 crc2.translate(xTranslate, y + crc2.canvas.height * 0.52);
-
                 crc2.scale(randomScale, randomScale);
+
                 //Baumstamm
                 crc2.beginPath();
                 crc2.fillStyle = "rgb(53, 40, 17)";
@@ -109,8 +115,7 @@ namespace Blumenwiese {
                 crc2.closePath();
 
                 for (let index: number = 0; index < 3; index++) {
-                    console.log(yTree);
-
+            
                     // Rechte Baumhälfte
                     crc2.beginPath();
                     crc2.fillStyle = "rgb(49, 67, 49)";
