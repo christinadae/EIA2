@@ -145,11 +145,12 @@ namespace Blumenwiese {
         
                 do {
                     let y: number = -_min - Math.random() * (_max - _min);
+                    let r1: number = 2;
+                    let r2: number = 7;
                     crc2.save();
                     crc2.translate(x, y + (horizon + 110));
         
-                    let r1: number = 2;
-                    let r2: number = 7;
+                    
                     let gradient: CanvasGradient = crc2.createRadialGradient(0, -26, r1, 0, -26, r2);
         
                     gradient.addColorStop(0, "#e3c8cd");
