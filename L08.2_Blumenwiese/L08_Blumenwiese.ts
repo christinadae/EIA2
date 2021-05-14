@@ -110,6 +110,8 @@ namespace Blumenwiese {
 
                 for (let index: number = 0; index < 3; index++) {
                     console.log(yTree);
+
+                    // Rechte Baumhälfte
                     crc2.beginPath();
                     crc2.fillStyle = "rgb(49, 67, 49)";
                     crc2.moveTo(20, yTree);
@@ -117,7 +119,8 @@ namespace Blumenwiese {
                     crc2.lineTo(20, -375);
                     crc2.fill();
                     crc2.closePath();
-
+                    
+                    // Linke Baumhälfte
                     crc2.beginPath();
                     crc2.fillStyle = "rgb(61, 82, 61)";
                     crc2.moveTo(20, yTree);
