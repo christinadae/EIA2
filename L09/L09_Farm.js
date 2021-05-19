@@ -38,8 +38,8 @@ var Farm;
         sing(_foodStock) {
             let animalNameDOM = document.querySelector("#animalName");
             let songDOM = document.querySelector("#songText");
-            animalNameDOM.innerHTML = this.name;
-            songDOM.innerHTML = "Old MacDonald had a Farm " + (this.sound + " ").repeat(3) + "<br>" + "And on his Farms he had some " + this.breed + "s," + (this.sound + " ").repeat(3) + "<br>";
+            animalNameDOM.innerHTML = this.name + " the " + this.breed;
+            songDOM.innerHTML = "Old MacDonald had a Farm " + (this.sound + " ").repeat(3) + "<br>" + "And on his Farms he had some " + this.breed + "s, " + (this.sound + " ").repeat(3) + "<br>";
             let animalEatsDOM = document.querySelector("#animalEATS");
             animalEatsDOM.innerHTML = this.name + " eats " + _foodStock + " kg. <br>";
         }
@@ -50,25 +50,25 @@ var Farm;
         }
     }
     function farmDay() {
-        let cow = new Animal("Inge", "Cow", "Mooo");
+        let cow = new Animal("Inge", "cow", "Mooo");
         cow.eat(50, 0);
         cow.sing(50);
-        let chicken = new Animal("Bärbel", "Chicken", "Gack");
+        let chicken = new Animal("Bärbel", "chicken", "Gack");
         setTimeout(function () {
             chicken.eat(2, 1);
             chicken.sing(2);
         }, 5000);
-        let pig = new Animal("Mascha", "Pig", "Oink");
+        let pig = new Animal("Mascha", "pig", "Oink");
         setTimeout(function () {
             pig.eat(40, 2);
             pig.sing(40);
         }, 10000);
-        let horse = new Animal("Wendy", "Horse", "Wieheer");
+        let horse = new Animal("Wendy", "horse", "Wieheer");
         setTimeout(function () {
             horse.eat(40, 3);
             horse.sing(40);
         }, 15000);
-        let sheep = new Animal("Shaun", "Sheep", "Määh");
+        let sheep = new Animal("Shaun", "sheep", "Määh");
         setTimeout(function () {
             sheep.eat(20, 4);
             sheep.sing(20);

@@ -54,8 +54,8 @@ namespace Farm {
             let animalNameDOM: HTMLElement = <HTMLElement>document.querySelector("#animalName");
             let songDOM: HTMLElement = <HTMLElement>document.querySelector("#songText");
 
-            animalNameDOM.innerHTML = this.name;
-            songDOM.innerHTML = "Old MacDonald had a Farm " + (this.sound + " ").repeat(3) + "<br>" + "And on his Farms he had some " + this.breed + "s," + (this.sound + " ").repeat(3) + "<br>";
+            animalNameDOM.innerHTML = this.name + " the " + this.breed;
+            songDOM.innerHTML = "Old MacDonald had a Farm " + (this.sound + " ").repeat(3) + "<br>" + "And on his Farms he had some " + this.breed + "s, " + (this.sound + " ").repeat(3) + "<br>";
             let animalEatsDOM: HTMLElement = <HTMLElement>document.querySelector("#animalEATS");
             animalEatsDOM.innerHTML = this.name + " eats " + _foodStock + " kg. <br>";
         }
@@ -71,29 +71,29 @@ namespace Farm {
 
     function farmDay(): void {
     
-        let cow: Animal = new Animal("Inge", "Cow", "Mooo");
+        let cow: Animal = new Animal("Inge", "cow", "Mooo");
         cow.eat(50, 0);
         cow.sing(50);
 
-        let chicken: Animal = new Animal("Bärbel", "Chicken", "Gack");
+        let chicken: Animal = new Animal("Bärbel", "chicken", "Gack");
         setTimeout(function (): void {
             chicken.eat(2, 1);
             chicken.sing(2);
         },         5000);
 
-        let pig: Animal = new Animal("Mascha", "Pig", "Oink");
+        let pig: Animal = new Animal("Mascha", "pig", "Oink");
         setTimeout(function (): void {
             pig.eat(40, 2);
             pig.sing(40);
         },         10000);
 
-        let horse: Animal = new Animal("Wendy", "Horse", "Wieheer");
+        let horse: Animal = new Animal("Wendy", "horse", "Wieheer");
         setTimeout(function (): void {
             horse.eat(40, 3);
             horse.sing(40);
         },         15000);
 
-        let sheep: Animal = new Animal("Shaun", "Sheep", "Määh");
+        let sheep: Animal = new Animal("Shaun", "sheep", "Määh");
         setTimeout(function (): void {
             sheep.eat(20, 4);
             sheep.sing(20);
