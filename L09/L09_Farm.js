@@ -28,7 +28,6 @@ var Farm;
     function handleLoad() {
         farmDay();
         document.querySelector("#nextDay")?.addEventListener("click", farmDay);
-        // document.querySelector("#stockUp")?.addEventListener("click", stockUp);
     }
     class Animal {
         constructor(_name, _breed, _sound) {
@@ -40,7 +39,7 @@ var Farm;
             let animalNameDOM = document.querySelector("#animalName");
             let songDOM = document.querySelector("#songText");
             animalNameDOM.innerHTML = this.name;
-            songDOM.innerHTML = "Old MacDonald had a Farm " + (this.sound + " ").repeat(5) + "<br>" + "And on his Farms he had some " + this.breed + "s," + (this.sound + " ").repeat(5) + "<br>";
+            songDOM.innerHTML = "Old MacDonald had a Farm " + (this.sound + " ").repeat(3) + "<br>" + "And on his Farms he had some " + this.breed + "s," + (this.sound + " ").repeat(3) + "<br>";
             let animalEatsDOM = document.querySelector("#animalEATS");
             animalEatsDOM.innerHTML = this.name + " eats " + _foodStock + " kg. <br>";
         }
@@ -78,14 +77,5 @@ var Farm;
         counter++;
         countingDays.innerHTML = "Day: " + counter;
     }
-    /*
-        function stockUp(): void {
-            let defaultStock: number[] = [500, 20, 400, 400, 200];
-            for (let index: number = 0; index < defaultStock.length; index ++) {
-                amountStock[index].amount = defaultStock[index];
-                paragraphDOM = <HTMLElement>document.querySelector("#animal" + index);
-                paragraphDOM.innerHTML = "You have " + amountStock[index].amount + " kg " + amountStock[index].name + " left";
-            }
-           */
 })(Farm || (Farm = {}));
 //# sourceMappingURL=L09_Farm.js.map
