@@ -1,4 +1,11 @@
 "use strict";
+/*
+Aufgabe: <L08.2 Blumenwiese: Canvas>
+Name: <Christina Däschner>
+Matrikel: <266417>
+Datum: <14.05.2021>
+Quellen: <Huu Thien Phan Ngoc & Mona Kabelka>
+*/
 var Blumenwiese;
 (function (Blumenwiese) {
     window.addEventListener("load", handleLoad);
@@ -49,7 +56,6 @@ var Blumenwiese;
                 crc2.save();
                 crc2.translate(x, crc2.canvas.height * 0.52);
                 crc2.scale(randomScale, randomScale);
-                console.log(crc2);
                 crc2.beginPath();
                 crc2.moveTo(0, 0);
                 crc2.lineTo(150, -300);
@@ -73,7 +79,7 @@ var Blumenwiese;
             let minStep = 50;
             let maxStep = 120;
             let yTree = -75;
-            do { // 1. Baum
+            do {
                 crc2.save();
                 let randomScale = 0.5 + Math.random() * (0.8 - 0.5);
                 let y = 20 + Math.random() * (50 - 20);
@@ -86,7 +92,7 @@ var Blumenwiese;
                 crc2.fill();
                 crc2.closePath();
                 for (let index = 0; index < 3; index++) {
-                    console.log(yTree);
+                    // Rechte Baumhälfte
                     crc2.beginPath();
                     crc2.fillStyle = "rgb(49, 67, 49)";
                     crc2.moveTo(20, yTree);
@@ -94,6 +100,7 @@ var Blumenwiese;
                     crc2.lineTo(20, -375);
                     crc2.fill();
                     crc2.closePath();
+                    // Linke Baumhälfte
                     crc2.beginPath();
                     crc2.fillStyle = "rgb(61, 82, 61)";
                     crc2.moveTo(20, yTree);
@@ -115,10 +122,10 @@ var Blumenwiese;
             let horizon = crc2.canvas.height * 0.42;
             do {
                 let y = -_min - Math.random() * (_max - _min);
-                crc2.save();
-                crc2.translate(x, y + (horizon + 110));
                 let r1 = 2;
                 let r2 = 7;
+                crc2.save();
+                crc2.translate(x, y + (horizon + 110));
                 let gradient = crc2.createRadialGradient(0, -26, r1, 0, -26, r2);
                 gradient.addColorStop(0, "#e3c8cd");
                 gradient.addColorStop(1, "HSLA(290,60%,70%,0.3)");
