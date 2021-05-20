@@ -1,20 +1,27 @@
 html,body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 
     display: flex;
     align-items: center;
     flex-direction: column;
     background-color:rosybrown;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
  
-}
 h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    letter-spacing: 0.3em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    letter-spacing: 0.2em;
 }
 #h2{
     font-size: 30px;
     letter-spacing: 0em;
+}
+
+h2 {
+    font-weight:200;
+    letter-spacing: 0.1em;
 }
 
 #leftover {
