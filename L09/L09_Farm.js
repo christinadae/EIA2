@@ -29,6 +29,13 @@ var Farm;
         farmDay();
         document.querySelector("#nextDay")?.addEventListener("click", farmDay);
     }
+    /*
+    Aufgabe: <L09 Old Macdonald's Farm>
+    Name: <Christina Däschner>
+    Matrikel: <266417>
+    Datum: <20.05.2021>
+    Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim, Mariia Kolkutova>
+    */
     class Animal {
         constructor(_name, _breed, _sound) {
             this.name = _name;
