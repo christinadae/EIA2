@@ -1,7 +1,5 @@
 namespace L09_BlumenwieseClasses {
 
-
-
     export class Flowers {
         xPos: number;
         flowerType: number;
@@ -24,7 +22,7 @@ namespace L09_BlumenwieseClasses {
             crc2.translate(this.xPos, y);
             crc2.scale(randomScale, randomScale);
             crc2.fillStyle = "#698c67";
-            crc2.fillRect(0, 0, 4, 55);
+            crc2.fillRect(-1, -2, 4, 55);
 
             let r1: number = 5;
             let r2: number = 13;

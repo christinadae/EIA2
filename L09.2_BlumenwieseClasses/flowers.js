@@ -16,7 +16,7 @@ var L09_BlumenwieseClasses;
             L09_BlumenwieseClasses.crc2.translate(this.xPos, y);
             L09_BlumenwieseClasses.crc2.scale(randomScale, randomScale);
             L09_BlumenwieseClasses.crc2.fillStyle = "#698c67";
-            L09_BlumenwieseClasses.crc2.fillRect(0, 0, 4, 55);
+            L09_BlumenwieseClasses.crc2.fillRect(-1, -2, 4, 55);
             let r1 = 5;
             let r2 = 13;
             if (this.flowerType == 1) {
