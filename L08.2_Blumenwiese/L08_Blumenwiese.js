@@ -33,7 +33,6 @@ var Blumenwiese;
         getTrees();
         getFlowers(-10, -canvas.height);
         function getCloud() {
-            // inspiriert von: https://stackoverflow.com/questions/19541192/how-to-draw-cloud-shape-in-html5-canvas
             crc2.beginPath();
             crc2.moveTo(170, 80);
             crc2.bezierCurveTo(130, 100, 130, 150, 230, 150);
