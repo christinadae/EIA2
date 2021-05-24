@@ -4,7 +4,7 @@ var L09_BlumenwieseClasses;
     window.addEventListener("load", handleLoad);
     let flowers = [];
     //let trees: Trees[] = [];
-    //let bees: Bees[] = [];
+    let bees = [];
     function handleLoad() {
         L09_BlumenwieseClasses.canvas = document.querySelector("canvas");
         L09_BlumenwieseClasses.crc2 = L09_BlumenwieseClasses.canvas.getContext("2d");
@@ -19,6 +19,7 @@ var L09_BlumenwieseClasses;
         L09_BlumenwieseClasses.createCloud();
         L09_BlumenwieseClasses.createMountains();
         L09_BlumenwieseClasses.createTrees();
+        createBees(1);
     }
     function setFlowers() {
         let xPos = 0;
@@ -41,5 +42,13 @@ var L09_BlumenwieseClasses;
         }
       
         */
+    function createBees(_sumBees) {
+        for (let index = 0; index < _sumBees; index++) {
+            let randomScale = 0.5 + Math.random() * (2.5 - 1.3);
+            let randomSpeedX = (Math.random() - 0.5) * 5;
+            let randomSpeedY = (Math.random() - 0.5) * 5;
+            bees.push(new L09_BlumenwieseClasses.Bees(500, 500, randomSpeedX, randomSpeedY, randomScale));
+        }
+    }
 })(L09_BlumenwieseClasses || (L09_BlumenwieseClasses = {}));
 //# sourceMappingURL=L09.2_main.js.map

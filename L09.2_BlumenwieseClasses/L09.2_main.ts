@@ -9,7 +9,7 @@ namespace L09_BlumenwieseClasses {
 
     let flowers: Flowers[] = [];
     //let trees: Trees[] = [];
-    //let bees: Bees[] = [];
+    let bees: Bees[] = [];
 
     function handleLoad(): void {
 
@@ -32,6 +32,7 @@ namespace L09_BlumenwieseClasses {
         createCloud();
         createMountains();
         createTrees();
+        createBees(1);
 
     }
 
@@ -59,5 +60,15 @@ namespace L09_BlumenwieseClasses {
     }
   
     */
-    
+
+    function createBees(_sumBees: number): void {
+        for (let index: number = 0; index < _sumBees; index ++) {
+            let randomScale: number = 0.5 + Math.random() * (2.5 - 1.3);
+
+            let randomSpeedX: number = (Math.random() - 0.5) * 5;
+            let randomSpeedY: number = (Math.random() - 0.5) * 5;
+
+            bees.push(new Bees(500, 500, randomSpeedX, randomSpeedY, randomScale));
+        }
+    }
     }
