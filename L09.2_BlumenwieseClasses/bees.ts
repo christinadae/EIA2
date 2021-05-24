@@ -11,6 +11,9 @@ export class Bees {
     speedX: number;
     speedY: number;
 
+    minY: number = 50 + (crc2.canvas.height * 0.62);
+    maxY: number = crc2.canvas.height * 0.9;
+
     constructor(_posX: number, _posY: number, _speedX: number, _speedY: number, _randomScale: number) {
         this.posX = _posX;
         this.posY = _posY;
@@ -22,8 +25,12 @@ export class Bees {
     }
 
     draw(): void {
+
+        let y: number = this.minY + Math.random() * (this.maxY - this.minY);
+        //let x: number = this.maxY + Math.random() * (this.maxY - this.minY);
         crc2.save();
-        crc2.translate(this.posX, this.posY);
+        crc2.translate(this.posX, y);
+        
 
         crc2.scale(this.randomScale, this.randomScale);
         

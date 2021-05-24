@@ -32,7 +32,7 @@ namespace L09_BlumenwieseClasses {
         createCloud();
         createMountains();
         createTrees();
-        createBees(1);
+        createBees(10);
 
     }
 

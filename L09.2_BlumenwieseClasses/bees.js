@@ -5,6 +5,8 @@ var L09_BlumenwieseClasses;
         constructor(_posX, _posY, _speedX, _speedY, _randomScale) {
             this.randomNumber = (Math.floor(Math.random() * 2000) + 1000);
             this.counter = 0;
+            this.minY = 50 + (L09_BlumenwieseClasses.crc2.canvas.height * 0.62);
+            this.maxY = L09_BlumenwieseClasses.crc2.canvas.height * 0.9;
             this.posX = _posX;
             this.posY = _posY;
             this.speedX = _speedX;
@@ -13,8 +15,10 @@ var L09_BlumenwieseClasses;
             this.draw();
         }
         draw() {
+            let y = this.minY + Math.random() * (this.maxY - this.minY);
+            //let x: number = this.maxY + Math.random() * (this.maxY - this.minY);
             L09_BlumenwieseClasses.crc2.save();
-            L09_BlumenwieseClasses.crc2.translate(this.posX, this.posY);
+            L09_BlumenwieseClasses.crc2.translate(this.posX, y);
             L09_BlumenwieseClasses.crc2.scale(this.randomScale, this.randomScale);
             L09_BlumenwieseClasses.crc2.beginPath();
             L09_BlumenwieseClasses.crc2.moveTo(0, 0);

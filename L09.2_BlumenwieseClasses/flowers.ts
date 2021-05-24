@@ -18,6 +18,7 @@ namespace L09_BlumenwieseClasses {
 
             let randomScale: number = 0.5 + Math.random() * (0.8 - 0.5);
             let y: number = this.minY + Math.random() * (this.maxY - this.minY);
+           
             crc2.save();
             crc2.translate(this.xPos, y);
             crc2.scale(randomScale, randomScale);

@@ -19,7 +19,7 @@ var L09_BlumenwieseClasses;
         L09_BlumenwieseClasses.createCloud();
         L09_BlumenwieseClasses.createMountains();
         L09_BlumenwieseClasses.createTrees();
-        createBees(1);
+        createBees(10);
     }
     function setFlowers() {
         let xPos = 0;
