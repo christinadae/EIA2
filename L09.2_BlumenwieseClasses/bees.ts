@@ -61,7 +61,7 @@ export class Bees {
         crc2.beginPath();
         crc2.moveTo(0, 0);
         crc2.ellipse(0, 0, 50, 30, 0, 0, Math.PI * 2, false);
-        crc2.fillStyle = "gold";
+        crc2.fillStyle = "rgb(223, 192, 16)";
         crc2.fill();
         crc2.closePath();
        

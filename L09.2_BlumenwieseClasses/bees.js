@@ -38,7 +38,7 @@ var L09_BlumenwieseClasses;
             L09_BlumenwieseClasses.crc2.beginPath();
             L09_BlumenwieseClasses.crc2.moveTo(0, 0);
             L09_BlumenwieseClasses.crc2.ellipse(0, 0, 50, 30, 0, 0, Math.PI * 2, false);
-            L09_BlumenwieseClasses.crc2.fillStyle = "gold";
+            L09_BlumenwieseClasses.crc2.fillStyle = "rgb(223, 192, 16)";
             L09_BlumenwieseClasses.crc2.fill();
             L09_BlumenwieseClasses.crc2.closePath();
             L09_BlumenwieseClasses.crc2.beginPath();
