@@ -19,7 +19,7 @@ var L09_BlumenwieseClasses;
         L09_BlumenwieseClasses.createCloud();
         L09_BlumenwieseClasses.createMountains();
         L09_BlumenwieseClasses.createTrees();
-        createBees(10);
+        createBees(1);
     }
     function setFlowers() {
         let xPos = 0;
@@ -47,7 +47,7 @@ var L09_BlumenwieseClasses;
             let randomScale = 0.5 + Math.random() * (2.5 - 1.3);
             let randomSpeedX = (Math.random() - 0.5) * 5;
             let randomSpeedY = (Math.random() - 0.5) * 5;
-            bees.push(new L09_BlumenwieseClasses.Bees(500, 500, randomSpeedX, randomSpeedY, randomScale));
+            bees.push(new L09_BlumenwieseClasses.Bees(200, 400, randomSpeedX, randomSpeedY, randomScale));
         }
     }
 })(L09_BlumenwieseClasses || (L09_BlumenwieseClasses = {}));

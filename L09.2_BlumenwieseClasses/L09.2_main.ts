@@ -32,7 +32,7 @@ namespace L09_BlumenwieseClasses {
         createCloud();
         createMountains();
         createTrees();
-        createBees(10);
+        createBees(1);
 
     }
 
@@ -68,7 +68,7 @@ namespace L09_BlumenwieseClasses {
             let randomSpeedX: number = (Math.random() - 0.5) * 5;
             let randomSpeedY: number = (Math.random() - 0.5) * 5;
 
-            bees.push(new Bees(500, 500, randomSpeedX, randomSpeedY, randomScale));
+            bees.push(new Bees(200, 400, randomSpeedX, randomSpeedY, randomScale));
         }
     }
     }

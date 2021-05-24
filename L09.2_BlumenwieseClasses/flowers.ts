@@ -12,6 +12,9 @@ namespace L09_BlumenwieseClasses {
             this.flowerType = _flowerType;
 
             this.draw();
+
+
+            
         }
 
         draw(): void {
