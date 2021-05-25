@@ -3,20 +3,14 @@ namespace L09_BlumenwieseClasses {
 export class Bees {
     posX: number;
     posY: number;
-    randomScale: number;
-
-    randomNumber: number = (Math.floor(Math.random() * 2000) + 1000);
-    counter: number = 0;
 
     speedX: number;
     speedY: number;
 
+    randomScale: number;
+    randomNumber: number = (Math.floor(Math.random() * 2000) + 1000);
+    counter: number = 0;
 
-    golden: number = 0.42;
-    horizon: number = crc2.canvas.height * this.golden;
-
-    minY: number = 50 + (crc2.canvas.height * 0.92);
-    maxY: number = crc2.canvas.height * 0.9;
 
 
     constructor(_posX: number, _posY: number, _speedX: number, _speedY: number, _randomScale: number) {
@@ -25,23 +19,17 @@ export class Bees {
         this.speedX = _speedX;
         this.speedY = _speedY;
         this.randomScale = _randomScale;
-
-        this.draw();
+        
     }
 
     draw(): void {
 
-        let y: number = this.minY + (Math.floor(Math.random() * this.maxY - this.minY));
-        let x: number = this.maxY + (Math.floor(Math.random() * this.maxY - this.minY));
-        crc2.save();
-        crc2.translate(x, y + (this.horizon - 400));
-        
 
+        crc2.save();
+        crc2.translate(this.posX, this.posY);
         crc2.scale(this.randomScale, this.randomScale);
         
         //Bienenflügel
-   
-
         crc2.beginPath();
         crc2.moveTo(0, 0);
         crc2.ellipse(10, -45, 30, 20, 15, 0, Math.PI * 2, false);
@@ -84,33 +72,35 @@ export class Bees {
         crc2.arc(35, -5, 3 , 0, Math.PI * 2, false);
         crc2.fill();
         crc2.closePath();
-        
-
-       
-       
-/*
-        crc2.beginPath();
-        crc2.fillStyle = "white";
-        crc2.arc(-5, -11, 5 , 0, Math.PI * 2, false);
-        crc2.fill();
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.fillStyle = "white";
-        crc2.arc(5, -11, 5 , 0, Math.PI * 2, false);
-        crc2.fill();
-        crc2.stroke();
-
-        crc2.beginPath();
-        crc2.arc(-2, -1, 2 , 0, Math.PI * 2, false);
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.arc(2, -1, 2 , 0, Math.PI * 2, false);
-        crc2.stroke();
-*/
+    
         crc2.restore();
        
     }
-    
+ 
+    update(): void {
+
+        if (this.posX > crc2.canvas.width || this.posX < 0) {
+            this.speedX = -this.speedX;
+        }
+
+        if (this.posY > crc2.canvas.height || this.posY < crc2.canvas.height * 0.40) {
+            this.speedY = -this.speedY;
+        }
+
+        if (this.counter == this.randomNumber) {
+            this.speedX = -this.speedX;
+            this.speedY = -this.speedY;
+            this.counter = 0;
+            this.randomNumber = (Math.floor(Math.random() * 2000) + 1000);
+        }
+
+        this.posX += this.speedX;
+        this.posY += this.speedY;
+        this.counter ++;
+
+        this.draw();
+       
+    }
+}
 }
 
-}

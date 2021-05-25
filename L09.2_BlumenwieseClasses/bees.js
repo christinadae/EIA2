@@ -5,22 +5,15 @@ var L09_BlumenwieseClasses;
         constructor(_posX, _posY, _speedX, _speedY, _randomScale) {
             this.randomNumber = (Math.floor(Math.random() * 2000) + 1000);
             this.counter = 0;
-            this.golden = 0.42;
-            this.horizon = L09_BlumenwieseClasses.crc2.canvas.height * this.golden;
-            this.minY = 50 + (L09_BlumenwieseClasses.crc2.canvas.height * 0.92);
-            this.maxY = L09_BlumenwieseClasses.crc2.canvas.height * 0.9;
             this.posX = _posX;
             this.posY = _posY;
             this.speedX = _speedX;
             this.speedY = _speedY;
             this.randomScale = _randomScale;
-            this.draw();
         }
         draw() {
-            let y = this.minY + (Math.floor(Math.random() * this.maxY - this.minY));
-            let x = this.maxY + (Math.floor(Math.random() * this.maxY - this.minY));
             L09_BlumenwieseClasses.crc2.save();
-            L09_BlumenwieseClasses.crc2.translate(x, y + (this.horizon - 400));
+            L09_BlumenwieseClasses.crc2.translate(this.posX, this.posY);
             L09_BlumenwieseClasses.crc2.scale(this.randomScale, this.randomScale);
             //Bienenflügel
             L09_BlumenwieseClasses.crc2.beginPath();
@@ -56,26 +49,25 @@ var L09_BlumenwieseClasses;
             L09_BlumenwieseClasses.crc2.arc(35, -5, 3, 0, Math.PI * 2, false);
             L09_BlumenwieseClasses.crc2.fill();
             L09_BlumenwieseClasses.crc2.closePath();
-            /*
-                    crc2.beginPath();
-                    crc2.fillStyle = "white";
-                    crc2.arc(-5, -11, 5 , 0, Math.PI * 2, false);
-                    crc2.fill();
-                    crc2.stroke();
-                    crc2.beginPath();
-                    crc2.fillStyle = "white";
-                    crc2.arc(5, -11, 5 , 0, Math.PI * 2, false);
-                    crc2.fill();
-                    crc2.stroke();
-            
-                    crc2.beginPath();
-                    crc2.arc(-2, -1, 2 , 0, Math.PI * 2, false);
-                    crc2.stroke();
-                    crc2.beginPath();
-                    crc2.arc(2, -1, 2 , 0, Math.PI * 2, false);
-                    crc2.stroke();
-            */
             L09_BlumenwieseClasses.crc2.restore();
+        }
+        update() {
+            if (this.posX > L09_BlumenwieseClasses.crc2.canvas.width || this.posX < 0) {
+                this.speedX = -this.speedX;
+            }
+            if (this.posY > L09_BlumenwieseClasses.crc2.canvas.height || this.posY < L09_BlumenwieseClasses.crc2.canvas.height * 0.40) {
+                this.speedY = -this.speedY;
+            }
+            if (this.counter == this.randomNumber) {
+                this.speedX = -this.speedX;
+                this.speedY = -this.speedY;
+                this.counter = 0;
+                this.randomNumber = (Math.floor(Math.random() * 2000) + 1000);
+            }
+            this.posX += this.speedX;
+            this.posY += this.speedY;
+            this.counter++;
+            this.draw();
         }
     }
     L09_BlumenwieseClasses.Bees = Bees;

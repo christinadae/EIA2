@@ -9,23 +9,6 @@ var L09_BlumenwieseClasses;
         L09_BlumenwieseClasses.crc2.fillRect(0, 0, L09_BlumenwieseClasses.canvas.width, L09_BlumenwieseClasses.canvas.height);
     }
     L09_BlumenwieseClasses.createBackground = createBackground;
-    function createCloud() {
-        L09_BlumenwieseClasses.crc2.beginPath();
-        L09_BlumenwieseClasses.crc2.moveTo(170, 80);
-        L09_BlumenwieseClasses.crc2.bezierCurveTo(130, 100, 130, 150, 230, 150);
-        L09_BlumenwieseClasses.crc2.bezierCurveTo(250, 180, 320, 180, 340, 150);
-        L09_BlumenwieseClasses.crc2.bezierCurveTo(420, 150, 420, 120, 390, 100);
-        L09_BlumenwieseClasses.crc2.bezierCurveTo(450, 40, 370, 30, 340, 50);
-        L09_BlumenwieseClasses.crc2.bezierCurveTo(320, 5, 250, 20, 250, 50);
-        L09_BlumenwieseClasses.crc2.bezierCurveTo(200, 5, 150, 20, 170, 80);
-        L09_BlumenwieseClasses.crc2.lineWidth = 2;
-        L09_BlumenwieseClasses.crc2.fillStyle = "white";
-        L09_BlumenwieseClasses.crc2.fill();
-        L09_BlumenwieseClasses.crc2.strokeStyle = "white";
-        L09_BlumenwieseClasses.crc2.closePath();
-        L09_BlumenwieseClasses.crc2.stroke();
-    }
-    L09_BlumenwieseClasses.createCloud = createCloud;
     function createMountains() {
         let x = 0;
         do {

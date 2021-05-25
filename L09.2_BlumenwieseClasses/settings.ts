@@ -1,6 +1,11 @@
 namespace L09_BlumenwieseClasses {
 
 
+    export interface Vector {
+        x: number;
+        y: number;
+    }
+
     export function createBackground(): void {
         let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, 500);
         gradient.addColorStop(0, "lightblue");
@@ -11,23 +16,6 @@ namespace L09_BlumenwieseClasses {
     }
 
 
-    export function createCloud(): void {
-        crc2.beginPath();
-        crc2.moveTo(170, 80);
-        crc2.bezierCurveTo(130, 100, 130, 150, 230, 150);
-        crc2.bezierCurveTo(250, 180, 320, 180, 340, 150);
-        crc2.bezierCurveTo(420, 150, 420, 120, 390, 100);
-        crc2.bezierCurveTo(450, 40, 370, 30, 340, 50);
-        crc2.bezierCurveTo(320, 5, 250, 20, 250, 50);
-        crc2.bezierCurveTo(200, 5, 150, 20, 170, 80);
-
-        crc2.lineWidth = 2;
-        crc2.fillStyle = "white";
-        crc2.fill();
-        crc2.strokeStyle = "white";
-        crc2.closePath();
-        crc2.stroke();
-    }
 
     export function createMountains(): void {
         let x: number = 0;

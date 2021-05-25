@@ -10,6 +10,8 @@ namespace L09_BlumenwieseClasses {
     let flowers: Flowers[] = [];
     //let trees: Trees[] = [];
     let bees: Bees[] = [];
+    let clouds: Cloud[] = [];
+    let imageData: ImageData;
 
     function handleLoad(): void {
 
@@ -21,6 +23,9 @@ namespace L09_BlumenwieseClasses {
 
         setBackground();
         setFlowers();
+        createCloud();
+        imageData =  crc2.getImageData(0, 0, canvas.width, canvas.height);
+        animate();
         //setTrees();
         
 
@@ -29,10 +34,10 @@ namespace L09_BlumenwieseClasses {
     function setBackground(): void {
 
         createBackground();
-        createCloud();
+        
         createMountains();
         createTrees();
-        createBees(1);
+        createBees(10);
 
     }
 
@@ -68,7 +73,29 @@ namespace L09_BlumenwieseClasses {
             let randomSpeedX: number = (Math.random() - 0.5) * 5;
             let randomSpeedY: number = (Math.random() - 0.5) * 5;
 
-            bees.push(new Bees(200, 400, randomSpeedX, randomSpeedY, randomScale));
+          
+            bees.push(new Bees(crc2.canvas.width / 2, crc2.canvas.height * 0.62, randomSpeedX, randomSpeedY, randomScale));
         }
     }
+
+    function createCloud(): void {
+    
+        clouds.push(new Cloud(crc2.canvas.width * .05, crc2.canvas.height * .25));
+        clouds.push(new Cloud(crc2.canvas.width * .07, crc2.canvas.height * .95));
     }
+
+    function animate(): void {
+        requestAnimationFrame(animate);
+        crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        crc2.putImageData(imageData, 0, 0);
+        for (let index: number = 0; index < bees.length; index ++) {
+            bees[index].update();
+            
+        }
+        for (let index: number = 0; index < clouds.length; index ++) {
+            clouds[index].update();
+        }
+    }
+}
+    
+    
