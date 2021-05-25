@@ -3,7 +3,6 @@ var L09_BlumenwieseClasses;
 (function (L09_BlumenwieseClasses) {
     window.addEventListener("load", handleLoad);
     let flowers = [];
-    //let trees: Trees[] = [];
     let bees = [];
     let clouds = [];
     let imageData;
@@ -17,7 +16,6 @@ var L09_BlumenwieseClasses;
         createCloud();
         imageData = L09_BlumenwieseClasses.crc2.getImageData(0, 0, L09_BlumenwieseClasses.canvas.width, L09_BlumenwieseClasses.canvas.height);
         animate();
-        //setTrees();
     }
     function setBackground() {
         L09_BlumenwieseClasses.createBackground();
@@ -32,20 +30,6 @@ var L09_BlumenwieseClasses;
             xPos += 10 + Math.random() * (50 - 10);
         } while (xPos < L09_BlumenwieseClasses.crc2.canvas.width);
     }
-    /*
-        function setTrees(): void {
-     
-            let xPos: number = 0;
-    
-            do {
-                trees.push(new Trees(Math.floor(Math.random() * 2) + 1, xPos));
-                xPos *= 10 + Math.random() * (50 - 10);
-            }
-    
-            while (xPos < crc2.canvas.width);
-        }
-      
-        */
     function createBees(_sumBees) {
         for (let index = 0; index < _sumBees; index++) {
             let randomScale = 0.5 + Math.random() * (2.5 - 1.3);
