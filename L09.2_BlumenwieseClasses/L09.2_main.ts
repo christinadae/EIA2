@@ -9,7 +9,7 @@ namespace L09_BlumenwieseClasses {
 
     let flowers: Flowers[] = [];
     let bees: Bees[] = [];
-    let clouds: Cloud[] = [];
+    let clouds: Clouds[] = [];
     let imageData: ImageData;
 
     function handleLoad(): void {
@@ -67,8 +67,8 @@ namespace L09_BlumenwieseClasses {
 
     function createCloud(): void {
     
-        clouds.push(new Cloud(crc2.canvas.width * .05, crc2.canvas.height * .25));
-        clouds.push(new Cloud(crc2.canvas.width * .07, crc2.canvas.height * .95));
+        clouds.push(new Clouds(crc2.canvas.width * .05, crc2.canvas.height * .25));
+        clouds.push(new Clouds(crc2.canvas.width * .07, crc2.canvas.height * .95));
     }
 
     function animate(): void {

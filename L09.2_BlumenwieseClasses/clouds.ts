@@ -1,12 +1,12 @@
 namespace L09_BlumenwieseClasses {
 
-export class Cloud {
+export class Clouds {
 
-    posX: number;
-    posY: number;
+    public posX: number;
+    public posY: number;
 
-    speedX: number = 0.5;
-    speedY: number = 1;
+    public speedX: number = 0.5;
+    public speedY: number = 1;
 
     constructor (_posY: number, _posX: number) {
         this.posY = _posY;

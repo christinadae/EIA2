@@ -39,8 +39,8 @@ var L09_BlumenwieseClasses;
         }
     }
     function createCloud() {
-        clouds.push(new L09_BlumenwieseClasses.Cloud(L09_BlumenwieseClasses.crc2.canvas.width * .05, L09_BlumenwieseClasses.crc2.canvas.height * .25));
-        clouds.push(new L09_BlumenwieseClasses.Cloud(L09_BlumenwieseClasses.crc2.canvas.width * .07, L09_BlumenwieseClasses.crc2.canvas.height * .95));
+        clouds.push(new L09_BlumenwieseClasses.Clouds(L09_BlumenwieseClasses.crc2.canvas.width * .05, L09_BlumenwieseClasses.crc2.canvas.height * .25));
+        clouds.push(new L09_BlumenwieseClasses.Clouds(L09_BlumenwieseClasses.crc2.canvas.width * .07, L09_BlumenwieseClasses.crc2.canvas.height * .95));
     }
     function animate() {
         requestAnimationFrame(animate);

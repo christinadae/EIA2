@@ -1,7 +1,7 @@
 "use strict";
 var L09_BlumenwieseClasses;
 (function (L09_BlumenwieseClasses) {
-    class Cloud {
+    class Clouds {
         constructor(_posY, _posX) {
             this.speedX = 0.5;
             this.speedY = 1;
@@ -39,6 +39,6 @@ var L09_BlumenwieseClasses;
             this.draw();
         }
     }
-    L09_BlumenwieseClasses.Cloud = Cloud;
+    L09_BlumenwieseClasses.Clouds = Clouds;
 })(L09_BlumenwieseClasses || (L09_BlumenwieseClasses = {}));
 //# sourceMappingURL=clouds.js.map

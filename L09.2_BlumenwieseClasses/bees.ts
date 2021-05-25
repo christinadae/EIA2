@@ -1,15 +1,15 @@
 namespace L09_BlumenwieseClasses {
 
 export class Bees {
-    posX: number;
-    posY: number;
+    public posX: number;
+    public  posY: number;
 
-    speedX: number;
-    speedY: number;
+    public speedX: number;
+    public speedY: number;
 
-    randomScale: number;
-    randomNumber: number = (Math.floor(Math.random() * 2000) + 1000);
-    counter: number = 0;
+    public randomScale: number;
+    public randomNumber: number = (Math.floor(Math.random() * 2000) + 1000);
+    public counter: number = 0;
 
 
 

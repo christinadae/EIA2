@@ -1,11 +1,6 @@
 namespace L09_BlumenwieseClasses {
 
 
-    export interface Vector {
-        x: number;
-        y: number;
-    }
-
     export function createBackground(): void {
         let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 0, 500);
         gradient.addColorStop(0, "lightblue");

@@ -1,11 +1,11 @@
 namespace L09_BlumenwieseClasses {
 
     export class Flowers {
-        xPos: number;
-        flowerType: number;
+        public xPos: number;
+        public flowerType: number;
 
-        minY: number = 50 + (crc2.canvas.height * 0.62);
-        maxY: number = crc2.canvas.height * 0.9;
+        public minY: number = 50 + (crc2.canvas.height * 0.62);
+        public maxY: number = crc2.canvas.height * 0.9;
 
         constructor(_flowerType: number, _xPos: number) {
             this.xPos = _xPos;
@@ -21,6 +21,8 @@ namespace L09_BlumenwieseClasses {
 
             let randomScale: number = 0.5 + Math.random() * (0.8 - 0.5);
             let y: number = this.minY + Math.random() * (this.maxY - this.minY);
+            let r1: number = 5;
+            let r2: number = 13;
            
             crc2.save();
             crc2.translate(this.xPos, y);
@@ -28,8 +30,7 @@ namespace L09_BlumenwieseClasses {
             crc2.fillStyle = "#698c67";
             crc2.fillRect(-1, -2, 4, 55);
 
-            let r1: number = 5;
-            let r2: number = 13;
+            
 
             if (this.flowerType == 1) {
                 for (let index: number = 0; index < 4; index++) {
