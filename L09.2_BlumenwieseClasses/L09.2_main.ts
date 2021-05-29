@@ -1,4 +1,10 @@
-
+/*
+Aufgabe: <L09.2 BlumenwieseClasses>
+Name: <Christina Däschner>
+Matrikel: <266417>
+Datum: <28.05.2021>
+Quellen: <Hilfe von: Huu Thien Phan Ngoc>
+*/
 namespace L09_BlumenwieseClasses {
 
     window.addEventListener("load", handleLoad);
