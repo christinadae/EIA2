@@ -33,10 +33,11 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Cow extends Animal {
 
-        property: string = "produces milk";
+        property: string = " produces milk.";
 
         cowsProperty(): void {
-            console.log("Cow " + this.property);
+            let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
 
     }
@@ -44,10 +45,11 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Sheep extends Animal {
 
-        property: string = "produces wool";
+        property: string = " produces wool.";
 
         sheepsProperty(): void {
-            console.log("Sheep " + this.property);
+            let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
 
     }
@@ -55,10 +57,11 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Chicken extends Animal {
 
-        property: string = "produces eggs";
+        property: string = " produces eggs.";
 
         chickensProperty(): void {
-            console.log("Chicken " + this.property);
+            let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
 
     }
@@ -66,10 +69,11 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Horse extends Animal {
 
-        property: string = "can run fast";
+        property: string = " can run fast.";
 
         horsesProperty(): void {
-            console.log("A horse " + this.property);
+            let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
 
     }
@@ -77,10 +81,11 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Pig extends Animal {
 
-        property: string = "loves the dirt";
+        property: string = " loves the dirt.";
 
         pigsProperty(): void {
-            console.log("A pig " + this.property);
+            let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
 
 

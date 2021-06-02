@@ -25,50 +25,55 @@ var L10_OldMacDonaldsFarmHeritage;
     class Cow extends Animal {
         constructor() {
             super(...arguments);
-            this.property = "produces milk";
+            this.property = " produces milk.";
         }
         cowsProperty() {
-            console.log("Cow " + this.property);
+            let showProperties = document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
     }
     L10_OldMacDonaldsFarmHeritage.Cow = Cow;
     class Sheep extends Animal {
         constructor() {
             super(...arguments);
-            this.property = "produces wool";
+            this.property = " produces wool.";
         }
         sheepsProperty() {
-            console.log("Sheep " + this.property);
+            let showProperties = document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
     }
     L10_OldMacDonaldsFarmHeritage.Sheep = Sheep;
     class Chicken extends Animal {
         constructor() {
             super(...arguments);
-            this.property = "produces eggs";
+            this.property = " produces eggs.";
         }
         chickensProperty() {
-            console.log("Chicken " + this.property);
+            let showProperties = document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
     }
     L10_OldMacDonaldsFarmHeritage.Chicken = Chicken;
     class Horse extends Animal {
         constructor() {
             super(...arguments);
-            this.property = "can run fast";
+            this.property = " can run fast.";
         }
         horsesProperty() {
-            console.log("A horse " + this.property);
+            let showProperties = document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
     }
     L10_OldMacDonaldsFarmHeritage.Horse = Horse;
     class Pig extends Animal {
         constructor() {
             super(...arguments);
-            this.property = "loves the dirt";
+            this.property = " loves the dirt.";
         }
         pigsProperty() {
-            console.log("A pig " + this.property);
+            let showProperties = document.querySelector("#animalsProperties");
+            showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
     }
     L10_OldMacDonaldsFarmHeritage.Pig = Pig;
