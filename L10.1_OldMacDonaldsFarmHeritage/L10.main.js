@@ -39,30 +39,30 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
         let cow = new L10_OldMacDonaldsFarmHeritage.Cow("Inge", "cow", "Mooo");
         cow.eat(50, 0);
         cow.sing(50);
-        cow.cowsProperty();
+        cow.cowsProperties();
         let chicken = new L10_OldMacDonaldsFarmHeritage.Chicken("Bärbel", "chicken", "Gack");
         setTimeout(function () {
             chicken.eat(2, 1);
             chicken.sing(2);
-            chicken.chickensProperty();
+            chicken.chickensProperties();
         }, 5000);
         let pig = new L10_OldMacDonaldsFarmHeritage.Pig("Mascha", "pig", "Oink");
         setTimeout(function () {
             pig.eat(40, 2);
             pig.sing(40);
-            pig.pigsProperty();
+            pig.pigsProperties();
         }, 10000);
         let horse = new L10_OldMacDonaldsFarmHeritage.Horse("Wendy", "horse", "Wieheer");
         setTimeout(function () {
             horse.eat(40, 3);
             horse.sing(40);
-            horse.horsesProperty();
+            horse.horsesProperties();
         }, 15000);
         let sheep = new L10_OldMacDonaldsFarmHeritage.Sheep("Shaun", "sheep", "Määh");
         setTimeout(function () {
             sheep.eat(20, 4);
             sheep.sing(20);
-            sheep.sheepsProperty();
+            sheep.sheepsProperties();
         }, 20000);
         let countingDays = document.querySelector("#countingDays");
         counter++;

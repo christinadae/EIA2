@@ -35,7 +35,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
         property: string = " produces milk.";
 
-        cowsProperty(): void {
+        cowsProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
@@ -47,7 +47,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
         property: string = " produces wool.";
 
-        sheepsProperty(): void {
+        sheepsProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
@@ -59,7 +59,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
         property: string = " produces eggs.";
 
-        chickensProperty(): void {
+        chickensProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
@@ -71,7 +71,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
         property: string = " can run fast.";
 
-        horsesProperty(): void {
+        horsesProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
@@ -83,7 +83,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
         property: string = " loves the dirt.";
 
-        pigsProperty(): void {
+        pigsProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }

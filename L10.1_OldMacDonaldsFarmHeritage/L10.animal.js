@@ -27,7 +27,7 @@ var L10_OldMacDonaldsFarmHeritage;
             super(...arguments);
             this.property = " produces milk.";
         }
-        cowsProperty() {
+        cowsProperties() {
             let showProperties = document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
@@ -38,7 +38,7 @@ var L10_OldMacDonaldsFarmHeritage;
             super(...arguments);
             this.property = " produces wool.";
         }
-        sheepsProperty() {
+        sheepsProperties() {
             let showProperties = document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
@@ -49,7 +49,7 @@ var L10_OldMacDonaldsFarmHeritage;
             super(...arguments);
             this.property = " produces eggs.";
         }
-        chickensProperty() {
+        chickensProperties() {
             let showProperties = document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
@@ -60,7 +60,7 @@ var L10_OldMacDonaldsFarmHeritage;
             super(...arguments);
             this.property = " can run fast.";
         }
-        horsesProperty() {
+        horsesProperties() {
             let showProperties = document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
@@ -71,7 +71,7 @@ var L10_OldMacDonaldsFarmHeritage;
             super(...arguments);
             this.property = " loves the dirt.";
         }
-        pigsProperty() {
+        pigsProperties() {
             let showProperties = document.querySelector("#animalsProperties");
             showProperties.innerHTML = this.name + " the " + this.breed + this.property;
         }
