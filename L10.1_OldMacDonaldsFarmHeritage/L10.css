@@ -1,0 +1,40 @@
+html,body {
+
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color:rosybrown;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+  }
+ 
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter;
+    letter-spacing: 0.2em;
+}
+#h2{
+    font-size: 30px;
+    letter-spacing: 0em;
+}
+
+h2 {
+    font-weight:200;
+    letter-spacing: 0.1em;
+}
+
+#leftover {
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+#nextDay {
+    width: auto;
+    height: auto;
+    text-align: center;
+    letter-spacing: 0.2em;
+    font-size: 20px;
+    border: solid thistle 2px;
+    border-radius: 25%;
+}
