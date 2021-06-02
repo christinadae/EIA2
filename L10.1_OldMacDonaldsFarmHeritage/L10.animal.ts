@@ -33,7 +33,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Cow extends Animal {
 
-        property: string = " produces milk.";
+        public property: string = " produces milk.";
 
         cowsProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
@@ -45,7 +45,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Sheep extends Animal {
 
-        property: string = " produces wool.";
+        public property: string = " produces wool.";
 
         sheepsProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
@@ -57,7 +57,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Chicken extends Animal {
 
-        property: string = " produces eggs.";
+        public property: string = " produces eggs.";
 
         chickensProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
@@ -69,7 +69,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Horse extends Animal {
 
-        property: string = " can run fast.";
+        public property: string = " can run fast.";
 
         horsesProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
@@ -81,7 +81,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Pig extends Animal {
 
-        property: string = " loves the dirt.";
+        public property: string = " loves the dirt.";
 
         pigsProperties(): void {
             let showProperties: HTMLElement = <HTMLElement>document.querySelector("#animalsProperties");
