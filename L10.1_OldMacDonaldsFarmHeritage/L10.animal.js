@@ -65,7 +65,7 @@ var L10_OldMacDonaldsFarmHeritage;
     class Pig extends Animal {
         constructor() {
             super(...arguments);
-            this.property = "can be very cute";
+            this.property = "loves the dirt";
         }
         pigsProperty() {
             console.log("A pig " + this.property);

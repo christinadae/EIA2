@@ -77,7 +77,7 @@ namespace L10_OldMacDonaldsFarmHeritage {
 
     export class Pig extends Animal {
 
-        property: string = "can be very cute";
+        property: string = "loves the dirt";
 
         pigsProperty(): void {
             console.log("A pig " + this.property);
