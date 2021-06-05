@@ -2,10 +2,10 @@
 var L10_OldMacDonaldsFarmHeritage;
 (function (L10_OldMacDonaldsFarmHeritage) {
     /*
-Aufgabe: <L09 Old Macdonald's Farm>
+Aufgabe: <L010.1 Old Macdonald's Farm>
 Name: <Christina Däschner>
 Matrikel: <266417>
-Datum: <20.05.2021>
+Datum: <05.06.2021>
 Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim, Mariia Kolkutova>
 */
     let counter = 0;
