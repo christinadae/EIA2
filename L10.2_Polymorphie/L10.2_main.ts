@@ -5,7 +5,7 @@ Matrikel: <266417>
 Datum: <28.05.2021>
 Quellen: <Hilfe von: Huu Thien Phan Ngoc>
 */
-namespace L09_BlumenwieseClasses {
+namespace Polymorphie {
 
     window.addEventListener("load", handleLoad);
 
@@ -13,9 +13,8 @@ namespace L09_BlumenwieseClasses {
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement;
 
+    let moveables: Moveable[] = [];
     let flowers: Flowers[] = [];
-    let bees: Bees[] = [];
-    let clouds: Clouds[] = [];
     let imageData: ImageData;
 
     function handleLoad(): void {
@@ -31,15 +30,12 @@ namespace L09_BlumenwieseClasses {
         createCloud();
         imageData =  crc2.getImageData(0, 0, canvas.width, canvas.height);
         animate();
-    
-        
 
     }
 
     function setBackground(): void {
 
         createBackground();
-        
         createMountains();
         createTrees();
         createBees(10);
@@ -50,14 +46,20 @@ namespace L09_BlumenwieseClasses {
 
         let xPos: number = 0;
         do {
-            flowers.push(new Flowers(Math.floor(Math.random() * 2) + 1, xPos));
+            let flowerType: number = Math.floor(Math.random() * 2) + 1;
+
+            if (flowerType == 1) {
+                flowers.push(new Tulip(xPos, 50 + (crc2.canvas.height * 0.62), crc2.canvas.height * 0.9));
+            }
+           else {
+            flowers.push(new Dandelion(xPos, 50 + (crc2.canvas.height * 0.62), crc2.canvas.height * 0.9));
+            
+           }
             xPos += 10 + Math.random() * (50 - 10);
         }
         while (xPos < crc2.canvas.width);
        
     }
-
-
 
     function createBees(_sumBees: number): void {
         for (let index: number = 0; index < _sumBees; index ++) {
@@ -65,27 +67,27 @@ namespace L09_BlumenwieseClasses {
 
             let randomSpeedX: number = (Math.random() - 0.5) * 5;
             let randomSpeedY: number = (Math.random() - 0.5) * 5;
-            bees.push(new Bees(crc2.canvas.width / 2, crc2.canvas.height * 0.62, randomSpeedX, randomSpeedY, randomScale));
+            moveables.push(new Bees(crc2.canvas.width / 2, crc2.canvas.height * 0.62, randomSpeedX, randomSpeedY, randomScale));
         }
     }
 
     function createCloud(): void {
     
-        clouds.push(new Clouds(crc2.canvas.width * .05, crc2.canvas.height * .25));
-        clouds.push(new Clouds(crc2.canvas.width * .07, crc2.canvas.height * .95));
+        moveables.push(new Clouds(crc2.canvas.width * .10, crc2.canvas.height * .10, 0.5, 1));
+        moveables.push(new Clouds(crc2.canvas.width * .5, crc2.canvas.height * .05, 0.5, 1));
     }
 
     function animate(): void {
         requestAnimationFrame(animate);
         crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imageData, 0, 0);
-        for (let index: number = 0; index < bees.length; index ++) {
-            bees[index].update();
+
+        for (let index: number = 0; index < moveables.length; index ++) {
+            moveables[index].update();
+            moveables[index].draw();
             
         }
-        for (let index: number = 0; index < clouds.length; index ++) {
-            clouds[index].update();
-        }
+       
     }
 }
     
