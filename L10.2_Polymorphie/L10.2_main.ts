@@ -1,9 +1,9 @@
 /*
-Aufgabe: <L09.2 BlumenwieseClasses>
+Aufgabe: <L10.2 Polymorphie>
 Name: <Christina Däschner>
 Matrikel: <266417>
-Datum: <28.05.2021>
-Quellen: <Hilfe von: Huu Thien Phan Ngoc>
+Datum: <12.06.2021>
+Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim, Mariia Kolkutova>
 */
 namespace Polymorphie {
 
