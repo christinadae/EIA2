@@ -89,7 +89,6 @@ export class Bees extends Moveable {
         this.posY += this.speedY;
         this.counter ++;
 
-        this.draw();
        
     }
 }

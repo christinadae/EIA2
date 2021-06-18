@@ -37,8 +37,7 @@ update(): void {
 
     this.posX += this.speedX;
     this.posY += this.speedY;
-    
-    this.draw();
+
 }
 }
     

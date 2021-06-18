@@ -63,7 +63,6 @@ var BlumenwieseAdvanced;
             this.posX += this.speedX;
             this.posY += this.speedY;
             this.counter++;
-            this.draw();
         }
     }
     BlumenwieseAdvanced.Bees = Bees;

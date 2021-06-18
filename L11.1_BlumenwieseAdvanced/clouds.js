@@ -30,7 +30,6 @@ var BlumenwieseAdvanced;
             }
             this.posX += this.speedX;
             this.posY += this.speedY;
-            this.draw();
         }
     }
     BlumenwieseAdvanced.Clouds = Clouds;
