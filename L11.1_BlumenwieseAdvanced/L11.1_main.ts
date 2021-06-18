@@ -1,8 +1,8 @@
 /*
-Aufgabe: <L10.2 Polymorphie>
+Aufgabe: <L11.1_BlumenwieseAdvanced>
 Name: <Christina Däschner>
 Matrikel: <266417>
-Datum: <12.06.2021>
+Datum: <18.06.2021>
 Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim, Mariia Kolkutova>
 */
 namespace BlumenwieseAdvanced {
@@ -14,7 +14,7 @@ namespace BlumenwieseAdvanced {
     export let canvas: HTMLCanvasElement;
 
     let moveables: Moveable[] = [];
-    let flowers: Flowers[] = [];
+    let flowers: Flower[] = [];
     let imageData: ImageData;
 
     function handleLoad(): void {

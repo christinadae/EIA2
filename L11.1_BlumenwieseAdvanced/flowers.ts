@@ -1,6 +1,6 @@
 namespace  BlumenwieseAdvanced {
 
-    export class Flowers {
+    export class Flower {
         public xPos: number;
         public minY: number = 50 + (crc2.canvas.height * 0.62);
         public maxY: number = crc2.canvas.height * 0.9;
@@ -17,7 +17,7 @@ namespace  BlumenwieseAdvanced {
             //Draw
         }
     }
-    export class Tulip extends Flowers {
+    export class Tulip extends Flower {
        
         
 
@@ -53,7 +53,7 @@ namespace  BlumenwieseAdvanced {
     
         }
         
-    export class Dandelion extends Flowers {
+    export class Dandelion extends Flower {
             
             draw(): void {
         let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 2, 0, 0, 20);

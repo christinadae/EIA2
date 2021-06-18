@@ -1,7 +1,7 @@
 "use strict";
 var BlumenwieseAdvanced;
 (function (BlumenwieseAdvanced) {
-    class Flowers {
+    class Flower {
         constructor(_xPos, _minY, _maxY) {
             this.minY = 50 + (BlumenwieseAdvanced.crc2.canvas.height * 0.62);
             this.maxY = BlumenwieseAdvanced.crc2.canvas.height * 0.9;
@@ -14,8 +14,8 @@ var BlumenwieseAdvanced;
             //Draw
         }
     }
-    BlumenwieseAdvanced.Flowers = Flowers;
-    class Tulip extends Flowers {
+    BlumenwieseAdvanced.Flower = Flower;
+    class Tulip extends Flower {
         draw() {
             let randomScale = 0.5 + Math.random() * (0.8 - 0.5);
             let y = this.minY + Math.random() * (this.maxY - this.minY);
@@ -40,7 +40,7 @@ var BlumenwieseAdvanced;
         }
     }
     BlumenwieseAdvanced.Tulip = Tulip;
-    class Dandelion extends Flowers {
+    class Dandelion extends Flower {
         draw() {
             let gradient = BlumenwieseAdvanced.crc2.createRadialGradient(0, 0, 2, 0, 0, 20);
             let randomScale = 0.5 + Math.random() * (0.8 - 0.5);
