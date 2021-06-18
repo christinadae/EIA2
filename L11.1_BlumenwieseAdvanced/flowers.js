@@ -8,7 +8,7 @@ var BlumenwieseAdvanced;
             this.nectarValue = Math.floor(Math.random() * 2000) + 1000;
             this.nectarCounter = 0;
             this.randomScale = 0.5 + Math.random() * (0.8 - 0.5);
-            this.nectarLength = 1;
+            this.nectarLength = 3;
             this.xPos = _xPos;
             this.minY = _minY;
             this.maxY = _maxY;

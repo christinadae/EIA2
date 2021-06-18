@@ -8,7 +8,7 @@ namespace  BlumenwieseAdvanced {
         protected nectarCounter: number = 0;
         protected yPos: number;
         protected randomScale: number = 0.5 + Math.random() * (0.8 - 0.5);
-        protected nectarLength: number = 1;
+        protected nectarLength: number = 3;
 
         constructor(_xPos: number, _minY: number, _maxY: number) {
             this.xPos = _xPos;
