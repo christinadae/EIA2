@@ -1,9 +1,14 @@
 namespace  BlumenwieseAdvanced {
 
-    export class Flower {
+    export abstract class Flower {
         protected xPos: number;
         protected minY: number = 50 + (crc2.canvas.height * 0.62);
         protected maxY: number = crc2.canvas.height * 0.9;
+        protected nectarValue: number = Math.floor(Math.random() * 2000) + 1000;
+        protected nectarCounter: number = 0;
+        protected yPos: number;
+        protected randomScale: number = 0.5 + Math.random() * (0.8 - 0.5);
+        protected nectarLength: number = 1;
 
         constructor(_xPos: number, _minY: number, _maxY: number) {
             this.xPos = _xPos;
@@ -13,76 +18,24 @@ namespace  BlumenwieseAdvanced {
             this.draw();
         }
 
-        protected draw(): void {
+        public draw(): void {
             //Draw
         }
-    }
-    export class Tulip extends Flower {
-       
-        
-
-        draw(): void {
-
-            let randomScale: number = 0.5 + Math.random() * (0.8 - 0.5);
-            let y: number = this.minY + Math.random() * (this.maxY - this.minY);
-            let r1: number = 5;
-            let r2: number = 13;
-
-            crc2.save();
-            crc2.translate(this.xPos, y);
-            crc2.scale(randomScale, randomScale);
-            crc2.fillStyle = "#698c67";
-            crc2.fillRect(-1, -2, 4, 55);
-
-            for (let index: number = 0; index < 4; index++) {
-
-                let gradient: CanvasGradient = crc2.createRadialGradient(0, 3, r1, 0, 3, r2);
-    
-                gradient.addColorStop(0, "#c54f20");
-                gradient.addColorStop(1, "HSLA(290,60%,70%,0.3)");
-    
-                crc2.beginPath();
-                crc2.arc(2, 3, r2, 0, 2 * Math.PI);
-                crc2.closePath();
-                crc2.fillStyle = gradient;
-                crc2.fill();
-    
-            }
-            crc2.restore();
+        public updateNectar(): void {
+            //;
         }
-    
-        }
-        
-    export class Dandelion extends Flower {
-            
-            draw(): void {
-        let gradient: CanvasGradient = crc2.createRadialGradient(0, 0, 2, 0, 0, 20);
-        let randomScale: number = 0.5 + Math.random() * (0.8 - 0.5);
-        let y: number = this.minY + Math.random() * (this.maxY - this.minY);
-        crc2.save();
-        crc2.translate(this.xPos, y);
-        crc2.scale(randomScale, randomScale);
-        crc2.fillStyle = "#698c67";
-        crc2.fillRect(-1, -2, 4, 55);
-        gradient.addColorStop(0, "#776896");
-        gradient.addColorStop(1, "#8f9fbb");
 
-        crc2.beginPath();
-        crc2.moveTo(0, 0);
-        crc2.lineTo(-15, -5);
-        crc2.lineTo(-25, -30);
-        crc2.lineTo(-10, -20);
-        crc2.lineTo(0, -40);
-        crc2.lineTo(10, -20);
-        crc2.lineTo(25, -30);
-        crc2.lineTo(15, -5);
-        crc2.closePath();
-        crc2.fillStyle = gradient;
-        crc2.fill();
-        crc2.restore();
+      
     }
+   
+        
+   
 }
 
-    }
+
+
+
+
+    
            
 

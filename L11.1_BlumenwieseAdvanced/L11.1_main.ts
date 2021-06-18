@@ -81,6 +81,10 @@ namespace BlumenwieseAdvanced {
         requestAnimationFrame(animate);
         crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imageData, 0, 0);
+        
+        for (let index: number = 0; index < flowers.length; index ++) {
+            flowers[index].updateNectar();
+        }
 
         for (let index: number = 0; index < moveables.length; index ++) {
             moveables[index].update();

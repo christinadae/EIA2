@@ -58,6 +58,9 @@ var BlumenwieseAdvanced;
         requestAnimationFrame(animate);
         BlumenwieseAdvanced.crc2.clearRect(0, 0, BlumenwieseAdvanced.crc2.canvas.width, BlumenwieseAdvanced.crc2.canvas.height);
         BlumenwieseAdvanced.crc2.putImageData(imageData, 0, 0);
+        for (let index = 0; index < flowers.length; index++) {
+            flowers[index].updateNectar();
+        }
         for (let index = 0; index < moveables.length; index++) {
             moveables[index].update();
             moveables[index].draw();
