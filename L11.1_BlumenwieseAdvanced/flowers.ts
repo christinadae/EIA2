@@ -1,9 +1,9 @@
 namespace  BlumenwieseAdvanced {
 
     export class Flower {
-        public xPos: number;
-        public minY: number = 50 + (crc2.canvas.height * 0.62);
-        public maxY: number = crc2.canvas.height * 0.9;
+        protected xPos: number;
+        protected minY: number = 50 + (crc2.canvas.height * 0.62);
+        protected maxY: number = crc2.canvas.height * 0.9;
 
         constructor(_xPos: number, _minY: number, _maxY: number) {
             this.xPos = _xPos;
@@ -13,7 +13,7 @@ namespace  BlumenwieseAdvanced {
             this.draw();
         }
 
-        draw(): void {
+        protected draw(): void {
             //Draw
         }
     }

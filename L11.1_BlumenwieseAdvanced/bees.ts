@@ -3,9 +3,9 @@ namespace  BlumenwieseAdvanced {
 export class Bees extends Moveable {
  
 
-    public randomScale: number;
-    public randomNumber: number = (Math.floor(Math.random() * 2000) + 1000);
-    public counter: number = 0;
+    private randomScale: number;
+    private randomNumber: number = (Math.floor(Math.random() * 2000) + 1000);
+    private counter: number = 0;
 
 
 

@@ -1,11 +1,11 @@
 namespace  BlumenwieseAdvanced {
 
 export class Moveable {
-    public posX: number;
-    public posY: number;
+    protected posX: number;
+    protected posY: number;
 
-    public speedX: number;
-    public speedY: number;
+    protected speedX: number;
+    protected speedY: number;
 
     constructor(_posX: number, _posY: number, _speedX: number, _speedY: number) {
         this.posX = _posX;
@@ -13,11 +13,11 @@ export class Moveable {
         this.speedX = _speedX;
         this.speedY = _speedY;
     }
-    draw(): void {
+    public draw(): void {
         //Draw
     }
     
-    update(): void {
+    public update(): void {
         //Update
     }
 }
