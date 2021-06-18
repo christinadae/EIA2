@@ -1,6 +1,6 @@
 namespace  BlumenwieseAdvanced {
 
-export class Moveable {
+export abstract class Moveable {
     protected posX: number;
     protected posY: number;
 
