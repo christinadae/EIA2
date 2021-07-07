@@ -12,8 +12,8 @@ namespace soccerSimulation {
          canvas = <HTMLCanvasElement> document.querySelector("canvas");
          crc2 = <CanvasRenderingContext2D> canvas.getContext("2d");
         
-         canvas.width = 1200;
-         canvas.height = 700;
+         canvas.width = 900;
+         canvas.height = 500;
 
          setBasics();
          imageData =  crc2.getImageData(0, 0, canvas.width, canvas.height);
