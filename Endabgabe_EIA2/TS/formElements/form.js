@@ -78,6 +78,7 @@ var Endabgabe;
         // console.log(playerIndex);
         // formIntoHTML(playerIndex);
     }
+    Endabgabe.updateSelect = updateSelect;
     function posessionUpdate(_index) {
         let chosenPlayer = Endabgabe.players[_index];
         Endabgabe.posession.innerHTML = "Posession Player:" + chosenPlayer.jerseyNumberPlayer + " Team:" + chosenPlayer.playerTeam;

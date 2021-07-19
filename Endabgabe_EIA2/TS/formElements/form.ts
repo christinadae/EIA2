@@ -66,7 +66,7 @@ namespace Endabgabe {
         }
     }
 
-    function updateSelect(): void {
+    export function updateSelect(): void {
         if (chosenTeam == "A") {
             subPlayerDOMElement.innerHTML = "<option value=" + subA[0] + ">Team A: Sub.1</option><option value=" + subA[1] + ">Team A: Sub.2</option><option value=" + subA[2] + ">Team A: Sub.3</option>";
         }

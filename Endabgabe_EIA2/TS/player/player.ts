@@ -47,11 +47,11 @@ namespace Endabgabe {
             return this.team;
         }
 
-        setOnField(_onField: boolean): void {
+        public setOnField(_onField: boolean): void {
             this.onField = _onField;
         }
 
-        setOrigin(_position: Vector): void {
+        public setOrigin(_position: Vector): void {
             this.origin = _position;
         }
 
@@ -60,7 +60,7 @@ namespace Endabgabe {
             this.velocity = _minSpeed + Math.random() * (_maxSpeed - _minSpeed);
         }
 
-        setDistance(): void {
+        public setDistance(): void {
             let ballPos: Vector = ball.ballPos;
             this.distancePlayerBall = Vector.getdistance(ballPos, this.position);
         }
@@ -78,7 +78,7 @@ namespace Endabgabe {
            
         }
 
-        changePlayer(_position: Vector): void {
+        public changePlayer(_position: Vector): void {
             this.newPosition = _position;
             console.log(this.newPosition);
             this.task = Task.changePlayer;
