@@ -51,7 +51,7 @@ namespace Endabgabe {
         public draw(): void { // Ball wird zum ersten Mal gezeichnet
             crc2.beginPath();
             crc2.arc(this.position.x, this.position.y, 7, 0, 2 * Math.PI);
-            crc2.stroke();
+        
             crc2.fillStyle = "white";
             crc2.fill();
             crc2.closePath();
@@ -67,8 +67,8 @@ namespace Endabgabe {
                 }
                 else {
                     // > 1, dann wird die Bewegung des Balles zum Ende hin immer langsamer
-                    this.position.x += diff.x * 0.01;
-                    this.position.y += diff.y * 0.01;
+                    this.position.x += diff.x * 0.03;
+                    this.position.y += diff.y * 0.03;
                     this.checkEnviroment();
                 }
             }
@@ -118,6 +118,7 @@ namespace Endabgabe {
                     let chosenPlayer: Player = <Player>humans[index];
                     if (chosenPlayer.distance < 10) {
                         this.playerIndex = index;
+                        posessionUpdate(index);
                         animationKey = false; // Erst beim Klicken, wird animationKey wieder true
                         this.ballKey = false; // Spieler kann nun Ball schießen
                         shootKey = true;

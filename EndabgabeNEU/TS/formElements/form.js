@@ -2,9 +2,11 @@
 var Endabgabe;
 (function (Endabgabe) {
     let valuesGlobal = [];
-    let playerIndex;
+    let playerIndex = 0;
     let subIndex;
     let chosenTeam;
+    let subA = ["23", "24", "25"];
+    let subB = ["26", "27", "28"];
     function handleChange() {
         let formData = new FormData(document.forms[0]);
         valuesGlobal = [];
@@ -15,13 +17,15 @@ var Endabgabe;
         for (let index = 0; index < 28; index++) {
             let chosenPlayer = Endabgabe.humans[index];
             chosenPlayer.setProperties(Number(valuesGlobal[0]), Number(valuesGlobal[1]), Number(valuesGlobal[2]), Number(valuesGlobal[3]));
-            if (index < 11) {
-                Endabgabe.humans[index].setJersey(valuesGlobal[4]);
-                Endabgabe.humans[index].draw();
-            }
-            else {
-                Endabgabe.humans[index].setJersey(valuesGlobal[5]);
-                Endabgabe.humans[index].draw();
+            if (index < 22) {
+                if (index < 11) {
+                    Endabgabe.humans[index].setJersey(valuesGlobal[4]);
+                    Endabgabe.humans[index].draw();
+                }
+                else {
+                    Endabgabe.humans[index].setJersey(valuesGlobal[5]);
+                    Endabgabe.humans[index].draw();
+                }
             }
         }
     }
@@ -36,45 +40,80 @@ var Endabgabe;
     }
     Endabgabe.subChange = subChange;
     function exchangePlayer() {
-        console.log(Endabgabe.subPlayerDOMElement.selectedIndex);
+        if (chosenTeam == "A") {
+            subA[Endabgabe.subPlayerDOMElement.selectedIndex] = String(playerIndex);
+        }
+        else {
+            subB[Endabgabe.subPlayerDOMElement.selectedIndex] = String(playerIndex);
+        }
+        let chosenPlayer = Endabgabe.humans[playerIndex];
+        let chosenSub = Endabgabe.humans[subIndex];
+        let originPlayer = chosenPlayer.playerOrigin.copy();
+        let originSub = chosenSub.playerOrigin.copy();
+        chosenPlayer.setOrigin(originSub);
+        chosenPlayer.changePlayer(chosenSub.playerPosition.copy());
+        chosenSub.setOnField(true);
+        chosenSub.setOrigin(originPlayer);
+        chosenSub.changePlayer(chosenPlayer.playerPosition.copy());
+        test();
     }
     Endabgabe.exchangePlayer = exchangePlayer;
     function test() {
         if (chosenTeam == "A") {
-            Endabgabe.subPlayerDOMElement.innerHTML = "<option value='23'>Team A: Sub.1</option><option value='24'>Team A: Sub.2</option><option value='25'>Team A: Sub.3</option>";
+            Endabgabe.subPlayerDOMElement.innerHTML = "<option value=" + subA[0] + ">Team A: Sub.1</option><option value=" + subA[1] + ">Team A: Sub.2</option><option value=" + subA[2] + ">Team A: Sub.3</option>";
         }
         if (chosenTeam == "B") {
-            Endabgabe.subPlayerDOMElement.innerHTML = "<option value='26'>Team B: Sub.1</option><option value='27'>Team B: Sub.2</option><option value='28'>Team B: Sub.3</option>";
+            Endabgabe.subPlayerDOMElement.innerHTML = "<option value=" + subB[0] + ">Team B: Sub.1</option><option value=" + subB[1] + ">Team B: Sub.2</option><option value=" + subA[2] + ">Team B: Sub.3</option>";
         }
     }
-    function updateForm(_event) {
-        let rect = Endabgabe.canvas.getBoundingClientRect();
-        let mouse = new Endabgabe.Vector(_event.clientX - rect.left, _event.clientY - rect.top);
-        console.log(mouse);
-        for (let index = 0; index < Endabgabe.humans.length; index++) {
-            let distance = Endabgabe.Vector.getDistance(mouse, Endabgabe.humans[index].playerPosition);
-            if (distance < 10) {
-                playerIndex = index;
-                formIntoHTML(index);
-                break;
-            }
-        }
+    function posessionUpdate(_index) {
+        let chosenPlayer = Endabgabe.humans[_index];
+        Endabgabe.posession.innerHTML = "Possesion Player:" + chosenPlayer.jerseyNumberPlayer + " Team:" + chosenPlayer.playerTeam;
     }
-    Endabgabe.updateForm = updateForm;
+    Endabgabe.posessionUpdate = posessionUpdate;
+    // export function updateForm(_event: MouseEvent): void {
+    //     let rect: DOMRect = canvas.getBoundingClientRect();
+    //     let mouse: Vector = new Vector(_event.clientX - rect.left, _event.clientY - rect.top);
+    //     console.log(mouse);
+    //     for (let index: number = 0; index < players.length; index++) {
+    //         let distance: number = Vector.getdistance(mouse, players[index].playerPosition);
+    //         if (distance < 10) {
+    //             playerIndex = index;
+    //             formIntoHTML(index);
+    //             break;
+    //         }
+    //     }
+    // }
     function switchForm(_event) {
+        let chosenPlayer;
+        let chosenPlayer2;
         switch (_event.code) {
             case "ArrowLeft":
+                let playerOldIndex1 = playerIndex;
                 playerIndex--;
                 if (playerIndex < 0) {
-                    playerIndex = 22;
+                    playerIndex = 28;
                 }
+                chosenPlayer = Endabgabe.humans[playerIndex];
+                chosenPlayer.setSelected(true);
+                chosenPlayer.draw();
+                chosenPlayer2 = Endabgabe.humans[playerOldIndex1];
+                chosenPlayer2.setSelected(false);
+                chosenPlayer2.draw();
                 formIntoHTML(playerIndex);
                 break;
             case "ArrowRight":
-                if (playerIndex > 22) {
+                let playerOldIndex2 = playerIndex;
+                playerIndex++;
+                if (playerIndex > 28) {
                     playerIndex = 0;
                 }
-                playerIndex++;
+                chosenPlayer = Endabgabe.humans[playerIndex];
+                chosenPlayer.setSelected(true);
+                chosenPlayer.draw();
+                chosenPlayer2 = Endabgabe.humans[playerOldIndex2];
+                chosenPlayer2.setSelected(false);
+                chosenPlayer2.draw();
                 formIntoHTML(playerIndex);
         }
     }

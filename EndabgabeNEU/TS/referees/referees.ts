@@ -39,7 +39,7 @@ namespace Endabgabe {
             public update(): void {
                 let diff: Vector = Vector.getDifference(ball.ballPos, this.position);
                 if (Math.abs(diff.x) < 30 && Math.abs(diff.y) < 30) {
-                    //nothing
+                    //
                 }
                 else {
                     this.position.x += diff.x * 0.005;

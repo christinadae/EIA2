@@ -6,6 +6,7 @@ var Endabgabe;
             super(_position, _jerseyColor); // Die Spieler erben die Position und Trikotfarbe von der Superklasse Human
             this.task = Endabgabe.Task.lookForBall;
             this.radius = 80;
+            this.selected = false;
             this.onField = _onField;
             this.velocity = 0.5;
             this.jerseyNumber = _jerseyNumber;
@@ -13,6 +14,9 @@ var Endabgabe;
             // Es wird einmal die Ursprungsposition einmal mit der aktuellen Position, die jeder Spieler zu Beginn hat, gespeichert
             // Somit wird es möglich, dass die Spieler wieder auf ihre Position zurückrennen können
             this.team = _team;
+        }
+        get playerOrigin() {
+            return this.origin;
         }
         get jerseyNumberPlayer() {
             return this.jerseyNumber;
@@ -35,6 +39,12 @@ var Endabgabe;
         setOnField(_onField) {
             this.onField = _onField;
         }
+        setOrigin(_position) {
+            this.origin = _position;
+        }
+        setSelected(_selected) {
+            this.selected = _selected;
+        }
         setProperties(_minSpeed, _maxSpeed, _minPrecision, _maxPrecision) {
             this.precision = _minPrecision + Math.random() * (_maxPrecision - _minPrecision);
             this.velocity = _minSpeed + Math.random() * (_maxSpeed - _minSpeed);
@@ -45,14 +55,24 @@ var Endabgabe;
         }
         draw() {
             Endabgabe.crc2.beginPath();
-            Endabgabe.crc2.fillStyle = this.jerseyColor;
             Endabgabe.crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
+            if (this.selected == true) {
+                Endabgabe.crc2.strokeStyle = "yellow";
+                Endabgabe.crc2.lineWidth = 2;
+                Endabgabe.crc2.stroke();
+            }
+            Endabgabe.crc2.fillStyle = this.jerseyColor;
             Endabgabe.crc2.fill();
             Endabgabe.crc2.textBaseline = "middle";
             Endabgabe.crc2.textAlign = "center";
             Endabgabe.crc2.fillStyle = "white";
             Endabgabe.crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
             Endabgabe.crc2.closePath();
+        }
+        changePlayer(_position) {
+            this.newPosition = _position;
+            console.log(this.newPosition);
+            this.task = Endabgabe.Task.changePlayer;
         }
         drawRadius() {
             Endabgabe.crc2.beginPath();
@@ -92,11 +112,23 @@ var Endabgabe;
                         if (Endabgabe.Vector.getDistance(this.origin, this.position) < 1) {
                             this.task = Endabgabe.Task.lookForBall;
                         }
+                        break;
+                    case Endabgabe.Task.changePlayer:
+                        this.movePlayer(this.newPosition);
+                        if (Endabgabe.Vector.getDistance(this.newPosition, this.position) < 1) {
+                            if (this.position.y > 470 || this.position.y < 30) {
+                                this.setOnField(false);
+                            }
+                            else {
+                                this.setOnField(true);
+                                this.task = Endabgabe.Task.lookForBall;
+                            }
+                        }
                 }
             }
         }
-        movePlayer(_positon) {
-            let playerDistance = Endabgabe.Vector.getDifference(_positon, this.position);
+        movePlayer(_position) {
+            let playerDistance = Endabgabe.Vector.getDifference(_position, this.position);
             if (playerDistance.x == 0 && playerDistance.y > 0) {
                 this.position.y += this.velocity;
             }

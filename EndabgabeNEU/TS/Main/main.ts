@@ -14,10 +14,11 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
         lookForBall,
         walkToBall,
         shootBall,
-        walkToOrigin
+        walkToOrigin,
+        changePlayer
     }
 
-    let imageData: ImageData;
+    export let imageData: ImageData;
     export let ball: Ball;
     export let key: boolean;
     export let animationKey: boolean = true; // Key für Animation
@@ -52,6 +53,9 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
     export let scoreA: number = 0; // Score-Zähler A
     export let scoreB: number = 0; // Score-Zähler B
 
+    export let endBtn: HTMLButtonElement;
+    export let posession: HTMLParagraphElement;
+
 
     function handleLoad(): void {
 
@@ -59,6 +63,8 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
         precPlayer = <HTMLParagraphElement>document.querySelector("#precPlayer");
         numberPlayer = <HTMLParagraphElement>document.querySelector("#numberPlayer");
         teamPlayer = <HTMLParagraphElement>document.querySelector("#teamPlayer");
+
+        posession = <HTMLParagraphElement>document.querySelector("#posession");
 
         speedSub = <HTMLParagraphElement>document.querySelector("#speedSubstitute");
         precSub = <HTMLParagraphElement>document.querySelector("#precSubstitute");
@@ -76,7 +82,7 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
         subPlayerDOMElement.addEventListener("change", subChange);
         form.addEventListener("change", handleChange);
         canvas.addEventListener("click", shootBall);
-        canvas.addEventListener("click", updateForm);
+        //canvas.addEventListener("click", updateForm);
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
 
         canvas.width = 900;
@@ -86,7 +92,9 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
         ball = new Ball(new Vector(canvas.width * 0.5, canvas.height * 0.5)); // Ball wird direkt zu Beginn einer festen Position zugewiesen
 
         createPlayer();
+        createReferees();
         handleChange();
+        formIntoHTML(0);
         animate();
     }
 
@@ -122,6 +130,12 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
         }
 
         console.log(humans);
+    }
+
+    function createReferees(): void {
+        humans.push(new Referee(new Vector(450, 150), "white"));
+        humans.push(new Linereferee(new Vector(680, 15), "pink"));
+        humans.push(new Linereferee(new Vector(230, 485), "pink"));
     }
 
     function shootBall(_event: MouseEvent): void {

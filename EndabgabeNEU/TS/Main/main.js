@@ -15,8 +15,8 @@ var Endabgabe;
         Task[Task["walkToBall"] = 1] = "walkToBall";
         Task[Task["shootBall"] = 2] = "shootBall";
         Task[Task["walkToOrigin"] = 3] = "walkToOrigin";
+        Task[Task["changePlayer"] = 4] = "changePlayer";
     })(Task = Endabgabe.Task || (Endabgabe.Task = {}));
-    let imageData;
     Endabgabe.animationKey = true; // Key für Animation
     Endabgabe.shootKey = false; // -> überprüfen ob die nur Animation Key funktioniert // Key für den Ball, der das Schießen erlaubt (wenn es in seinem Radius ist)
     Endabgabe.humans = []; // // alle Personen werden darin gespeichert
@@ -27,6 +27,7 @@ var Endabgabe;
         Endabgabe.precPlayer = document.querySelector("#precPlayer");
         Endabgabe.numberPlayer = document.querySelector("#numberPlayer");
         Endabgabe.teamPlayer = document.querySelector("#teamPlayer");
+        Endabgabe.posession = document.querySelector("#posession");
         Endabgabe.speedSub = document.querySelector("#speedSubstitute");
         Endabgabe.precSub = document.querySelector("#precSubstitute");
         Endabgabe.numberSub = document.querySelector("#numberSubstitute");
@@ -42,15 +43,17 @@ var Endabgabe;
         Endabgabe.subPlayerDOMElement.addEventListener("change", Endabgabe.subChange);
         Endabgabe.form.addEventListener("change", Endabgabe.handleChange);
         Endabgabe.canvas.addEventListener("click", shootBall);
-        Endabgabe.canvas.addEventListener("click", Endabgabe.updateForm);
+        //canvas.addEventListener("click", updateForm);
         Endabgabe.crc2 = Endabgabe.canvas.getContext("2d");
         Endabgabe.canvas.width = 900;
         Endabgabe.canvas.height = 500;
         Endabgabe.drawField(); //Fußballfeld wird gemalt
-        imageData = Endabgabe.crc2.getImageData(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height); // Speichert das komplette Canvas + gezeichnete Inhalte von Canvas
+        Endabgabe.imageData = Endabgabe.crc2.getImageData(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height); // Speichert das komplette Canvas + gezeichnete Inhalte von Canvas
         Endabgabe.ball = new Endabgabe.Ball(new Endabgabe.Vector(Endabgabe.canvas.width * 0.5, Endabgabe.canvas.height * 0.5)); // Ball wird direkt zu Beginn einer festen Position zugewiesen
         createPlayer();
+        createReferees();
         Endabgabe.handleChange();
+        Endabgabe.formIntoHTML(0);
         animate();
     }
     function createPlayer() {
@@ -81,6 +84,11 @@ var Endabgabe;
         }
         console.log(Endabgabe.humans);
     }
+    function createReferees() {
+        Endabgabe.humans.push(new Endabgabe.Referee(new Endabgabe.Vector(450, 150), "white"));
+        Endabgabe.humans.push(new Endabgabe.Linereferee(new Endabgabe.Vector(680, 15), "pink"));
+        Endabgabe.humans.push(new Endabgabe.Linereferee(new Endabgabe.Vector(230, 485), "pink"));
+    }
     function shootBall(_event) {
         if (Endabgabe.shootKey == true) { // Ermöglicht, den Ball schießen zu können
             let rect = Endabgabe.canvas.getBoundingClientRect(); // macht Verhältnis wieder normal
@@ -96,7 +104,7 @@ var Endabgabe;
         if (Endabgabe.animationKey == true) {
             requestAnimationFrame(animate);
             Endabgabe.crc2.clearRect(0, 0, Endabgabe.crc2.canvas.width, Endabgabe.crc2.canvas.height);
-            Endabgabe.crc2.putImageData(imageData, 0, 0);
+            Endabgabe.crc2.putImageData(Endabgabe.imageData, 0, 0);
             for (let index = 0; index < Endabgabe.humans.length; index++) { // human.length => Sodass alle im Array in der For-Schleife angesprochen werden + gezeichnet werden
                 Endabgabe.humans[index].update(); // Einzelner Spieler im gespeicherten Array wird aktualisiert
                 Endabgabe.humans[index].draw(); // und animiert bzw. gezeichnet

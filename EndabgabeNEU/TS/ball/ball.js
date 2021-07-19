@@ -39,7 +39,6 @@ var Endabgabe;
         draw() {
             Endabgabe.crc2.beginPath();
             Endabgabe.crc2.arc(this.position.x, this.position.y, 7, 0, 2 * Math.PI);
-            Endabgabe.crc2.stroke();
             Endabgabe.crc2.fillStyle = "white";
             Endabgabe.crc2.fill();
             Endabgabe.crc2.closePath();
@@ -54,8 +53,8 @@ var Endabgabe;
                 }
                 else {
                     // > 1, dann wird die Bewegung des Balles zum Ende hin immer langsamer
-                    this.position.x += diff.x * 0.01;
-                    this.position.y += diff.y * 0.01;
+                    this.position.x += diff.x * 0.03;
+                    this.position.y += diff.y * 0.03;
                     this.checkEnviroment();
                 }
             }
@@ -99,6 +98,7 @@ var Endabgabe;
                     let chosenPlayer = Endabgabe.humans[index];
                     if (chosenPlayer.distance < 10) {
                         this.playerIndex = index;
+                        Endabgabe.posessionUpdate(index);
                         Endabgabe.animationKey = false; // Erst beim Klicken, wird animationKey wieder true
                         this.ballKey = false; // Spieler kann nun Ball schießen
                         Endabgabe.shootKey = true;

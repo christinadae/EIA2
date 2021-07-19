@@ -33,7 +33,7 @@ var Endabgabe;
         update() {
             let diff = Endabgabe.Vector.getDifference(Endabgabe.ball.ballPos, this.position);
             if (Math.abs(diff.x) < 30 && Math.abs(diff.y) < 30) {
-                //nothing
+                //
             }
             else {
                 this.position.x += diff.x * 0.005;
