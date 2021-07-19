@@ -24,7 +24,7 @@ namespace Endabgabe {
 
         public setnewPosition(_newPosition: Vector): void {
             let distanceBall: number = Vector.getDistance(_newPosition, this.position); // Distanz von Ball zwischen neuer Position und aktueller Position
-            let chosenPlayer: Player = <Player> humans[this.playerIndex]; // Spieler wird mit seinem Index erkannt
+            let chosenPlayer: Player = <Player>humans[this.playerIndex]; // Spieler wird mit seinem Index erkannt
             let random: number = Math.random();
             let newX: number; // Neue x Position
             let newY: number; // Neue Y Position
@@ -41,17 +41,12 @@ namespace Endabgabe {
             else {
                 newY = _newPosition.y - ((distanceBall / this.precisionChecker) * chosenPlayer.playerPrecision);
             }
-
-            console.log(newX, newY);
             this.newPosition = new Vector(newX, newY); // Neue Position mit neuen X und Y Werten
-
-
         }
 
         public draw(): void { // Ball wird zum ersten Mal gezeichnet
             crc2.beginPath();
             crc2.arc(this.position.x, this.position.y, 7, 0, 2 * Math.PI);
-        
             crc2.fillStyle = "white";
             crc2.fill();
             crc2.closePath();
@@ -59,16 +54,16 @@ namespace Endabgabe {
 
         public update(): void {
             if (key == true) {
-                let diff: Vector = Vector.getDifference(this.newPosition, this.position);
-                // Aktuelle - neue Position, diff verweist auf Vector auf Stelle x => Differenzwert
+                let diff: Vector = Vector.getDifference(this.newPosition, this.position); 
+                 // Aktuelle - neue Position, diff verweist auf Vector auf Stelle x => Differenzwert
                 if (Math.abs(diff.x) < 1 && Math.abs(diff.y) < 1) {
                     key = false;
                     this.checkEnviroment();
                 }
                 else {
                     // > 1, dann wird die Bewegung des Balles zum Ende hin immer langsamer
-                    this.position.x += diff.x * 0.03;
-                    this.position.y += diff.y * 0.03;
+                    diff.scale(0.03);
+                    this.position.add(diff);
                     this.checkEnviroment();
                 }
             }
@@ -101,13 +96,12 @@ namespace Endabgabe {
                 }
                 else {
                     this.resetPosition();
-
                 }
             }
 
         }
 
-        private resetPosition(): void { 
+        private resetPosition(): void {
             this.position.set(canvas.width / 2, canvas.height / 2);
             this.newPosition.set(canvas.width / 2, canvas.height / 2);
         }
@@ -120,7 +114,7 @@ namespace Endabgabe {
                         this.playerIndex = index;
                         posessionUpdate(index);
                         animationKey = false; // Erst beim Klicken, wird animationKey wieder true
-                        this.ballKey = false; // Spieler kann nun Ball schießen
+                        this.ballKey = false;  // Spieler kann nun Ball schießen
                         shootKey = true;
                         break;
                     }

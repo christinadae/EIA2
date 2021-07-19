@@ -35,7 +35,7 @@ namespace Endabgabe {
         }
 
         public update(): void {
-
+            
             if (this.position.x == 450) {
                 this.velocity = -this.velocity;
             }

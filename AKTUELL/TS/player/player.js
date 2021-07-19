@@ -11,9 +11,9 @@ var Endabgabe;
             this.velocity = 0.5;
             this.jerseyNumber = _jerseyNumber;
             this.origin = this.position.copy();
+            this.team = _team;
             // Es wird einmal die Ursprungsposition einmal mit der aktuellen Position, die jeder Spieler zu Beginn hat, gespeichert
             // Somit wird es möglich, dass die Spieler wieder auf ihre Position zurückrennen können
-            this.team = _team;
         }
         get playerOrigin() {
             return this.origin;
@@ -42,9 +42,6 @@ var Endabgabe;
         setOrigin(_position) {
             this.origin = _position;
         }
-        setSelected(_selected) {
-            this.selected = _selected;
-        }
         setProperties(_minSpeed, _maxSpeed, _minPrecision, _maxPrecision) {
             this.precision = _minPrecision + Math.random() * (_maxPrecision - _minPrecision);
             this.velocity = _minSpeed + Math.random() * (_maxSpeed - _minSpeed);
@@ -63,9 +60,8 @@ var Endabgabe;
             }
             Endabgabe.crc2.fillStyle = this.jerseyColor;
             Endabgabe.crc2.fill();
-            Endabgabe.crc2.textBaseline = "middle";
             Endabgabe.crc2.textAlign = "center";
-            Endabgabe.crc2.fillStyle = "white";
+            Endabgabe.crc2.fillStyle = "black";
             Endabgabe.crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
             Endabgabe.crc2.closePath();
         }
@@ -73,12 +69,6 @@ var Endabgabe;
             this.newPosition = _position;
             console.log(this.newPosition);
             this.task = Endabgabe.Task.changePlayer;
-        }
-        drawRadius() {
-            Endabgabe.crc2.beginPath();
-            Endabgabe.crc2.arc(this.position.x, this.position.y, 100, 0, 2 * Math.PI);
-            Endabgabe.crc2.stroke();
-            Endabgabe.crc2.closePath();
         }
         update() {
             if (this.onField == true) {
@@ -127,38 +117,13 @@ var Endabgabe;
                 }
             }
         }
-        movePlayer(_position) {
-            let playerDistance = Endabgabe.Vector.getDifference(_position, this.position);
-            if (playerDistance.x == 0 && playerDistance.y > 0) {
-                this.position.y += this.velocity;
-            }
-            if (playerDistance.x == 0 && playerDistance.y < 0) {
-                this.position.y -= this.velocity;
-            }
-            if (playerDistance.x > 0 && playerDistance.y == 0) {
-                this.position.x += this.velocity;
-            }
-            if (playerDistance.x < 0 && playerDistance.y == 0) {
-                this.position.x += -this.velocity;
-            }
-            if (playerDistance.x > 0 && playerDistance.y > 0) {
-                this.position.x += this.velocity;
-                this.position.y += this.velocity;
-            }
-            if (playerDistance.x < 0 && playerDistance.y < 0) {
-                this.position.x += -this.velocity;
-                this.position.y += -this.velocity;
-            }
-            if (playerDistance.x > 0 && playerDistance.y < 0) {
-                this.position.x += this.velocity;
-                this.position.y += -this.velocity;
-            }
-            if (playerDistance.x < 0 && playerDistance.y > 0) {
-                this.position.x += -this.velocity;
-                this.position.y += this.velocity;
-            }
+        movePlayer(_positon) {
+            let playerDistance = Endabgabe.Vector.getDistance(_positon, this.position);
+            let playerDiffernce = Endabgabe.Vector.getDifference(_positon, this.position);
+            let ratio = this.velocity / playerDistance;
+            playerDiffernce.scale(ratio);
+            this.position.add(playerDiffernce);
             this.draw();
-            // this.drawRadius();
         }
     }
     Endabgabe.Player = Player;

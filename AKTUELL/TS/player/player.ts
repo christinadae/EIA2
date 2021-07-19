@@ -18,17 +18,15 @@ namespace Endabgabe {
             this.velocity = 0.5;
             this.jerseyNumber = _jerseyNumber;
             this.origin = this.position.copy();
-            // Es wird einmal die Ursprungsposition einmal mit der aktuellen Position, die jeder Spieler zu Beginn hat, gespeichert
-            // Somit wird es möglich, dass die Spieler wieder auf ihre Position zurückrennen können
-    
             this.team = _team;
+                   // Es wird einmal die Ursprungsposition einmal mit der aktuellen Position, die jeder Spieler zu Beginn hat, gespeichert
+            // Somit wird es möglich, dass die Spieler wieder auf ihre Position zurückrennen können
         }
-
         public get playerOrigin(): Vector {
             return this.origin;
         }
-
-        public get jerseyNumberPlayer(): number {  //Gibt Trikotnummer der Spieler zurück
+        
+        public get jerseyNumberPlayer(): number { //Gibt Trikotnummer der Spieler zurück
             return this.jerseyNumber;
         }
 
@@ -55,13 +53,12 @@ namespace Endabgabe {
         setOnField(_onField: boolean): void {
             this.onField = _onField;
         }
+
         setOrigin(_position: Vector): void {
             this.origin = _position;
         }
 
-        setSelected(_selected: boolean): void {
-            this.selected = _selected;
-        }
+    
 
         public setProperties(_minSpeed: number, _maxSpeed: number, _minPrecision: number, _maxPrecision: number): void {
             this.precision = _minPrecision + Math.random() * (_maxPrecision - _minPrecision);
@@ -83,9 +80,8 @@ namespace Endabgabe {
             }
             crc2.fillStyle = this.jerseyColor;
             crc2.fill();
-            crc2.textBaseline = "middle";
             crc2.textAlign = "center";
-            crc2.fillStyle = "white";
+            crc2.fillStyle = "black";
             crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
             
             crc2.closePath();
@@ -98,12 +94,6 @@ namespace Endabgabe {
             this.task = Task.changePlayer;
         }
 
-        public drawRadius(): void {
-            crc2.beginPath();
-            crc2.arc(this.position.x, this.position.y, 100, 0, 2 * Math.PI);
-            crc2.stroke();
-            crc2.closePath();
-        }
         public update(): void {
             if (this.onField == true) {
                 this.setDistance();
@@ -153,39 +143,13 @@ namespace Endabgabe {
             }
         }
 
-        private movePlayer(_position: Vector): void {
-            let playerDistance: Vector = Vector.getDifference(_position, this.position);
-
-            if (playerDistance.x == 0 && playerDistance.y > 0) {
-                this.position.y += this.velocity;
-            }
-            if (playerDistance.x == 0 && playerDistance.y < 0) {
-                this.position.y -= this.velocity;
-            }
-            if (playerDistance.x > 0 && playerDistance.y == 0) {
-                this.position.x += this.velocity;
-            }
-            if (playerDistance.x < 0 && playerDistance.y == 0) {
-                this.position.x += -this.velocity;
-            }
-            if (playerDistance.x > 0 && playerDistance.y > 0) {
-                this.position.x += this.velocity;
-                this.position.y += this.velocity;
-            }
-            if (playerDistance.x < 0 && playerDistance.y < 0) {
-                this.position.x += -this.velocity;
-                this.position.y += -this.velocity;
-            }
-            if (playerDistance.x > 0 && playerDistance.y < 0) {
-                this.position.x += this.velocity;
-                this.position.y += -this.velocity;
-            }
-            if (playerDistance.x < 0 && playerDistance.y > 0) {
-                this.position.x += -this.velocity;
-                this.position.y += this.velocity;
-            }
+        private movePlayer(_positon: Vector): void {
+            let playerDistance: number = Vector.getDistance(_positon, this.position);
+            let playerDiffernce: Vector = Vector.getDifference(_positon, this.position);
+            let ratio: number  = this.velocity / playerDistance;
+            playerDiffernce.scale(ratio);  
+            this.position.add(playerDiffernce);
             this.draw();
-            // this.drawRadius();
         }
     }
 }

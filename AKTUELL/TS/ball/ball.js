@@ -33,7 +33,6 @@ var Endabgabe;
             else {
                 newY = _newPosition.y - ((distanceBall / this.precisionChecker) * chosenPlayer.playerPrecision);
             }
-            console.log(newX, newY);
             this.newPosition = new Endabgabe.Vector(newX, newY); // Neue Position mit neuen X und Y Werten
         }
         draw() {
@@ -53,8 +52,8 @@ var Endabgabe;
                 }
                 else {
                     // > 1, dann wird die Bewegung des Balles zum Ende hin immer langsamer
-                    this.position.x += diff.x * 0.03;
-                    this.position.y += diff.y * 0.03;
+                    diff.scale(0.03);
+                    this.position.add(diff);
                     this.checkEnviroment();
                 }
             }

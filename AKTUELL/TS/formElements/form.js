@@ -27,18 +27,19 @@ var Endabgabe;
                     Endabgabe.humans[index].draw();
                 }
             }
+            else {
+                if (index < 25) {
+                    Endabgabe.humans[index].setJersey(valuesGlobal[4]);
+                    Endabgabe.humans[index].draw();
+                }
+                else {
+                    Endabgabe.humans[index].setJersey(valuesGlobal[5]);
+                    Endabgabe.humans[index].draw();
+                }
+            }
         }
     }
     Endabgabe.handleChange = handleChange;
-    function subChange() {
-        subIndex = Number(Endabgabe.subPlayerDOMElement.value);
-        let chosenSub = Endabgabe.humans[subIndex];
-        Endabgabe.speedSub.innerHTML = (chosenSub.playerSpeed).toFixed(2);
-        Endabgabe.precSub.innerHTML = (chosenSub.playerPrecision).toFixed(2);
-        Endabgabe.numberSub.innerHTML = String(chosenSub.jerseyNumberPlayer);
-        Endabgabe.teamSub.innerHTML = String(chosenSub.playerTeam);
-    }
-    Endabgabe.subChange = subChange;
     function exchangePlayer() {
         if (chosenTeam == "A") {
             subA[Endabgabe.subPlayerDOMElement.selectedIndex] = String(playerIndex);
@@ -55,10 +56,10 @@ var Endabgabe;
         chosenSub.setOnField(true);
         chosenSub.setOrigin(originPlayer);
         chosenSub.changePlayer(chosenPlayer.playerPosition.copy());
-        test();
+        updateSelect();
     }
     Endabgabe.exchangePlayer = exchangePlayer;
-    function test() {
+    function updateSelect() {
         if (chosenTeam == "A") {
             Endabgabe.subPlayerDOMElement.innerHTML = "<option value=" + subA[0] + ">Team A: Sub.1</option><option value=" + subA[1] + ">Team A: Sub.2</option><option value=" + subA[2] + ">Team A: Sub.3</option>";
         }
@@ -68,52 +69,23 @@ var Endabgabe;
     }
     function posessionUpdate(_index) {
         let chosenPlayer = Endabgabe.humans[_index];
-        Endabgabe.posession.innerHTML = "Possesion Player:" + chosenPlayer.jerseyNumberPlayer + " Team:" + chosenPlayer.playerTeam;
+        Endabgabe.posession.innerHTML = "Posession Player:" + chosenPlayer.jerseyNumberPlayer + " Team:" + chosenPlayer.playerTeam;
     }
     Endabgabe.posessionUpdate = posessionUpdate;
-    // export function updateForm(_event: MouseEvent): void {
-    //     let rect: DOMRect = canvas.getBoundingClientRect();
-    //     let mouse: Vector = new Vector(_event.clientX - rect.left, _event.clientY - rect.top);
-    //     console.log(mouse);
-    //     for (let index: number = 0; index < players.length; index++) {
-    //         let distance: number = Vector.getdistance(mouse, players[index].playerPosition);
-    //         if (distance < 10) {
-    //             playerIndex = index;
-    //             formIntoHTML(index);
-    //             break;
-    //         }
-    //     }
-    // }
     function switchForm(_event) {
-        let chosenPlayer;
-        let chosenPlayer2;
         switch (_event.code) {
             case "ArrowLeft":
-                let playerOldIndex1 = playerIndex;
                 playerIndex--;
                 if (playerIndex < 0) {
-                    playerIndex = 28;
+                    playerIndex = 27;
                 }
-                chosenPlayer = Endabgabe.humans[playerIndex];
-                chosenPlayer.setSelected(true);
-                chosenPlayer.draw();
-                chosenPlayer2 = Endabgabe.humans[playerOldIndex1];
-                chosenPlayer2.setSelected(false);
-                chosenPlayer2.draw();
                 formIntoHTML(playerIndex);
                 break;
             case "ArrowRight":
-                let playerOldIndex2 = playerIndex;
                 playerIndex++;
-                if (playerIndex > 28) {
+                if (playerIndex > 27) {
                     playerIndex = 0;
                 }
-                chosenPlayer = Endabgabe.humans[playerIndex];
-                chosenPlayer.setSelected(true);
-                chosenPlayer.draw();
-                chosenPlayer2 = Endabgabe.humans[playerOldIndex2];
-                chosenPlayer2.setSelected(false);
-                chosenPlayer2.draw();
                 formIntoHTML(playerIndex);
         }
     }
@@ -125,8 +97,17 @@ var Endabgabe;
         Endabgabe.numberPlayer.innerHTML = String(chosenPlayer.jerseyNumberPlayer);
         Endabgabe.teamPlayer.innerHTML = String(chosenPlayer.playerTeam);
         chosenTeam = chosenPlayer.playerTeam;
-        test();
+        updateSelect();
     }
     Endabgabe.formIntoHTML = formIntoHTML;
+    function subChange() {
+        subIndex = Number(Endabgabe.subPlayerDOMElement.value);
+        let chosenSub = Endabgabe.humans[subIndex];
+        Endabgabe.speedSub.innerHTML = (chosenSub.playerSpeed).toFixed(2);
+        Endabgabe.precSub.innerHTML = (chosenSub.playerPrecision).toFixed(2);
+        Endabgabe.numberSub.innerHTML = String(chosenSub.jerseyNumberPlayer);
+        Endabgabe.teamSub.innerHTML = String(chosenSub.playerTeam);
+    }
+    Endabgabe.subChange = subChange;
 })(Endabgabe || (Endabgabe = {}));
 //# sourceMappingURL=form.js.map

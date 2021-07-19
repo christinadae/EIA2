@@ -2,12 +2,12 @@
 var Endabgabe;
 (function (Endabgabe) {
     /*
-    Aufgabe: <EIA2-Endabgabe-Fußball Simulation>
-    Name: <Christina Däschner>
-    Matrikel: <266417>
-    Datum: <19.07.2021>
-    Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim, Mariia Kolkutova>
-    */
+Aufgabe: <EIA2-Endabgabe-Fußball Simulation>
+Name: <Christina Däschner>
+Matrikel: <266417>
+Datum: <19.07.2021>
+Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim, Mariia Kolkutova>
+*/
     window.addEventListener("load", handleLoad);
     let Task;
     (function (Task) {
@@ -19,9 +19,9 @@ var Endabgabe;
     })(Task = Endabgabe.Task || (Endabgabe.Task = {}));
     Endabgabe.animationKey = true; // Key für Animation
     Endabgabe.shootKey = false; // -> überprüfen ob die nur Animation Key funktioniert // Key für den Ball, der das Schießen erlaubt (wenn es in seinem Radius ist)
-    Endabgabe.humans = []; // // alle Personen werden darin gespeichert
-    Endabgabe.scoreA = 0; // Score-Zähler A
-    Endabgabe.scoreB = 0; // Score-Zähler B
+    Endabgabe.humans = []; // alle Personen werden darin gespeichert
+    Endabgabe.scoreA = 0;
+    Endabgabe.scoreB = 0;
     function handleLoad() {
         Endabgabe.speedPlayer = document.querySelector("#speedPlayer");
         Endabgabe.precPlayer = document.querySelector("#precPlayer");
@@ -43,11 +43,11 @@ var Endabgabe;
         Endabgabe.subPlayerDOMElement.addEventListener("change", Endabgabe.subChange);
         Endabgabe.form.addEventListener("change", Endabgabe.handleChange);
         Endabgabe.canvas.addEventListener("click", shootBall);
-        //canvas.addEventListener("click", updateForm);
+        // canvas.addEventListener("click", updateForm);
         Endabgabe.crc2 = Endabgabe.canvas.getContext("2d");
         Endabgabe.canvas.width = 900;
         Endabgabe.canvas.height = 500;
-        Endabgabe.drawField(); //Fußballfeld wird gemalt
+        Endabgabe.drawField();
         Endabgabe.imageData = Endabgabe.crc2.getImageData(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height); // Speichert das komplette Canvas + gezeichnete Inhalte von Canvas
         Endabgabe.ball = new Endabgabe.Ball(new Endabgabe.Vector(Endabgabe.canvas.width * 0.5, Endabgabe.canvas.height * 0.5)); // Ball wird direkt zu Beginn einer festen Position zugewiesen
         createPlayer();
@@ -82,7 +82,6 @@ var Endabgabe;
                 }
             }
         }
-        console.log(Endabgabe.humans);
     }
     function createReferees() {
         Endabgabe.humans.push(new Endabgabe.Referee(new Endabgabe.Vector(450, 150), "white"));

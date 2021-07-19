@@ -1,5 +1,6 @@
 namespace Endabgabe {
-/*
+
+    /*
 Aufgabe: <EIA2-Endabgabe-Fußball Simulation>
 Name: <Christina Däschner>
 Matrikel: <266417>
@@ -23,19 +24,19 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
     export let key: boolean;
     export let animationKey: boolean = true; // Key für Animation
     export let shootKey: boolean = false; // -> überprüfen ob die nur Animation Key funktioniert // Key für den Ball, der das Schießen erlaubt (wenn es in seinem Radius ist)
-    export let humans: Human[] = []; // // alle Personen werden darin gespeichert
+    export let humans: Human[] = []; // alle Personen werden darin gespeichert
 
     //HTML ELEMENTE & FORM ELEMENTE//
     //Form Left
     export let form: HTMLDivElement;
-    export let playerNumberDOMElement: HTMLParagraphElement; //Spielernummer
-    export let teamDOMElement: HTMLParagraphElement; //Team
+    export let playerNumberDOMElement: HTMLParagraphElement;
+    export let teamDOMElement: HTMLParagraphElement;
     //Form Right
-    export let teamADOMElement: HTMLButtonElement; //Team A
-    export let teamBDOMElement: HTMLButtonElement; //Team B
-    export let speedPlayer: HTMLParagraphElement; // Geschwindigkeit Spieler
-    export let precPlayer: HTMLParagraphElement; // Präzision Spieler
-    export let numberPlayer: HTMLParagraphElement; 
+    export let teamADOMElement: HTMLButtonElement;
+    export let teamBDOMElement: HTMLButtonElement;
+    export let speedPlayer: HTMLParagraphElement;
+    export let precPlayer: HTMLParagraphElement;
+    export let numberPlayer: HTMLParagraphElement;
     export let teamPlayer: HTMLParagraphElement;
 
     export let speedSub: HTMLParagraphElement;
@@ -45,17 +46,16 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
 
     export let subPlayerDOMElement: HTMLSelectElement;
 
-    export let scoreADOMElement: HTMLElement; // Score Team A
-    export let scoreBDOMElement: HTMLElement; // Score Team B
+    export let scoreADOMElement: HTMLElement;
+    export let scoreBDOMElement: HTMLElement;
 
     export let changeBtn: HTMLButtonElement;
 
-    export let scoreA: number = 0; // Score-Zähler A
-    export let scoreB: number = 0; // Score-Zähler B
+    export let scoreA: number = 0;
+    export let scoreB: number = 0;
 
     export let endBtn: HTMLButtonElement;
     export let posession: HTMLParagraphElement;
-
 
     function handleLoad(): void {
 
@@ -82,15 +82,14 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
         subPlayerDOMElement.addEventListener("change", subChange);
         form.addEventListener("change", handleChange);
         canvas.addEventListener("click", shootBall);
-        //canvas.addEventListener("click", updateForm);
+        // canvas.addEventListener("click", updateForm);
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
-
+        
         canvas.width = 900;
         canvas.height = 500;
-        drawField(); //Fußballfeld wird gemalt
-        imageData = crc2.getImageData(0, 0, canvas.width, canvas.height); // Speichert das komplette Canvas + gezeichnete Inhalte von Canvas
+        drawField();
+        imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);  // Speichert das komplette Canvas + gezeichnete Inhalte von Canvas
         ball = new Ball(new Vector(canvas.width * 0.5, canvas.height * 0.5)); // Ball wird direkt zu Beginn einer festen Position zugewiesen
-
         createPlayer();
         createReferees();
         handleChange();
@@ -99,19 +98,16 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
     }
 
     function createPlayer(): void {
-         // Die Spieler werden generiert, die eine Position von der Klasse Vector erhalten; Ihre Eigenschaften erhalten sie von der Klasse Player;
+           // Die Spieler werden generiert, die eine Position von der Klasse Vector erhalten; Ihre Eigenschaften erhalten sie von der Klasse Player;
         //  Es werden 14 pro Team erstellt -> 11 Spieler pro Team auf dem Feld und 3 Austauschspieler pro Team 
         for (let indexA: number = 0; indexA < 2; indexA++) {
-           
             for (let indexB: number = 0; indexB < 11; indexB++) {
                 let randomNumber: number = Math.floor(1 + Math.random() * (50 - 1));
                 if (indexA == 0) {
-                    humans.push(new Player(new Vector(positionsTeam1[indexB].x, positionsTeam1[indexB].y), "white", true, randomNumber, "A"));  //Team 1: Spieler für Spieler (mit eigenem Index) wird in ihren x und y Werten erstellt + Farbe zugewiesen
+                    humans.push(new Player(new Vector(positionsTeam1[indexB].x, positionsTeam1[indexB].y), "white", true, randomNumber, "A")); //Team 1: Spieler für Spieler (mit eigenem Index) wird in ihren x und y Werten erstellt + Farbe zugewiesen
                 }
                 else {
-                    
                     humans.push(new Player(new Vector(positionsTeam2[indexB].x, positionsTeam2[indexB].y), "white", true, randomNumber, "B")); //Team 1: Spieler für Spieler (mit eigenem Index) wird in ihren x und y Werten erstellt + Farbe zugewiesen
-
                 }
             }
         }
@@ -128,8 +124,6 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
                 }
             }
         }
-
-        console.log(humans);
     }
 
     function createReferees(): void {
@@ -143,14 +137,14 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
             let rect: DOMRect = canvas.getBoundingClientRect(); // macht Verhältnis wieder normal
             let mouse: Vector = new Vector(_event.clientX - rect.left, _event.clientY - rect.top); // Ball wird dahin geschossen, wo geklickt wird mit Maus
             key = true; // ist im Player vorhanden
-            ball.setnewPosition(mouse); // Ball erhält neue Position, die mit der Maus bestimmt wurde
+            ball.setnewPosition(mouse);  // Ball erhält neue Position, die mit der Maus bestimmt wurde
             animationKey = true;
             shootKey = false;
             animate();
         }
     }
 
-    function animate(): void {  // Animation (ca. 60x pro Sekunde)
+    function animate(): void { // Animation (ca. 60x pro Sekunde)
         if (animationKey == true) {
             requestAnimationFrame(animate);
             crc2.clearRect(0, 0, crc2.canvas.width, crc2.canvas.height);
@@ -163,8 +157,5 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
             ball.update(); // Ball + seine Position wird aktualisiert
             ball.draw(); // und neu gezeichnet
         }
+        }
     }
-
-  
-    
-}
