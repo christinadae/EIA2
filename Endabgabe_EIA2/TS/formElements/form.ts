@@ -82,7 +82,7 @@ namespace Endabgabe {
     export function posessionUpdate(_index: number): void {
         let chosenPlayer: Player = <Player>players[_index];
         posession.innerHTML = "Posession Player:" + chosenPlayer.jerseyNumberPlayer + " Team:" + chosenPlayer.playerTeam;
-        // updateSelect();
+        
     }
 
     export function switchForm(_event: KeyboardEvent): void {
