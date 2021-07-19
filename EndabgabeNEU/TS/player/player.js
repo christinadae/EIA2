@@ -45,8 +45,8 @@ var Endabgabe;
         }
         draw() {
             Endabgabe.crc2.beginPath();
-            Endabgabe.crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
             Endabgabe.crc2.fillStyle = this.jerseyColor;
+            Endabgabe.crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
             Endabgabe.crc2.fill();
             Endabgabe.crc2.closePath();
         }

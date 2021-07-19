@@ -62,9 +62,10 @@ namespace Endabgabe {
 
         public draw(): void { // Spieler werden gezeichnet
             crc2.beginPath();
+            crc2.fillStyle = this.jerseyColor;
             crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
 
-            crc2.fillStyle = this.jerseyColor;
+            
             crc2.fill();
             crc2.closePath();
         }

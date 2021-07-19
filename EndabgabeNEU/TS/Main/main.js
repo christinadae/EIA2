@@ -1,6 +1,13 @@
 "use strict";
 var Endabgabe;
 (function (Endabgabe) {
+    /*
+    Aufgabe: <EIA2-Endabgabe-Fußball Simulation>
+    Name: <Christina Däschner>
+    Matrikel: <266417>
+    Datum: <19.07.2021>
+    Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim, Mariia Kolkutova>
+    */
     window.addEventListener("load", handleLoad);
     let Task;
     (function (Task) {
