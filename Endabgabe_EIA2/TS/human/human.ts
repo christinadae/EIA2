@@ -1,6 +1,6 @@
 namespace Endabgabe {
 
-    export class Human {
+    export abstract class Human {
         protected velocity: number;
         protected position: Vector;
         protected jerseyColor: string;
