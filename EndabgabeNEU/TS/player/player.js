@@ -48,6 +48,10 @@ var Endabgabe;
             Endabgabe.crc2.fillStyle = this.jerseyColor;
             Endabgabe.crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
             Endabgabe.crc2.fill();
+            Endabgabe.crc2.textBaseline = "middle";
+            Endabgabe.crc2.textAlign = "center";
+            Endabgabe.crc2.fillStyle = "white";
+            Endabgabe.crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
             Endabgabe.crc2.closePath();
         }
         drawRadius() {
