@@ -70,8 +70,9 @@ namespace Endabgabe {
             crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
             crc2.fillStyle = this.jerseyColor;
             crc2.fill();
+            crc2.textBaseline = "middle";
             crc2.textAlign = "center";
-            crc2.fillStyle = "black";
+            crc2.fillStyle = "white";
             crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
             crc2.closePath();
            
