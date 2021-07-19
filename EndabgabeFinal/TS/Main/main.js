@@ -16,7 +16,7 @@ var Endabgabe;
     Endabgabe.scoreA = 0;
     Endabgabe.scoreB = 0;
     function handleLoad() {
-        //HTML PARAGRPAHEN
+        //HTML Parapraphen
         Endabgabe.speedPlayer = document.querySelector("#speedPlayer");
         Endabgabe.precPlayer = document.querySelector("#precPlayer");
         Endabgabe.numberPlayer = document.querySelector("#numberPlayer");
@@ -26,24 +26,22 @@ var Endabgabe;
         Endabgabe.precSub = document.querySelector("#precSubstitute");
         Endabgabe.numberSub = document.querySelector("#numberSubstitute");
         Endabgabe.teamSub = document.querySelector("#teamSubstitute");
-        //HTML ELEMENTE
+        //HTML Elemente
         Endabgabe.form = document.querySelector("#formLeft");
         Endabgabe.subPlayerDOMElement = document.querySelector("#subPlayer");
         Endabgabe.scoreADOMElement = document.querySelector("#scoreA");
         Endabgabe.scoreBDOMElement = document.querySelector("#scoreB");
         Endabgabe.changeBtn = document.querySelector("#changeBtn");
-        //EVENT LISTENER
         Endabgabe.subPlayerDOMElement.addEventListener("change", Endabgabe.subChange);
         Endabgabe.changeBtn.addEventListener("click", Endabgabe.exchangePlayer);
         document.addEventListener("keydown", Endabgabe.switchForm);
         Endabgabe.form.addEventListener("change", Endabgabe.handleChange);
-        //CANVAS
+        //Canvas
         Endabgabe.canvas = document.querySelector("canvas");
         Endabgabe.canvas.addEventListener("click", shootBall);
         Endabgabe.crc2 = Endabgabe.canvas.getContext("2d");
         Endabgabe.canvas.width = 900;
         Endabgabe.canvas.height = 500;
-        //CALL ALL FUNCTIONS
         Endabgabe.drawField();
         Endabgabe.imageData = Endabgabe.crc2.getImageData(0, 0, Endabgabe.canvas.width, Endabgabe.canvas.height);
         Endabgabe.ball = new Endabgabe.Ball(new Endabgabe.Vector(Endabgabe.canvas.width * 0.5, Endabgabe.canvas.height * 0.5));
@@ -58,10 +56,10 @@ var Endabgabe;
             for (let indexB = 0; indexB < 11; indexB++) {
                 let randomNumber = Math.floor(1 + Math.random() * (50 - 1));
                 if (indexA == 0) {
-                    Endabgabe.players.push(new Endabgabe.Player(new Endabgabe.Vector(Endabgabe.positionsTeam1[indexB].x, Endabgabe.positionsTeam1[indexB].y), "red", true, randomNumber, "A"));
+                    Endabgabe.players.push(new Endabgabe.Player(new Endabgabe.Vector(Endabgabe.positionsTeam1[indexB].x, Endabgabe.positionsTeam1[indexB].y), "white", true, randomNumber, "A"));
                 }
                 else {
-                    Endabgabe.players.push(new Endabgabe.Player(new Endabgabe.Vector(Endabgabe.positionsTeam2[indexB].x, Endabgabe.positionsTeam2[indexB].y), "blue", true, randomNumber, "B"));
+                    Endabgabe.players.push(new Endabgabe.Player(new Endabgabe.Vector(Endabgabe.positionsTeam2[indexB].x, Endabgabe.positionsTeam2[indexB].y), "white", true, randomNumber, "B"));
                 }
             }
         }
@@ -70,10 +68,10 @@ var Endabgabe;
                 console.log(indexB);
                 let randomNumber = Math.floor(1 + Math.random() * (50 - 1));
                 if (indexA == 0) {
-                    Endabgabe.players.push(new Endabgabe.Player(new Endabgabe.Vector(Endabgabe.positionsTeam1[indexB].x, Endabgabe.positionsTeam1[indexB].y), "red", false, randomNumber, "A"));
+                    Endabgabe.players.push(new Endabgabe.Player(new Endabgabe.Vector(Endabgabe.positionsTeam1[indexB].x, Endabgabe.positionsTeam1[indexB].y), "white", false, randomNumber, "A"));
                 }
                 else {
-                    Endabgabe.players.push(new Endabgabe.Player(new Endabgabe.Vector(Endabgabe.positionsTeam2[indexB].x, Endabgabe.positionsTeam2[indexB].y), "blue", false, randomNumber, "B"));
+                    Endabgabe.players.push(new Endabgabe.Player(new Endabgabe.Vector(Endabgabe.positionsTeam2[indexB].x, Endabgabe.positionsTeam2[indexB].y), "white", false, randomNumber, "B"));
                 }
             }
         }

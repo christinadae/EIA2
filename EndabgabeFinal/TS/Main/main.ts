@@ -40,7 +40,7 @@ namespace Endabgabe {
     export let posession: HTMLParagraphElement;
 
     function handleLoad(): void {
-        //HTML PARAGRPAHEN
+        //HTML Parapraphen
         speedPlayer = <HTMLParagraphElement>document.querySelector("#speedPlayer");
         precPlayer = <HTMLParagraphElement>document.querySelector("#precPlayer");
         numberPlayer = <HTMLParagraphElement>document.querySelector("#numberPlayer");
@@ -50,24 +50,24 @@ namespace Endabgabe {
         precSub = <HTMLParagraphElement>document.querySelector("#precSubstitute");
         numberSub = <HTMLParagraphElement>document.querySelector("#numberSubstitute");
         teamSub = <HTMLParagraphElement>document.querySelector("#teamSubstitute");
-        //HTML ELEMENTE
+        //HTML Elemente
         form = <HTMLDivElement>document.querySelector("#formLeft");
         subPlayerDOMElement = <HTMLSelectElement>document.querySelector("#subPlayer");
         scoreADOMElement = <HTMLElement>document.querySelector("#scoreA");
         scoreBDOMElement = <HTMLElement>document.querySelector("#scoreB");
         changeBtn = <HTMLButtonElement>document.querySelector("#changeBtn");
-        //EVENT LISTENER
+       
         subPlayerDOMElement.addEventListener("change", subChange);
         changeBtn.addEventListener("click", exchangePlayer);
         document.addEventListener("keydown", switchForm);
         form.addEventListener("change", handleChange);
-        //CANVAS
+        //Canvas
         canvas = <HTMLCanvasElement>document.querySelector("canvas");
         canvas.addEventListener("click", shootBall);  
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         canvas.width = 900;
         canvas.height = 500;
-        //CALL ALL FUNCTIONS
+       
         drawField();
         imageData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         ball = new Ball(new Vector(canvas.width * 0.5, canvas.height * 0.5));
@@ -83,10 +83,10 @@ namespace Endabgabe {
             for (let indexB: number = 0; indexB < 11; indexB++) {
                 let randomNumber: number = Math.floor(1 + Math.random() * (50 - 1));
                 if (indexA == 0) {
-                    players.push(new Player(new Vector(positionsTeam1[indexB].x, positionsTeam1[indexB].y), "red", true, randomNumber, "A"));
+                    players.push(new Player(new Vector(positionsTeam1[indexB].x, positionsTeam1[indexB].y), "white", true, randomNumber, "A"));
                 }
                 else {
-                    players.push(new Player(new Vector(positionsTeam2[indexB].x, positionsTeam2[indexB].y), "blue", true, randomNumber, "B"));
+                    players.push(new Player(new Vector(positionsTeam2[indexB].x, positionsTeam2[indexB].y), "white", true, randomNumber, "B"));
                 }
             }
         }
@@ -96,10 +96,10 @@ namespace Endabgabe {
                 console.log(indexB);
                 let randomNumber: number = Math.floor(1 + Math.random() * (50 - 1));
                 if (indexA == 0) {
-                    players.push(new Player(new Vector(positionsTeam1[indexB].x, positionsTeam1[indexB].y), "red", false, randomNumber, "A"));
+                    players.push(new Player(new Vector(positionsTeam1[indexB].x, positionsTeam1[indexB].y), "white", false, randomNumber, "A"));
                 }
                 else {
-                    players.push(new Player(new Vector(positionsTeam2[indexB].x, positionsTeam2[indexB].y), "blue", false, randomNumber, "B"));
+                    players.push(new Player(new Vector(positionsTeam2[indexB].x, positionsTeam2[indexB].y), "white", false, randomNumber, "B"));
                 }
             }
         }

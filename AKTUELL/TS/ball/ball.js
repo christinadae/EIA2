@@ -1,6 +1,6 @@
 "use strict";
-var Endabgabe;
-(function (Endabgabe) {
+var EndabgabePROBE;
+(function (EndabgabePROBE) {
     class Ball {
         constructor(_position) {
             this.ballKey = true;
@@ -18,8 +18,8 @@ var Endabgabe;
             this.ballKey = _key;
         }
         setnewPosition(_newPosition) {
-            let distanceBall = Endabgabe.Vector.getDistance(_newPosition, this.position);
-            let chosenPlayer = humans[this.playerIndex];
+            let distanceBall = EndabgabePROBE.Vector.getDistance(_newPosition, this.position);
+            let chosenPlayer = EndabgabePROBE.humans[this.playerIndex];
             let random = Math.random();
             let newX;
             let newY;
@@ -36,20 +36,20 @@ var Endabgabe;
             else {
                 newY = _newPosition.y - ((distanceBall / this.precisionChecker) * chosenPlayer.playerPrecision);
             }
-            this.newPosition = new Endabgabe.Vector(newX, newY);
+            this.newPosition = new EndabgabePROBE.Vector(newX, newY);
         }
         draw() {
-            Endabgabe.crc2.beginPath();
-            Endabgabe.crc2.arc(this.position.x, this.position.y, 7, 0, 2 * Math.PI);
-            Endabgabe.crc2.fillStyle = "white";
-            Endabgabe.crc2.fill();
-            Endabgabe.crc2.closePath();
+            EndabgabePROBE.crc2.beginPath();
+            EndabgabePROBE.crc2.arc(this.position.x, this.position.y, 7, 0, 2 * Math.PI);
+            EndabgabePROBE.crc2.fillStyle = "white";
+            EndabgabePROBE.crc2.fill();
+            EndabgabePROBE.crc2.closePath();
         }
         update() {
-            if (Endabgabe.key == true) {
-                let diff = Endabgabe.Vector.getDifference(this.newPosition, this.position);
+            if (EndabgabePROBE.key == true) {
+                let diff = EndabgabePROBE.Vector.getDifference(this.newPosition, this.position);
                 if (Math.abs(diff.x) < 1 && Math.abs(diff.y) < 1) {
-                    Endabgabe.key = false;
+                    EndabgabePROBE.key = false;
                     this.checkEnviroment();
                 }
                 else {
@@ -68,8 +68,8 @@ var Endabgabe;
         checkGoal() {
             if (this.position.x < 30) {
                 if (this.position.y < 300 && this.position.y > 200) {
-                    Endabgabe.scoreB++;
-                    Endabgabe.scoreBDOMElement.innerHTML = String(Endabgabe.scoreB);
+                    EndabgabePROBE.scoreB++;
+                    EndabgabePROBE.scoreBDOMElement.innerHTML = String(EndabgabePROBE.scoreB);
                     window.alert("Goal for Team B");
                     this.resetPosition();
                 }
@@ -79,8 +79,8 @@ var Endabgabe;
             }
             else if (this.position.x > 870) {
                 if (this.position.y < 300 && this.position.y > 200) {
-                    Endabgabe.scoreA++;
-                    Endabgabe.scoreADOMElement.innerHTML = String(Endabgabe.scoreA);
+                    EndabgabePROBE.scoreA++;
+                    EndabgabePROBE.scoreADOMElement.innerHTML = String(EndabgabePROBE.scoreA);
                     window.alert("Goal for Team A");
                     this.resetPosition();
                 }
@@ -95,25 +95,25 @@ var Endabgabe;
             }
         }
         resetPosition() {
-            this.position.set(Endabgabe.canvas.width / 2, Endabgabe.canvas.height / 2);
-            this.newPosition.set(Endabgabe.canvas.width / 2, Endabgabe.canvas.height / 2);
+            this.position.set(EndabgabePROBE.canvas.width / 2, EndabgabePROBE.canvas.height / 2);
+            this.newPosition.set(EndabgabePROBE.canvas.width / 2, EndabgabePROBE.canvas.height / 2);
         }
         checkEnviroment() {
             if (this.ballKey == true) {
-                for (let index = 0; index < humans.length; index++) {
-                    let chosenPlayer = humans[index];
+                for (let index = 0; index < EndabgabePROBE.humans.length; index++) {
+                    let chosenPlayer = EndabgabePROBE.humans[index];
                     if (chosenPlayer.distance < 10) {
                         this.playerIndex = index;
-                        Endabgabe.posessionUpdate(index);
-                        Endabgabe.animationKey = false;
+                        EndabgabePROBE.posessionUpdate(index);
+                        EndabgabePROBE.animationKey = false;
                         this.ballKey = false;
-                        Endabgabe.shootKey = true;
+                        EndabgabePROBE.shootKey = true;
                         break;
                     }
                 }
             }
         }
     }
-    Endabgabe.Ball = Ball;
-})(Endabgabe || (Endabgabe = {}));
+    EndabgabePROBE.Ball = Ball;
+})(EndabgabePROBE || (EndabgabePROBE = {}));
 //# sourceMappingURL=ball.js.map

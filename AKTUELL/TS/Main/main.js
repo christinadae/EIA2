@@ -49,7 +49,7 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
         EndabgabePROBE.canvas.height = 500;
         EndabgabePROBE.drawField();
         EndabgabePROBE.imageData = EndabgabePROBE.crc2.getImageData(0, 0, EndabgabePROBE.canvas.width, EndabgabePROBE.canvas.height); // Speichert das komplette Canvas + gezeichnete Inhalte von Canvas
-        EndabgabePROBE.ball = new Ball(new EndabgabePROBE.Vector(EndabgabePROBE.canvas.width * 0.5, EndabgabePROBE.canvas.height * 0.5)); // Ball wird direkt zu Beginn einer festen Position zugewiesen
+        EndabgabePROBE.ball = new EndabgabePROBE.Ball(new EndabgabePROBE.Vector(EndabgabePROBE.canvas.width * 0.5, EndabgabePROBE.canvas.height * 0.5)); // Ball wird direkt zu Beginn einer festen Position zugewiesen
         createPlayer();
         createReferees();
         EndabgabePROBE.handleChange();
