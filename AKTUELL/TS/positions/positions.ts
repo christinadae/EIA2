@@ -1,4 +1,4 @@
-namespace Endabgabe {
+namespace EndabgabePROBE {
 
     export interface Position {
         x: number;

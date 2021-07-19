@@ -1,4 +1,4 @@
-namespace Endabgabe {
+namespace EndabgabePROBE {
 
   export class Vector {
     public x: number;

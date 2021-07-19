@@ -1,7 +1,7 @@
 "use strict";
-var Endabgabe;
-(function (Endabgabe) {
-    Endabgabe.positionsTeam1 = [
+var EndabgabePROBE;
+(function (EndabgabePROBE) {
+    EndabgabePROBE.positionsTeam1 = [
         { x: 65, y: 250 }, { x: 170, y: 70 },
         { x: 230, y: 250 }, { x: 170, y: 410 },
         { x: 380, y: 250 }, { x: 450, y: 100 },
@@ -12,7 +12,7 @@ var Endabgabe;
         { x: 230, y: 15 },
         { x: 260, y: 15 }
     ];
-    Endabgabe.positionsTeam2 = [
+    EndabgabePROBE.positionsTeam2 = [
         { x: 835, y: 250 }, { x: 140, y: 170 },
         { x: 300, y: 150 }, { x: 190, y: 335 },
         { x: 370, y: 360 }, { x: 520, y: 250 },
@@ -23,5 +23,5 @@ var Endabgabe;
         { x: 680, y: 485 },
         { x: 710, y: 485 }
     ];
-})(Endabgabe || (Endabgabe = {}));
+})(EndabgabePROBE || (EndabgabePROBE = {}));
 //# sourceMappingURL=positions.js.map

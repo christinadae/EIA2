@@ -1,10 +1,10 @@
 "use strict";
-var Endabgabe;
-(function (Endabgabe) {
-    class Player extends Endabgabe.Human {
+var EndabgabePROBE;
+(function (EndabgabePROBE) {
+    class Player extends EndabgabePROBE.Human {
         constructor(_position, _jerseyColor, _onField, _jerseyNumber, _team) {
             super(_position, _jerseyColor); // Die Spieler erben die Position und Trikotfarbe von der Superklasse Human
-            this.task = Endabgabe.Task.lookForBall;
+            this.task = EndabgabePROBE.Task.lookForBall;
             this.radius = 80;
             this.selected = false;
             this.onField = _onField;
@@ -47,85 +47,85 @@ var Endabgabe;
             this.velocity = _minSpeed + Math.random() * (_maxSpeed - _minSpeed);
         }
         setDistance() {
-            let ballPos = Endabgabe.ball.ballPos;
-            this.distancePlayerBall = Endabgabe.Vector.getDistance(ballPos, this.position);
+            let ballPos = EndabgabePROBE.ball.ballPos;
+            this.distancePlayerBall = EndabgabePROBE.Vector.getDistance(ballPos, this.position);
         }
         draw() {
-            Endabgabe.crc2.beginPath();
-            Endabgabe.crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
+            EndabgabePROBE.crc2.beginPath();
+            EndabgabePROBE.crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
             if (this.selected == true) {
-                Endabgabe.crc2.strokeStyle = "yellow";
-                Endabgabe.crc2.lineWidth = 2;
-                Endabgabe.crc2.stroke();
+                EndabgabePROBE.crc2.strokeStyle = "yellow";
+                EndabgabePROBE.crc2.lineWidth = 2;
+                EndabgabePROBE.crc2.stroke();
             }
-            Endabgabe.crc2.fillStyle = this.jerseyColor;
-            Endabgabe.crc2.fill();
-            Endabgabe.crc2.textAlign = "center";
-            Endabgabe.crc2.fillStyle = "black";
-            Endabgabe.crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
-            Endabgabe.crc2.closePath();
+            EndabgabePROBE.crc2.fillStyle = this.jerseyColor;
+            EndabgabePROBE.crc2.fill();
+            EndabgabePROBE.crc2.textAlign = "center";
+            EndabgabePROBE.crc2.fillStyle = "white";
+            EndabgabePROBE.crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
+            EndabgabePROBE.crc2.closePath();
         }
         changePlayer(_position) {
             this.newPosition = _position;
             console.log(this.newPosition);
-            this.task = Endabgabe.Task.changePlayer;
+            this.task = EndabgabePROBE.Task.changePlayer;
         }
         update() {
             if (this.onField == true) {
                 this.setDistance();
                 switch (this.task) {
-                    case Endabgabe.Task.lookForBall:
+                    case EndabgabePROBE.Task.lookForBall:
                         if (this.distancePlayerBall < this.radius) {
-                            this.task = Endabgabe.Task.walkToBall;
+                            this.task = EndabgabePROBE.Task.walkToBall;
                         }
                         break;
-                    case Endabgabe.Task.walkToBall:
+                    case EndabgabePROBE.Task.walkToBall:
                         if (this.distancePlayerBall > this.radius) {
-                            this.task = Endabgabe.Task.walkToOrigin;
+                            this.task = EndabgabePROBE.Task.walkToOrigin;
                         }
                         else {
                             if (this.distancePlayerBall < 10) {
-                                this.task = Endabgabe.Task.shootBall;
+                                this.task = EndabgabePROBE.Task.shootBall;
                             }
-                            this.movePlayer(Endabgabe.ball.ballPos);
+                            this.movePlayer(EndabgabePROBE.ball.ballPos);
                         }
                         break;
-                    case Endabgabe.Task.shootBall:
+                    case EndabgabePROBE.Task.shootBall:
                         console.log("shoot");
                         if (this.distancePlayerBall > 20) {
-                            Endabgabe.ball.setKey(true);
-                            this.task = Endabgabe.Task.walkToOrigin;
+                            EndabgabePROBE.ball.setKey(true);
+                            this.task = EndabgabePROBE.Task.walkToOrigin;
                         }
                         break;
-                    case Endabgabe.Task.walkToOrigin:
+                    case EndabgabePROBE.Task.walkToOrigin:
                         this.movePlayer(this.origin);
-                        if (Endabgabe.Vector.getDistance(this.origin, this.position) < 1) {
-                            this.task = Endabgabe.Task.lookForBall;
+                        if (EndabgabePROBE.Vector.getDistance(this.origin, this.position) < 1) {
+                            this.task = EndabgabePROBE.Task.lookForBall;
                         }
                         break;
-                    case Endabgabe.Task.changePlayer:
+                    case EndabgabePROBE.Task.changePlayer:
                         this.movePlayer(this.newPosition);
-                        if (Endabgabe.Vector.getDistance(this.newPosition, this.position) < 1) {
+                        if (EndabgabePROBE.Vector.getDistance(this.newPosition, this.position) < 1) {
                             if (this.position.y > 470 || this.position.y < 30) {
                                 this.setOnField(false);
                             }
                             else {
                                 this.setOnField(true);
-                                this.task = Endabgabe.Task.lookForBall;
+                                this.task = EndabgabePROBE.Task.lookForBall;
                             }
                         }
                 }
             }
         }
         movePlayer(_positon) {
-            let playerDistance = Endabgabe.Vector.getDistance(_positon, this.position);
-            let playerDiffernce = Endabgabe.Vector.getDifference(_positon, this.position);
+            let playerDistance = EndabgabePROBE.Vector.getDistance(_positon, this.position);
+            let playerDiffernce = EndabgabePROBE.Vector.getDifference(_positon, this.position);
             let ratio = this.velocity / playerDistance;
             playerDiffernce.scale(ratio);
             this.position.add(playerDiffernce);
             this.draw();
         }
     }
-    Endabgabe.Player = Player;
-})(Endabgabe || (Endabgabe = {}));
+    EndabgabePROBE.Player = Player;
+})(EndabgabePROBE || (EndabgabePROBE = {}));
 //# sourceMappingURL=player.js.map

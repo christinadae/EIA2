@@ -1,4 +1,4 @@
-namespace Endabgabe {
+namespace EndabgabePROBE {
 
     export class Linereferee extends Human {
         constructor(_position: Vector, _jerseyColor: string) {

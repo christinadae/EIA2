@@ -1,4 +1,4 @@
-namespace Endabgabe {
+namespace EndabgabePROBE {
 
     export function drawField(): void {
         //Fußballfeld

@@ -1,4 +1,4 @@
-namespace Endabgabe {
+namespace EndabgabePROBE {
 
     /*
 Aufgabe: <EIA2-Endabgabe-Fußball Simulation>
@@ -82,7 +82,7 @@ Quellen: <Zusammenarbeit mit: Huu Thien Phan Ngoc, Mona Kabelka, Timur Yildirim,
         subPlayerDOMElement.addEventListener("change", subChange);
         form.addEventListener("change", handleChange);
         canvas.addEventListener("click", shootBall);
-        // canvas.addEventListener("click", updateForm);
+        //canvas.addEventListener("click", updateForm);
         crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         
         canvas.width = 900;

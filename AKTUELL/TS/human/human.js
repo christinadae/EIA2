@@ -1,6 +1,6 @@
 "use strict";
-var Endabgabe;
-(function (Endabgabe) {
+var EndabgabePROBE;
+(function (EndabgabePROBE) {
     class Human {
         constructor(_position, _jerseyColor) {
             this.position = _position;
@@ -20,6 +20,6 @@ var Endabgabe;
             this.jerseyColor = _color;
         }
     }
-    Endabgabe.Human = Human;
-})(Endabgabe || (Endabgabe = {}));
+    EndabgabePROBE.Human = Human;
+})(EndabgabePROBE || (EndabgabePROBE = {}));
 //# sourceMappingURL=human.js.map

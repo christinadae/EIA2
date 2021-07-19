@@ -1,6 +1,6 @@
 "use strict";
-var Endabgabe;
-(function (Endabgabe) {
+var EndabgabePROBE;
+(function (EndabgabePROBE) {
     let valuesGlobal = [];
     let playerIndex = 0;
     let subIndex;
@@ -15,40 +15,40 @@ var Endabgabe;
             valuesGlobal.push(String(entry[1]));
         }
         for (let index = 0; index < 28; index++) {
-            let chosenPlayer = Endabgabe.humans[index];
+            let chosenPlayer = EndabgabePROBE.humans[index];
             chosenPlayer.setProperties(Number(valuesGlobal[0]), Number(valuesGlobal[1]), Number(valuesGlobal[2]), Number(valuesGlobal[3]));
             if (index < 22) {
                 if (index < 11) {
-                    Endabgabe.humans[index].setJersey(valuesGlobal[4]);
-                    Endabgabe.humans[index].draw();
+                    EndabgabePROBE.humans[index].setJersey(valuesGlobal[4]);
+                    EndabgabePROBE.humans[index].draw();
                 }
                 else {
-                    Endabgabe.humans[index].setJersey(valuesGlobal[5]);
-                    Endabgabe.humans[index].draw();
+                    EndabgabePROBE.humans[index].setJersey(valuesGlobal[5]);
+                    EndabgabePROBE.humans[index].draw();
                 }
             }
             else {
                 if (index < 25) {
-                    Endabgabe.humans[index].setJersey(valuesGlobal[4]);
-                    Endabgabe.humans[index].draw();
+                    EndabgabePROBE.humans[index].setJersey(valuesGlobal[4]);
+                    EndabgabePROBE.humans[index].draw();
                 }
                 else {
-                    Endabgabe.humans[index].setJersey(valuesGlobal[5]);
-                    Endabgabe.humans[index].draw();
+                    EndabgabePROBE.humans[index].setJersey(valuesGlobal[5]);
+                    EndabgabePROBE.humans[index].draw();
                 }
             }
         }
     }
-    Endabgabe.handleChange = handleChange;
+    EndabgabePROBE.handleChange = handleChange;
     function exchangePlayer() {
         if (chosenTeam == "A") {
-            subA[Endabgabe.subPlayerDOMElement.selectedIndex] = String(playerIndex);
+            subA[EndabgabePROBE.subPlayerDOMElement.selectedIndex] = String(playerIndex);
         }
         else {
-            subB[Endabgabe.subPlayerDOMElement.selectedIndex] = String(playerIndex);
+            subB[EndabgabePROBE.subPlayerDOMElement.selectedIndex] = String(playerIndex);
         }
-        let chosenPlayer = Endabgabe.humans[playerIndex];
-        let chosenSub = Endabgabe.humans[subIndex];
+        let chosenPlayer = EndabgabePROBE.humans[playerIndex];
+        let chosenSub = EndabgabePROBE.humans[subIndex];
         let originPlayer = chosenPlayer.playerOrigin.copy();
         let originSub = chosenSub.playerOrigin.copy();
         chosenPlayer.setOrigin(originSub);
@@ -58,20 +58,20 @@ var Endabgabe;
         chosenSub.changePlayer(chosenPlayer.playerPosition.copy());
         updateSelect();
     }
-    Endabgabe.exchangePlayer = exchangePlayer;
+    EndabgabePROBE.exchangePlayer = exchangePlayer;
     function updateSelect() {
         if (chosenTeam == "A") {
-            Endabgabe.subPlayerDOMElement.innerHTML = "<option value=" + subA[0] + ">Team A: Sub.1</option><option value=" + subA[1] + ">Team A: Sub.2</option><option value=" + subA[2] + ">Team A: Sub.3</option>";
+            EndabgabePROBE.subPlayerDOMElement.innerHTML = "<option value=" + subA[0] + ">Team A: Sub.1</option><option value=" + subA[1] + ">Team A: Sub.2</option><option value=" + subA[2] + ">Team A: Sub.3</option>";
         }
         if (chosenTeam == "B") {
-            Endabgabe.subPlayerDOMElement.innerHTML = "<option value=" + subB[0] + ">Team B: Sub.1</option><option value=" + subB[1] + ">Team B: Sub.2</option><option value=" + subA[2] + ">Team B: Sub.3</option>";
+            EndabgabePROBE.subPlayerDOMElement.innerHTML = "<option value=" + subB[0] + ">Team B: Sub.1</option><option value=" + subB[1] + ">Team B: Sub.2</option><option value=" + subA[2] + ">Team B: Sub.3</option>";
         }
     }
     function posessionUpdate(_index) {
-        let chosenPlayer = Endabgabe.humans[_index];
-        Endabgabe.posession.innerHTML = "Posession Player:" + chosenPlayer.jerseyNumberPlayer + " Team:" + chosenPlayer.playerTeam;
+        let chosenPlayer = EndabgabePROBE.humans[_index];
+        EndabgabePROBE.posession.innerHTML = "Posession Player:" + chosenPlayer.jerseyNumberPlayer + " Team:" + chosenPlayer.playerTeam;
     }
-    Endabgabe.posessionUpdate = posessionUpdate;
+    EndabgabePROBE.posessionUpdate = posessionUpdate;
     function switchForm(_event) {
         switch (_event.code) {
             case "ArrowLeft":
@@ -89,25 +89,25 @@ var Endabgabe;
                 formIntoHTML(playerIndex);
         }
     }
-    Endabgabe.switchForm = switchForm;
+    EndabgabePROBE.switchForm = switchForm;
     function formIntoHTML(_index) {
-        let chosenPlayer = Endabgabe.humans[_index];
-        Endabgabe.speedPlayer.innerHTML = (chosenPlayer.playerSpeed).toFixed(2);
-        Endabgabe.precPlayer.innerHTML = (chosenPlayer.playerPrecision).toFixed(2);
-        Endabgabe.numberPlayer.innerHTML = String(chosenPlayer.jerseyNumberPlayer);
-        Endabgabe.teamPlayer.innerHTML = String(chosenPlayer.playerTeam);
+        let chosenPlayer = EndabgabePROBE.humans[_index];
+        EndabgabePROBE.speedPlayer.innerHTML = (chosenPlayer.playerSpeed).toFixed(2);
+        EndabgabePROBE.precPlayer.innerHTML = (chosenPlayer.playerPrecision).toFixed(2);
+        EndabgabePROBE.numberPlayer.innerHTML = String(chosenPlayer.jerseyNumberPlayer);
+        EndabgabePROBE.teamPlayer.innerHTML = String(chosenPlayer.playerTeam);
         chosenTeam = chosenPlayer.playerTeam;
         updateSelect();
     }
-    Endabgabe.formIntoHTML = formIntoHTML;
+    EndabgabePROBE.formIntoHTML = formIntoHTML;
     function subChange() {
-        subIndex = Number(Endabgabe.subPlayerDOMElement.value);
-        let chosenSub = Endabgabe.humans[subIndex];
-        Endabgabe.speedSub.innerHTML = (chosenSub.playerSpeed).toFixed(2);
-        Endabgabe.precSub.innerHTML = (chosenSub.playerPrecision).toFixed(2);
-        Endabgabe.numberSub.innerHTML = String(chosenSub.jerseyNumberPlayer);
-        Endabgabe.teamSub.innerHTML = String(chosenSub.playerTeam);
+        subIndex = Number(EndabgabePROBE.subPlayerDOMElement.value);
+        let chosenSub = EndabgabePROBE.humans[subIndex];
+        EndabgabePROBE.speedSub.innerHTML = (chosenSub.playerSpeed).toFixed(2);
+        EndabgabePROBE.precSub.innerHTML = (chosenSub.playerPrecision).toFixed(2);
+        EndabgabePROBE.numberSub.innerHTML = String(chosenSub.jerseyNumberPlayer);
+        EndabgabePROBE.teamSub.innerHTML = String(chosenSub.playerTeam);
     }
-    Endabgabe.subChange = subChange;
-})(Endabgabe || (Endabgabe = {}));
+    EndabgabePROBE.subChange = subChange;
+})(EndabgabePROBE || (EndabgabePROBE = {}));
 //# sourceMappingURL=form.js.map

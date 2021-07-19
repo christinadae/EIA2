@@ -1,4 +1,4 @@
-namespace Endabgabe {
+namespace EndabgabePROBE {
 
     export class Player extends Human { //Human ist Superklasse und Player ist Subklasse davon
         private task: Task = Task.lookForBall;
@@ -81,7 +81,7 @@ namespace Endabgabe {
             crc2.fillStyle = this.jerseyColor;
             crc2.fill();
             crc2.textAlign = "center";
-            crc2.fillStyle = "black";
+            crc2.fillStyle = "white";
             crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
             
             crc2.closePath();

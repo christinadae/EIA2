@@ -1,4 +1,4 @@
-namespace Endabgabe {
+namespace EndabgabePROBE {
 
     let valuesGlobal: string[] = [];
     let playerIndex: number = 0;

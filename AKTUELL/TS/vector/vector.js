@@ -1,6 +1,6 @@
 "use strict";
-var Endabgabe;
-(function (Endabgabe) {
+var EndabgabePROBE;
+(function (EndabgabePROBE) {
     class Vector {
         constructor(_x = 0, _y = 0) {
             this.set(_x, _y);
@@ -29,6 +29,6 @@ var Endabgabe;
             return new Vector(this.x, this.y);
         }
     }
-    Endabgabe.Vector = Vector;
-})(Endabgabe || (Endabgabe = {}));
+    EndabgabePROBE.Vector = Vector;
+})(EndabgabePROBE || (EndabgabePROBE = {}));
 //# sourceMappingURL=vector.js.map

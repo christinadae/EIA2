@@ -3,23 +3,26 @@ var Endabgabe;
 (function (Endabgabe) {
     class Ball {
         constructor(_position) {
-            this.ballKey = true; // Der Key verhindert, dass der Spieler nicht sofort zum Ball läuft
+            this.ballKey = true;
             this.precisionChecker = 100;
             this.position = _position;
-            this.draw(); // Methode, um Ball zu zeichnen
+            this.draw();
         }
+        // public get indexPlayer(): number {
+        //     return this.playerIndex;
+        // }
         get ballPos() {
             return this.position;
         }
         setKey(_key) {
-            this.ballKey = _key; // Der Key verhindert, dass der Spieler nicht sofort zum Ball läuft
+            this.ballKey = _key;
         }
         setnewPosition(_newPosition) {
-            let distanceBall = Endabgabe.Vector.getDistance(_newPosition, this.position); // Distanz von Ball zwischen neuer Position und aktueller Position
-            let chosenPlayer = Endabgabe.humans[this.playerIndex]; // Spieler wird mit seinem Index erkannt
+            let distanceBall = Endabgabe.Vector.getDistance(_newPosition, this.position);
+            let chosenPlayer = humans[this.playerIndex];
             let random = Math.random();
-            let newX; // Neue x Position
-            let newY; // Neue Y Position
+            let newX;
+            let newY;
             if (random >= 0.5) {
                 newX = _newPosition.x + ((distanceBall / this.precisionChecker) * chosenPlayer.playerPrecision);
             }
@@ -33,7 +36,7 @@ var Endabgabe;
             else {
                 newY = _newPosition.y - ((distanceBall / this.precisionChecker) * chosenPlayer.playerPrecision);
             }
-            this.newPosition = new Endabgabe.Vector(newX, newY); // Neue Position mit neuen X und Y Werten
+            this.newPosition = new Endabgabe.Vector(newX, newY);
         }
         draw() {
             Endabgabe.crc2.beginPath();
@@ -45,13 +48,11 @@ var Endabgabe;
         update() {
             if (Endabgabe.key == true) {
                 let diff = Endabgabe.Vector.getDifference(this.newPosition, this.position);
-                // Aktuelle - neue Position, diff verweist auf Vector auf Stelle x => Differenzwert
                 if (Math.abs(diff.x) < 1 && Math.abs(diff.y) < 1) {
                     Endabgabe.key = false;
                     this.checkEnviroment();
                 }
                 else {
-                    // > 1, dann wird die Bewegung des Balles zum Ende hin immer langsamer
                     diff.scale(0.03);
                     this.position.add(diff);
                     this.checkEnviroment();
@@ -61,9 +62,10 @@ var Endabgabe;
                 this.draw();
                 this.checkEnviroment();
             }
-            if (this.position.y > 470 || this.position.y < 30) {
-                this.resetPosition();
-            }
+            this.checkOut();
+            this.checkGoal();
+        }
+        checkGoal() {
             if (this.position.x < 30) {
                 if (this.position.y < 300 && this.position.y > 200) {
                     Endabgabe.scoreB++;
@@ -87,19 +89,24 @@ var Endabgabe;
                 }
             }
         }
+        checkOut() {
+            if (this.position.y > 470 || this.position.y < 30) {
+                this.resetPosition();
+            }
+        }
         resetPosition() {
             this.position.set(Endabgabe.canvas.width / 2, Endabgabe.canvas.height / 2);
             this.newPosition.set(Endabgabe.canvas.width / 2, Endabgabe.canvas.height / 2);
         }
         checkEnviroment() {
-            if (this.ballKey == true) { // Boolean = True, dann kann Spieler zum Ball laufen
-                for (let index = 0; index < Endabgabe.humans.length; index++) {
-                    let chosenPlayer = Endabgabe.humans[index];
+            if (this.ballKey == true) {
+                for (let index = 0; index < humans.length; index++) {
+                    let chosenPlayer = humans[index];
                     if (chosenPlayer.distance < 10) {
                         this.playerIndex = index;
                         Endabgabe.posessionUpdate(index);
-                        Endabgabe.animationKey = false; // Erst beim Klicken, wird animationKey wieder true
-                        this.ballKey = false; // Spieler kann nun Ball schießen
+                        Endabgabe.animationKey = false;
+                        this.ballKey = false;
                         Endabgabe.shootKey = true;
                         break;
                     }
