@@ -52,9 +52,8 @@ var Endabgabe;
             Endabgabe.crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
             Endabgabe.crc2.fillStyle = this.jerseyColor;
             Endabgabe.crc2.fill();
-            Endabgabe.crc2.textBaseline = "middle";
             Endabgabe.crc2.textAlign = "center";
-            Endabgabe.crc2.fillStyle = "white";
+            Endabgabe.crc2.fillStyle = "black";
             Endabgabe.crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
             Endabgabe.crc2.closePath();
         }
@@ -84,13 +83,15 @@ var Endabgabe;
                         }
                         break;
                     case Endabgabe.Task.shootBall:
-                        console.log("shoot");
-                        if (this.distancePlayerBall > 20) {
+                        console.log("shoot", this.jerseyNumber);
+                        if (this.distancePlayerBall > 20 || (Endabgabe.ball.getKey) == false) {
+                            console.log(this.jerseyNumber);
                             Endabgabe.ball.setKey(true);
                             this.task = Endabgabe.Task.walkToOrigin;
                         }
                         break;
                     case Endabgabe.Task.walkToOrigin:
+                        console.log(this.jerseyNumber);
                         this.movePlayer(this.origin);
                         if (Endabgabe.Vector.getdistance(this.origin, this.position) < 1) {
                             this.task = Endabgabe.Task.lookForBall;
@@ -101,12 +102,14 @@ var Endabgabe;
                         if (Endabgabe.Vector.getdistance(this.newPosition, this.position) < 1) {
                             if (this.position.y > 470 || this.position.y < 30) {
                                 this.setOnField(false);
+                                this.task = Endabgabe.Task.lookForBall;
                             }
                             else {
                                 this.setOnField(true);
                                 this.task = Endabgabe.Task.lookForBall;
                             }
                         }
+                        break;
                 }
             }
         }

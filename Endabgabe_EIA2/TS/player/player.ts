@@ -22,7 +22,7 @@ namespace Endabgabe {
         public get playerOrigin(): Vector {
             return this.origin;
         }
-        
+
         public get jerseyNumberPlayer(): number {
             return this.jerseyNumber;
         }
@@ -70,9 +70,8 @@ namespace Endabgabe {
             crc2.arc(this.position.x, this.position.y, 10, 0, 2 * Math.PI);
             crc2.fillStyle = this.jerseyColor;
             crc2.fill();
-            crc2.textBaseline = "middle";
             crc2.textAlign = "center";
-            crc2.fillStyle = "white";
+            crc2.fillStyle = "black";
             crc2.fillText(String(this.jerseyNumber), this.position.x, this.position.y);
             crc2.closePath();
            
@@ -105,13 +104,15 @@ namespace Endabgabe {
                         }
                         break;
                     case Task.shootBall:
-                        console.log("shoot");
-                        if (this.distancePlayerBall > 20) {
+                        console.log("shoot", this.jerseyNumber);
+                        if (this.distancePlayerBall > 20 || (ball.getKey) == false) {
+                            console.log(this.jerseyNumber);
                             ball.setKey(true);
                             this.task = Task.walkToOrigin;
                         }
                         break;
                     case Task.walkToOrigin:
+                        console.log(this.jerseyNumber);
                         this.movePlayer(this.origin);
                         if (Vector.getdistance(this.origin, this.position) < 1) {
                             this.task = Task.lookForBall;
@@ -123,12 +124,16 @@ namespace Endabgabe {
                         if (Vector.getdistance(this.newPosition, this.position) < 1) {
                             if (this.position.y > 470 || this.position.y < 30) {
                                 this.setOnField(false);
+                                this.task = Task.lookForBall;
                             }
                             else {
                                 this.setOnField(true);
                                 this.task = Task.lookForBall;
                             }
                         }
+                        break;
+
+                   
                 }
             }
         }

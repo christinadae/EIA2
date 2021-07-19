@@ -11,6 +11,9 @@ var Endabgabe;
         get ballPos() {
             return this.position;
         }
+        get getKey() {
+            return this.ballKey;
+        }
         setKey(_key) {
             this.ballKey = _key;
         }

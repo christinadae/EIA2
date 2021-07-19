@@ -4,8 +4,8 @@ namespace Endabgabe {
     let playerIndex: number = 0;
     let subIndex: number;
     let chosenTeam: string;
-    let subA: string[] = ["23", "24", "25"];
-    let subB: string[] = ["26", "27", "28"];
+    let subA: string[] = ["22", "23", "24"];
+    let subB: string[] = ["25", "26", "27"];
 
     export function handleChange(): void {
         let formData: FormData = new FormData(document.forms[0]);
@@ -39,37 +39,50 @@ namespace Endabgabe {
     }
 
     export function exchangePlayer(): void {
-        if (chosenTeam == "A") {
-            subA[subPlayerDOMElement.selectedIndex] = String(playerIndex);
-        }
-        else {
-            subB[subPlayerDOMElement.selectedIndex] = String(playerIndex);
-        }
         let chosenPlayer: Player = <Player>players[playerIndex];
         let chosenSub: Player = <Player>players[subIndex];
-        let originPlayer: Vector = chosenPlayer.playerOrigin.copy();
-        let originSub: Vector = chosenSub.playerOrigin.copy();
-        chosenPlayer.setOrigin(originSub);
-        chosenPlayer.changePlayer(chosenSub.playerPosition.copy());
-        chosenSub.setOnField(true);
-        chosenSub.setOrigin(originPlayer);
-        chosenSub.changePlayer(chosenPlayer.playerPosition.copy());
-        updateSelect();
+
+        if (playerIndex != subIndex) {
+            if (chosenTeam == "A") {
+                subA[subPlayerDOMElement.selectedIndex] = String(playerIndex);
+                console.log(subA);
+            }
+            else {
+                subB[subPlayerDOMElement.selectedIndex] = String(playerIndex);
+                console.log(subB);
+            }
+            let originPlayer: Vector = chosenPlayer.playerOrigin.copy();
+            let originSub: Vector = chosenSub.playerOrigin.copy();
+            chosenPlayer.setOrigin(originSub);
+            chosenPlayer.changePlayer(chosenSub.playerPosition.copy());
+            chosenSub.setOnField(true);
+            chosenSub.setOrigin(originPlayer);
+            chosenSub.changePlayer(chosenPlayer.playerPosition.copy());
+            updateSelect();
+            window.alert("Player: " + chosenPlayer.jerseyNumberPlayer + " switched with Player: " + chosenSub.jerseyNumberPlayer);
+        }
+        else {
+            window.alert("You can't exchange the same Sub. Player");
+        }
     }
 
     function updateSelect(): void {
         if (chosenTeam == "A") {
             subPlayerDOMElement.innerHTML = "<option value=" + subA[0] + ">Team A: Sub.1</option><option value=" + subA[1] + ">Team A: Sub.2</option><option value=" + subA[2] + ">Team A: Sub.3</option>";
         }
+
         if (chosenTeam == "B") {
-            subPlayerDOMElement.innerHTML = "<option value=" + subB[0] + ">Team B: Sub.1</option><option value=" + subB[1] + ">Team B: Sub.2</option><option value=" + subA[2] + ">Team B: Sub.3</option>";
+            subPlayerDOMElement.innerHTML = "<option value=" + subB[0] + ">Team B: Sub.1</option><option value=" + subB[1] + ">Team B: Sub.2</option><option value=" + subB[2] + ">Team B: Sub.3</option>";
         }
+        subChange();
+        // console.log(playerIndex);
+        // formIntoHTML(playerIndex);
     }
 
     export function posessionUpdate(_index: number): void {
         let chosenPlayer: Player = <Player>players[_index];
         posession.innerHTML = "Posession Player:" + chosenPlayer.jerseyNumberPlayer + " Team:" + chosenPlayer.playerTeam;
-        updateSelect();
+        // updateSelect();
     }
 
     export function switchForm(_event: KeyboardEvent): void {

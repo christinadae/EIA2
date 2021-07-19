@@ -15,6 +15,9 @@ namespace Endabgabe {
         public get ballPos(): Vector {
             return this.position;
         }
+        public get getKey(): boolean {
+            return this.ballKey;
+        }
 
         public setKey(_key: boolean): void {
             this.ballKey = _key;
